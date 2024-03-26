@@ -23,21 +23,31 @@ public class SpecialFlower implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof TileEntitySpecialFlower tile) {
-            if (tile instanceof TileEntityGeneratingFlower generating) {
-                final int mana = generating.getMana();
-                final int manaMax = generating.getMaxMana();
-                final int x = generating.getBindingPos().getX();
-                final int y = generating.getBindingPos().getY();
-                final int z = generating.getBindingPos().getZ();
-                iProbeInfo.text(I18n.get("text.botanicprobe.binding") + x + " " + y + " " + z);
+            if (tile instanceof TileEntityGeneratingFlower generatingFlower) {
+                final int mana = generatingFlower.getMana();
+                final int manaMax = generatingFlower.getMaxMana();
+
+                if (generatingFlower.getBindingPos() != null) {
+                    final int x = generatingFlower.getBindingPos().getX();
+                    final int y = generatingFlower.getBindingPos().getY();
+                    final int z = generatingFlower.getBindingPos().getZ();
+                    iProbeInfo.text(I18n.get("text.botanicprobe.binding") + x + " " + y + " " + z);
+                } else {
+                    iProbeInfo.text(I18n.get("text.botanicprobe.nonbound"));
+                }
                 iProbeInfo.text("Mana: " + mana + "/" + manaMax);
-            } else if (tile instanceof TileEntityFunctionalFlower functional) {
-                final int mana = functional.getMana();
-                final int manaMax = functional.getMaxMana();
-                final int x = functional.getBindingPos().getX();
-                final int y = functional.getBindingPos().getY();
-                final int z = functional.getBindingPos().getZ();
-                iProbeInfo.text(I18n.get("text.botanicprobe.binding") + x + " " + y + " " + z);
+            } else if (tile instanceof TileEntityFunctionalFlower functionalFlower) {
+                final int mana = functionalFlower.getMana();
+                final int manaMax = functionalFlower.getMaxMana();
+
+                if (functionalFlower.getBindingPos() != null) {
+                    final int x = functionalFlower.getBindingPos().getX();
+                    final int y = functionalFlower.getBindingPos().getY();
+                    final int z = functionalFlower.getBindingPos().getZ();
+                    iProbeInfo.text(I18n.get("text.botanicprobe.binding") + x + " " + y + " " + z);
+                } else {
+                    iProbeInfo.text(I18n.get("text.botanicprobe.nonbound"));
+                }
                 iProbeInfo.text("Mana: " + mana + "/" + manaMax);
             }
         }
