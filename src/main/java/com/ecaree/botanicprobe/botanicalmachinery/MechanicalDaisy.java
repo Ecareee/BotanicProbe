@@ -24,7 +24,7 @@ public class MechanicalDaisy implements IProbeInfoProvider {
             int gray = java.awt.Color.gray.getRGB();
             int white = java.awt.Color.white.getRGB();
 
-            for(int i = 0; i < 8; ++i) {
+            for (int i = 0; i < 8; i++) {
                 if (workingTicks[i] == 0 || workingTicks[i] == -1) {
                     continue;
                 }
