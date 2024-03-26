@@ -1,0 +1,87 @@
+plugins {
+    id "dev.architectury.loom" version "1.3-SNAPSHOT"
+    id "maven-publish"
+}
+
+base {
+    archivesName = mod_name
+}
+
+version = mod_version + "-mc" + minecraft_version
+group = mod_group
+
+java {
+    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+}
+
+loom {
+    silentMojangMappingsLicense()
+}
+
+repositories {
+    maven { url = "https://www.cursemaven.com" }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+
+    mappings loom.officialMojangMappings()
+
+    forge "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    modApi 'curse.maven:theoneprobe-245211:3965688' // 1.18-5.1.2
+    modApi 'curse.maven:botania-225643:3936568' // 1.18.2-435
+    modApi 'curse.maven:patchouli-306770:3846086' // 1.18.2-71.1
+    modApi 'curse.maven:curios-309927:4985315' // 1.18.2-5.0.9.2
+    modApi 'curse.maven:botanical-machinery-395617:3877708' // 1.18.2-1.0.2
+//    modApi 'curse.maven:botanical-machinery-395617:4748308' // 1.18.2-1.0.3   // CRASH
+    modApi 'curse.maven:libx-412525:3829113' // 1.18.2-3.2.18
+}
+
+processResources {
+    var replaceProperties = [
+            forge_version: forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description, mod_repo: mod_repo
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml']) {
+        expand replaceProperties + [project: project]
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.release = 17
+}
+
+java {
+    withSourcesJar()
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : mod_id,
+                "Specification-Vendor"    : mod_authors,
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : mod_name,
+                "Implementation-Version"  : version,
+                "Implementation-Vendor"   : mod_authors,
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+    }
+}
