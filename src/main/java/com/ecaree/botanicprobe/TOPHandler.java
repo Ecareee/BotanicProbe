@@ -15,6 +15,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new SpecialFlower());
         iTheOneProbe.registerProvider(new Spreader());
         iTheOneProbe.registerProvider(new TerraPlate());
+        iTheOneProbe.registerProvider(new CellBlock());
 
         iTheOneProbe.registerProvider(new ManaBattery());
         iTheOneProbe.registerProvider(new MechanicalApothecary());

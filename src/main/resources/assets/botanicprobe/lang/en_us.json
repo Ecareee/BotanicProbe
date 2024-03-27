@@ -1,5 +1,9 @@
 {
-  "text.botanicprobe.binding": "Bound to ",
-  "text.botanicprobe.nonbound": "Not bound",
-  "text.botanicprobe.fluid": "Fluid: "
+  "botanicprobe.text.binding": "Bound to ",
+  "botanicprobe.text.nonbound": "Not bound",
+  "botanicprobe.text.fluid": "Fluid: ",
+  "botanicprobe.text.cell_generation": "Generation: ",
+  "botanicprobe.text.working": "Status: Working",
+  "botanicprobe.text.idle": "Status: Idle",
+  "botanicprobe.text.dandelifeon_not_working": "Status: The dandelifeon is not working!"
 }

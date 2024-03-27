@@ -27,7 +27,7 @@ public class MechanicalApothecary implements IProbeInfoProvider {
             int gray = java.awt.Color.gray.getRGB();
             int white = java.awt.Color.white.getRGB();
 
-            iProbeInfo.text(I18n.get("text.botanicprobe.fluid") + fluid + "/" + fluidCap + " mB");
+            iProbeInfo.text(I18n.get("botanicprobe.text.fluid") + fluid + "/" + fluidCap + " mB");
             if (progress != 0) {
                 iProbeInfo.progress(progress, maxProgress, new ProgressStyle()
                         .width(90)

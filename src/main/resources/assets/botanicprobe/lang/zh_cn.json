@@ -1,5 +1,9 @@
 {
-  "text.botanicprobe.binding": "绑定至 ",
-  "text.botanicprobe.nonbound": "未绑定",
-  "text.botanicprobe.fluid": "流体: "
+  "botanicprobe.text.binding": "绑定至 ",
+  "botanicprobe.text.nonbound": "未绑定",
+  "botanicprobe.text.fluid": "流体: ",
+  "botanicprobe.text.cell_generation": "年龄: ",
+  "botanicprobe.text.working": "状态: 工作中",
+  "botanicprobe.text.idle": "状态: 空闲",
+  "botanicprobe.text.dandelifeon_not_working": "状态: 启命英没有工作!"
 }

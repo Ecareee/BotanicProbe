@@ -31,9 +31,9 @@ public class SpecialFlower implements IProbeInfoProvider {
                     final int x = generatingFlower.getBindingPos().getX();
                     final int y = generatingFlower.getBindingPos().getY();
                     final int z = generatingFlower.getBindingPos().getZ();
-                    iProbeInfo.text(I18n.get("text.botanicprobe.binding") + x + " " + y + " " + z);
+                    iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
                 } else {
-                    iProbeInfo.text(I18n.get("text.botanicprobe.nonbound"));
+                    iProbeInfo.text(I18n.get("botanicprobe.text.nonbound"));
                 }
                 iProbeInfo.text("Mana: " + mana + "/" + manaMax);
             } else if (tile instanceof TileEntityFunctionalFlower functionalFlower) {
@@ -44,9 +44,9 @@ public class SpecialFlower implements IProbeInfoProvider {
                     final int x = functionalFlower.getBindingPos().getX();
                     final int y = functionalFlower.getBindingPos().getY();
                     final int z = functionalFlower.getBindingPos().getZ();
-                    iProbeInfo.text(I18n.get("text.botanicprobe.binding") + x + " " + y + " " + z);
+                    iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
                 } else {
-                    iProbeInfo.text(I18n.get("text.botanicprobe.nonbound"));
+                    iProbeInfo.text(I18n.get("botanicprobe.text.nonbound"));
                 }
                 iProbeInfo.text("Mana: " + mana + "/" + manaMax);
             }
