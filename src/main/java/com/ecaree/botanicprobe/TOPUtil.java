@@ -8,8 +8,8 @@ import java.awt.*;
 
 public class TOPUtil {
     private static final int LIGHT_BLUE = new Color(39, 255, 247).getRGB();
-    private static final int GRAY = java.awt.Color.gray.getRGB();
-    private static final int WHITE = java.awt.Color.white.getRGB();
+    private static final int GRAY = Color.gray.getRGB();
+    private static final int WHITE = Color.white.getRGB();
 
     public static void setProgressBar(IProbeInfo iProbeInfo, int progress, int maxProgress) {
         iProbeInfo.progress(progress, maxProgress, new ProgressStyle()
