@@ -2,10 +2,7 @@ package com.ecaree.botanicprobe.botanicalmachinery;
 
 import com.ecaree.botanicprobe.BotanicProbe;
 import de.melanx.botanicalmachinery.blocks.tiles.BlockEntityManaBattery;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.IProbeInfoProvider;
-import mcjty.theoneprobe.api.ProbeMode;
+import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
