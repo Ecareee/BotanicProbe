@@ -16,6 +16,12 @@ java {
 
 loom {
     silentMojangMappingsLicense()
+
+    forge {
+        mixinConfigs = [
+                "botanicprobe.mixins.json"
+        ]
+    }
 }
 
 repositories {
