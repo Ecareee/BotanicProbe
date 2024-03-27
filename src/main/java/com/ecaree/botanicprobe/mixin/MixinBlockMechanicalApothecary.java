@@ -18,7 +18,7 @@ public abstract class MixinBlockMechanicalApothecary {
     @Shadow
     public static RotationShape SHAPE;
 
-    // https://github.com/MelanX/botanical-machinery/blob/1.19.x/src/main/java/de/melanx/botanicalmachinery/blocks/BlockMechanicalApothecary.java
+    // https://github.com/MelanX/botanical-machinery/blob/1.19.x/src/main/java/de/melanx/botanicalmachinery/blocks/BlockMechanicalApothecary.java#L50-L68
     static {
         SHAPE = new RotationShape(Shapes.or(
                 BotanicalBlock.FRAME_SHAPE,
