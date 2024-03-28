@@ -1,6 +1,8 @@
 package com.ecaree.botanicprobe;
 
-import com.ecaree.botanicprobe.botania.*;
+import com.ecaree.botanicprobe.botania.common.*;
+import com.ecaree.botanicprobe.botania.flower.SpecialFlower;
+import com.ecaree.botanicprobe.botania.flower.generating.*;
 import com.ecaree.botanicprobe.botanicalmachinery.*;
 import mcjty.theoneprobe.api.ITheOneProbe;
 import net.minecraftforge.fml.ModList;
@@ -10,13 +12,22 @@ import java.util.function.Function;
 public class TOPHandler implements Function<ITheOneProbe, Void>  {
     @Override
     public Void apply(ITheOneProbe iTheOneProbe) {
+        iTheOneProbe.registerProvider(new CellBlock());
         iTheOneProbe.registerProvider(new ManaPool());
         iTheOneProbe.registerProvider(new RuneAltar());
         iTheOneProbe.registerEntityProvider(new Spark());
-        iTheOneProbe.registerProvider(new SpecialFlower());
         iTheOneProbe.registerProvider(new Spreader());
         iTheOneProbe.registerProvider(new TerraPlate());
-        iTheOneProbe.registerProvider(new CellBlock());
+
+        iTheOneProbe.registerProvider(new SpecialFlower());
+
+        // 使其注册晚于 `SpecialFlower` 以调整显示顺序
+        iTheOneProbe.registerProvider(new Endoflame());
+        iTheOneProbe.registerProvider(new Gourmaryllis());
+        iTheOneProbe.registerProvider(new Hydroangeas());
+        iTheOneProbe.registerProvider(new Munchdew());
+        iTheOneProbe.registerProvider(new Rafflowsia());
+        iTheOneProbe.registerProvider(new Spectrolus());
 
         if (ModList.get().isLoaded("botanicalmachinery")) {
             iTheOneProbe.registerProvider(new ManaBattery());
