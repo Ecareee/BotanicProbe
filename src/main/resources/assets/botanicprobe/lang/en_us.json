@@ -5,5 +5,18 @@
   "botanicprobe.text.cell_generation": "Generation: ",
   "botanicprobe.text.working": "Status: Working",
   "botanicprobe.text.idle": "Status: Idle",
-  "botanicprobe.text.dandelifeon_not_working": "Status: The dandelifeon is not working!"
+  "botanicprobe.text.dandelifeon_not_working": "Status: The dandelifeon is not working!",
+  "botanicprobe.text.burn_time": "Burn time lasts: ",
+  "botanicprobe.text.cooldown": "Cooldown: ",
+  "botanicprobe.text.generating": "Generating: ",
+  "botanicprobe.text.mana_gained": "Mana gained: ",
+  "botanicprobe.text.times": " times",
+  "botanicprobe.text.holding_item": "The holding item ",
+  "botanicprobe.text.will_generate": "will generate ",
+  "botanicprobe.text.last_foods": "Last foods: ",
+  "botanicprobe.text.passive_decay_time": "Passive decay time: ",
+  "botanicprobe.text.generation_delay": "Generation delay: ",
+  "botanicprobe.text.required_wool": "Required wool: ",
+  "botanicprobe.text.last_flowers": "Last flowers: ",
+  "botanicprobe.text.holding_flower": "The holding flower "
 }

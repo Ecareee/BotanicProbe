@@ -5,5 +5,18 @@
   "botanicprobe.text.cell_generation": "年龄: ",
   "botanicprobe.text.working": "状态: 工作中",
   "botanicprobe.text.idle": "状态: 空闲",
-  "botanicprobe.text.dandelifeon_not_working": "状态: 启命英没有工作!"
+  "botanicprobe.text.dandelifeon_not_working": "状态: 启命英没有工作!",
+  "botanicprobe.text.burn_time": "剩余燃烧时间: ",
+  "botanicprobe.text.cooldown": "冷却时间: ",
+  "botanicprobe.text.generating": "正在产出: ",
+  "botanicprobe.text.mana_gained": "魔力增益: ",
+  "botanicprobe.text.times": " 倍",
+  "botanicprobe.text.holding_item": "手持的物品 ",
+  "botanicprobe.text.will_generate": "将产出 ",
+  "botanicprobe.text.last_foods": "上次投喂的食物: ",
+  "botanicprobe.text.passive_decay_time": "剩余枯萎时间: ",
+  "botanicprobe.text.generation_delay": "产能冷却时间: ",
+  "botanicprobe.text.required_wool": "需要的羊毛: ",
+  "botanicprobe.text.last_flowers": "上次吞噬的花: ",
+  "botanicprobe.text.holding_flower": "手持的花 "
 }
