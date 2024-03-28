@@ -1,6 +1,7 @@
 {
   "botanicprobe.text.binding": "绑定至 ",
   "botanicprobe.text.nonbound": "未绑定",
+  "botanicprobe.text.last_binding": "上次绑定至 ",
   "botanicprobe.text.fluid": "流体: ",
   "botanicprobe.text.cell_generation": "年龄: ",
   "botanicprobe.text.working": "状态: 工作中",

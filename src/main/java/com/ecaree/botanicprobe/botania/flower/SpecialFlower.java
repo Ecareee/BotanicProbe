@@ -24,26 +24,34 @@ public class SpecialFlower implements IProbeInfoProvider {
                 final int mana = generatingFlower.getMana();
                 final int manaMax = generatingFlower.getMaxMana();
 
-                if (generatingFlower.getBindingPos() != null) {
+                if (generatingFlower.getBinding() != null) {
+                    final int x = generatingFlower.getBinding().getX();
+                    final int y = generatingFlower.getBinding().getY();
+                    final int z = generatingFlower.getBinding().getZ();
+                    iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
+                } else {
                     final int x = generatingFlower.getBindingPos().getX();
                     final int y = generatingFlower.getBindingPos().getY();
                     final int z = generatingFlower.getBindingPos().getZ();
-                    iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
-                } else {
                     iProbeInfo.text(I18n.get("botanicprobe.text.nonbound"));
+                    iProbeInfo.text(I18n.get("botanicprobe.text.last_binding") + x + " " + y + " " + z);
                 }
                 iProbeInfo.text("Mana: " + mana + "/" + manaMax);
             } else if (tile instanceof TileEntityFunctionalFlower functionalFlower) {
                 final int mana = functionalFlower.getMana();
                 final int manaMax = functionalFlower.getMaxMana();
 
-                if (functionalFlower.getBindingPos() != null) {
+                if (functionalFlower.getBinding() != null) {
+                    final int x = functionalFlower.getBinding().getX();
+                    final int y = functionalFlower.getBinding().getY();
+                    final int z = functionalFlower.getBinding().getZ();
+                    iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
+                } else {
                     final int x = functionalFlower.getBindingPos().getX();
                     final int y = functionalFlower.getBindingPos().getY();
                     final int z = functionalFlower.getBindingPos().getZ();
-                    iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
-                } else {
                     iProbeInfo.text(I18n.get("botanicprobe.text.nonbound"));
+                    iProbeInfo.text(I18n.get("botanicprobe.text.last_binding") + x + " " + y + " " + z);
                 }
                 iProbeInfo.text("Mana: " + mana + "/" + manaMax);
             }

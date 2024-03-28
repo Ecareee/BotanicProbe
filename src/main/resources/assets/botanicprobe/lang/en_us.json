@@ -1,6 +1,7 @@
 {
   "botanicprobe.text.binding": "Bound to ",
   "botanicprobe.text.nonbound": "Not bound",
+  "botanicprobe.text.last_binding": "Last bound to ",
   "botanicprobe.text.fluid": "Fluid: ",
   "botanicprobe.text.cell_generation": "Generation: ",
   "botanicprobe.text.working": "Status: Working",
