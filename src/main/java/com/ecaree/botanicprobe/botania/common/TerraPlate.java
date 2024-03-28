@@ -1,4 +1,4 @@
-package com.ecaree.botanicprobe.botania;
+package com.ecaree.botanicprobe.botania.common;
 
 import com.ecaree.botanicprobe.TOPUtil;
 import mcjty.theoneprobe.api.*;
@@ -6,25 +6,24 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
+import vazkii.botania.common.block.tile.TileTerraPlate;
 import vazkii.botania.common.block.tile.mana.TilePool;
 
-public class ManaPool implements IProbeInfoProvider {
+public class TerraPlate implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("manapool");
+        return TOPUtil.RL("terraplate");
     }
 
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
-        if (level.getBlockEntity(data.getPos()) instanceof TilePool tile) {
+        if (level.getBlockEntity(data.getPos()) instanceof TileTerraPlate tile) {
             final int mana = tile.getCurrentMana();
-            final int manaCap = tile.manaCap;
+            final int targetMana = TilePool.MAX_MANA / 2;
 
-            if (ForgeRegistries.BLOCKS.getKey(blockState.getBlock()).toString().equals("botania:creative_pool")) {
-                iProbeInfo.text("Mana: ∞");
-            } else {
-                iProbeInfo.text("Mana: " + mana + "/" + manaCap);
+            if (mana != 0) {
+                iProbeInfo.text("Mana: " + mana + "/" + targetMana);
+                TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
             }
         }
     }

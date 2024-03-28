@@ -1,4 +1,4 @@
-package com.ecaree.botanicprobe.botania;
+package com.ecaree.botanicprobe.botania.common;
 
 import com.ecaree.botanicprobe.TOPUtil;
 import mcjty.theoneprobe.api.*;
@@ -6,21 +6,24 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import vazkii.botania.common.block.tile.mana.TileSpreader;
+import vazkii.botania.common.block.tile.TileRuneAltar;
 
-public class Spreader implements IProbeInfoProvider {
+public class RuneAltar implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("spreader");
+        return TOPUtil.RL("runealtar");
     }
 
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
-        if (level.getBlockEntity(data.getPos()) instanceof TileSpreader tile) {
+        if (level.getBlockEntity(data.getPos()) instanceof TileRuneAltar tile) {
             final int mana = tile.getCurrentMana();
-            final int manaMax = tile.getMaxMana();
+            final int targetMana = tile.getTargetMana();
 
-            iProbeInfo.text("Mana: " + mana + "/" + manaMax);
+            if (mana != 0 && targetMana != 0) {
+                iProbeInfo.text("Mana: " + mana + "/" + targetMana);
+                TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
+            }
         }
     }
 }

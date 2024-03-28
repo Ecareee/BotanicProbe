@@ -1,4 +1,4 @@
-package com.ecaree.botanicprobe.botania;
+package com.ecaree.botanicprobe.botania.flower.generating;
 
 import com.ecaree.botanicprobe.TOPUtil;
 import mcjty.theoneprobe.api.*;
