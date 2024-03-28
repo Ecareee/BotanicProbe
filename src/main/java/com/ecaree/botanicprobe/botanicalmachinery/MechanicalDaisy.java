@@ -1,6 +1,5 @@
 package com.ecaree.botanicprobe.botanicalmachinery;
 
-import com.ecaree.botanicprobe.BotanicProbe;
 import com.ecaree.botanicprobe.TOPUtil;
 import de.melanx.botanicalmachinery.blocks.tiles.BlockEntityMechanicalDaisy;
 import de.melanx.botanicalmachinery.config.LibXServerConfig;
@@ -13,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class MechanicalDaisy implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return new ResourceLocation(BotanicProbe.MOD_ID, "mechanicaldaisy");
+        return TOPUtil.RL("mechanicaldaisy");
     }
 
     @Override

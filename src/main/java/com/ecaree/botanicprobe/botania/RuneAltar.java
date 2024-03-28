@@ -1,6 +1,5 @@
 package com.ecaree.botanicprobe.botania;
 
-import com.ecaree.botanicprobe.BotanicProbe;
 import com.ecaree.botanicprobe.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
@@ -12,7 +11,7 @@ import vazkii.botania.common.block.tile.TileRuneAltar;
 public class RuneAltar implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return new ResourceLocation(BotanicProbe.MOD_ID, "runealtar");
+        return TOPUtil.RL("runealtar");
     }
 
     @Override

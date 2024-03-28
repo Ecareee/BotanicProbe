@@ -1,6 +1,6 @@
 package com.ecaree.botanicprobe.botanicalmachinery;
 
-import com.ecaree.botanicprobe.BotanicProbe;
+import com.ecaree.botanicprobe.TOPUtil;
 import de.melanx.botanicalmachinery.blocks.tiles.BlockEntityManaBattery;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ManaBattery implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return new ResourceLocation(BotanicProbe.MOD_ID, "manabattery");
+        return TOPUtil.RL("manabattery");
     }
 
     @Override

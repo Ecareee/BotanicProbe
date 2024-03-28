@@ -31,6 +31,10 @@ public class TOPUtil {
                 .alternateFilledColor(LIGHT_BLUE));
     }
 
+    public static ResourceLocation RL(String rlName) {
+        return new ResourceLocation(BotanicProbe.MOD_ID, rlName);
+    }
+
     // 将存储了 ItemStack 类型的 ListTag 类型转换为 ItemStack 类型
     public static List<ItemStack> convertListTagToItemStack(ListTag listTag) {
         List<ItemStack> items = new ArrayList<>();

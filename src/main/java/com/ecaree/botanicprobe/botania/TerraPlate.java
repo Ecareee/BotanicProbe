@@ -1,6 +1,5 @@
 package com.ecaree.botanicprobe.botania;
 
-import com.ecaree.botanicprobe.BotanicProbe;
 import com.ecaree.botanicprobe.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +12,7 @@ import vazkii.botania.common.block.tile.mana.TilePool;
 public class TerraPlate implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return new ResourceLocation(BotanicProbe.MOD_ID, "terraplate");
+        return TOPUtil.RL("terraplate");
     }
 
     @Override

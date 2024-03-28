@@ -1,6 +1,6 @@
 package com.ecaree.botanicprobe.botania;
 
-import com.ecaree.botanicprobe.BotanicProbe;
+import com.ecaree.botanicprobe.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
@@ -13,7 +13,7 @@ import vazkii.botania.common.block.tile.TileCell;
 public class CellBlock implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return new ResourceLocation(BotanicProbe.MOD_ID, "cellblock");
+        return TOPUtil.RL("cellblock");
     }
 
     @Override

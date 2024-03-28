@@ -1,6 +1,5 @@
 package com.ecaree.botanicprobe.botania;
 
-import com.ecaree.botanicprobe.BotanicProbe;
 import com.ecaree.botanicprobe.TOPUtil;
 import com.ecaree.botanicprobe.mixin.AccessorSubTileRafflowsia;
 import mcjty.theoneprobe.api.*;
@@ -23,7 +22,7 @@ import java.util.ListIterator;
 public class Rafflowsia implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return new ResourceLocation(BotanicProbe.MOD_ID, "rafflowsia");
+        return TOPUtil.RL("rafflowsia");
     }
 
     @Override

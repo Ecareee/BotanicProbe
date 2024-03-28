@@ -1,6 +1,5 @@
 package com.ecaree.botanicprobe.botania;
 
-import com.ecaree.botanicprobe.BotanicProbe;
 import com.ecaree.botanicprobe.TOPUtil;
 import com.ecaree.botanicprobe.mixin.AccessorSubTileGourmaryllis;
 import mcjty.theoneprobe.api.*;
@@ -20,7 +19,7 @@ import java.util.ListIterator;
 public class Gourmaryllis implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return new ResourceLocation(BotanicProbe.MOD_ID, "gourmaryllis");
+        return TOPUtil.RL("gourmaryllis");
     }
 
     @Override

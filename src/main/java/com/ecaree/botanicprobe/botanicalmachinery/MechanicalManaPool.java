@@ -1,6 +1,6 @@
 package com.ecaree.botanicprobe.botanicalmachinery;
 
-import com.ecaree.botanicprobe.BotanicProbe;
+import com.ecaree.botanicprobe.TOPUtil;
 import de.melanx.botanicalmachinery.blocks.tiles.BlockEntityMechanicalManaPool;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class MechanicalManaPool implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return new ResourceLocation(BotanicProbe.MOD_ID, "mechanicalmanapool");
+        return TOPUtil.RL("mechanicalmanapool");
     }
 
     @Override
