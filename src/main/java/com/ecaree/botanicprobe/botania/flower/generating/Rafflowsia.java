@@ -34,10 +34,6 @@ public class Rafflowsia implements IProbeInfoProvider {
             ItemStack itemStack = player.getMainHandItem();
             Block block = Block.byItem(itemStack.getItem());
 
-            System.out.println(lastFlowers);
-            System.out.println(TOPUtil.convertBlockListTagToItemStack(lastFlowers));
-            System.out.println(TOPUtil.convertBlockListTagToBlock(lastFlowers));
-
             if (streakLength != 0 && streakLength != -1) {
                 iProbeInfo.text(I18n.get("botanicprobe.text.mana_gained") + streakLength + I18n.get("botanicprobe.text.times"));
             }
