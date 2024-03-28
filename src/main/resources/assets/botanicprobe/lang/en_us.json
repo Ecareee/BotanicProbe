@@ -17,6 +17,6 @@
   "botanicprobe.text.passive_decay_time": "Passive decay time: ",
   "botanicprobe.text.generation_delay": "Generation delay: ",
   "botanicprobe.text.required_wool": "Required wool: ",
-  "botanicprobe.text.last_flowers": "Last flowers: ",
-  "botanicprobe.text.holding_flower": "The holding flower "
+  "botanicprobe.text.holding_flower": "The holding flower ",
+  "botanicprobe.text.last_flowers": "Last flowers: "
 }
