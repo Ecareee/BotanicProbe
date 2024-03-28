@@ -44,7 +44,7 @@ public class TOPUtil {
         return items;
     }
 
-    // 将存储了 Block 类型注册名的 ListTag 类型转换为 ItemStack 类型，设置每个 ItemStack 数量为 1
+    // 将存储了 Block 类型注册名的 ListTag 类型转换为 ItemStack 类型
     public static List<ItemStack> convertBlockListTagToItemStack(ListTag listTag) {
         List<ItemStack> items = new ArrayList<>();
 
@@ -52,7 +52,7 @@ public class TOPUtil {
             String blockName = listTag.getString(i);
             Block block = Registry.BLOCK.get(new ResourceLocation(blockName));
             if (block != Blocks.AIR) {
-                items.add(new ItemStack(block.asItem(), 1));
+                items.add(new ItemStack(block.asItem()));
             }
         }
 
