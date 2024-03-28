@@ -28,9 +28,9 @@ public class Rafflowsia implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileRafflowsia tile) {
-            final int streakLength = tile.getUpdateTag().getInt("streakLength");
-            ListTag lastFlowers = tile.getUpdateTag().getList("lastFlowers", 8);
-            final int lastFlowerTimes = tile.getUpdateTag().getInt("lastFlowerTimes");
+            ListTag lastFlowers = tile.getUpdateTag().getList(SubTileRafflowsia.TAG_LAST_FLOWERS, 8);
+            final int lastFlowerTimes = tile.getUpdateTag().getInt(SubTileRafflowsia.TAG_LAST_FLOWER_TIMES);
+            final int streakLength = tile.getUpdateTag().getInt(SubTileRafflowsia.TAG_STREAK_LENGTH);
             ItemStack itemStack = player.getMainHandItem();
             Block block = Block.byItem(itemStack.getItem());
 

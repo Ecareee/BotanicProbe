@@ -27,9 +27,9 @@ public class Gourmaryllis implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileGourmaryllis tile) {
             final int cooldown = tile.getUpdateTag().getInt("cooldown");
             final int digestingMana = tile.getUpdateTag().getInt("digestingMana");
-            ListTag lastFoods = tile.getUpdateTag().getList("lastFoods", 10);
-            final int lastFoodCount = tile.getUpdateTag().getInt("lastFoodCount");
-            final int streakLength = tile.getUpdateTag().getInt("streakLength");
+            ListTag lastFoods = tile.getUpdateTag().getList(SubTileGourmaryllis.TAG_LAST_FOODS, 10);
+            final int lastFoodCount = tile.getUpdateTag().getInt(SubTileGourmaryllis.TAG_LAST_FOOD_COUNT);
+            final int streakLength = tile.getUpdateTag().getInt(SubTileGourmaryllis.TAG_STREAK_LENGTH);
             ItemStack itemStack = player.getMainHandItem();
 
             if (digestingMana != 0) {

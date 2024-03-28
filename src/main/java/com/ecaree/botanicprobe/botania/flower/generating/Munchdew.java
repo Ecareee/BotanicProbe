@@ -18,7 +18,7 @@ public class Munchdew implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileMunchdew tile) {
-            final int cooldown = tile.getUpdateTag().getInt("cooldown");
+            final int cooldown = tile.getUpdateTag().getInt(SubTileMunchdew.TAG_COOLDOWN);
 
             if (cooldown != 0 && cooldown != 1) {
                 iProbeInfo.text(I18n.get("botanicprobe.text.cooldown") + cooldown + " Ticks");

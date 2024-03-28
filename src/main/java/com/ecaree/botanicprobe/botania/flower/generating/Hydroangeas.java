@@ -18,7 +18,7 @@ public class Hydroangeas implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileHydroangeas tile) {
-            final int passiveDecayTicks = tile.getUpdateTag().getInt("passiveDecayTicks");
+            final int passiveDecayTicks = tile.getUpdateTag().getInt(SubTileHydroangeas.TAG_PASSIVE_DECAY_TICKS);
             final int generationDelay = tile.getGenerationDelay();
 
             if (passiveDecayTicks != 0 && passiveDecayTicks != 1) {

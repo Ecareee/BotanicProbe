@@ -22,7 +22,7 @@ public class Spectrolus implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileSpectrolus tile) {
-            final int nextColor = tile.getUpdateTag().getInt("nextColor");
+            final int nextColor = tile.getUpdateTag().getInt(SubTileSpectrolus.TAG_NEXT_COLOR);
             Block block = ColorHelper.WOOL_MAP.apply(DyeColor.byId(nextColor));
             ItemStack itemStack = new ItemStack(block);
 
