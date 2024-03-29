@@ -19,5 +19,7 @@
   "botanicprobe.text.generation_delay": "Generation delay: ",
   "botanicprobe.text.required_wool": "Required wool: ",
   "botanicprobe.text.holding_flower": "The holding flower ",
-  "botanicprobe.text.last_flowers": "Last flowers: "
+  "botanicprobe.text.last_flowers": "Last flowers: ",
+
+  "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design concept of Botania.$(p)Botania is a tech mod."
 }
