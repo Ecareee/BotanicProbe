@@ -20,6 +20,7 @@
   "botanicprobe.text.required_wool": "需要的羊毛: ",
   "botanicprobe.text.holding_flower": "手持的花 ",
   "botanicprobe.text.last_flowers": "上次吞噬的花: ",
+  "botanicprobe.text.deviation": "(存在误差)",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念。$(p)植物魔法是一个科技模组。"
 }

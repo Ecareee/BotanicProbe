@@ -23,6 +23,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new SpecialFlower());
 
         // 使其注册晚于 `SpecialFlower` 以调整显示顺序
+        iTheOneProbe.registerProvider(new ArcaneRose());
         iTheOneProbe.registerProvider(new Endoflame());
         iTheOneProbe.registerProvider(new Gourmaryllis());
         iTheOneProbe.registerProvider(new Hydroangeas());
