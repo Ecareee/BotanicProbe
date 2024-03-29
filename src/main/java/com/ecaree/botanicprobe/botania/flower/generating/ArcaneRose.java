@@ -31,13 +31,13 @@ public class ArcaneRose implements IProbeInfoProvider {
                             + " " + I18n.get("botanicprobe.text.will_generate")
                             + manaToGenerate + " Mana");
                     /*
-                      由于附魔书或附魔物品转换成魔力的过程是：
-                      - 附魔书或附魔物品先变成经验球
-                      - 经验球再转换成魔力
-                      在这个过程中，如果玩家吸收了经验球，玩家的经验就会产生魔力，
-                      而玩家的每点经验值产出的魔力 (MANA_PER_XP)，
-                      与经验球的每点经验值产出的魔力 (MANA_PER_XP_ORB) 不同，
-                      所以造成了误差
+                     * 由于附魔书或附魔物品转换成魔力的过程是：
+                     * - 附魔书或附魔物品先变成经验球
+                     * - 经验球再转换成魔力
+                     * 在这个过程中，如果玩家吸收了经验球，玩家的经验就会产生魔力，
+                     * 而玩家的每点经验值产出的魔力 (MANA_PER_XP)，
+                     * 与经验球的每点经验值产出的魔力 (MANA_PER_XP_ORB) 不同，
+                     * 所以造成了误差
                      */
                     iProbeInfo.text(I18n.get("botanicprobe.text.deviation"));
                 }
