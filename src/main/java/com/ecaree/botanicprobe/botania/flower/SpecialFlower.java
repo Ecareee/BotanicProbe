@@ -3,6 +3,8 @@ package com.ecaree.botanicprobe.botania.flower;
 import com.ecaree.botanicprobe.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.NbtUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -10,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.api.subtile.TileEntityFunctionalFlower;
 import vazkii.botania.api.subtile.TileEntityGeneratingFlower;
 import vazkii.botania.api.subtile.TileEntitySpecialFlower;
+import vazkii.botania.common.block.subtile.functional.SubTileSpectranthemum;
 
 public class SpecialFlower implements IProbeInfoProvider {
     @Override
@@ -43,18 +46,43 @@ public class SpecialFlower implements IProbeInfoProvider {
                 final int mana = functionalFlower.getMana();
                 final int manaMax = functionalFlower.getMaxMana();
 
-                if (functionalFlower.getBinding() != null) {
-                    final int x = functionalFlower.getBinding().getX();
-                    final int y = functionalFlower.getBinding().getY();
-                    final int z = functionalFlower.getBinding().getZ();
-                    iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
+                if (tile instanceof SubTileSpectranthemum spectranthemum) {
+                    /*
+                     * SubTileSpectranthemum 类重写的 getBinding 方法中新增了如下逻辑：
+                     * 如果玩家按下 Shift，就返回绑定的方块的坐标，
+                     * 如果玩家没有按下 Shift，就返回绑定的魔力池的坐标。
+                     * 而我们只想获得绑定的魔力池的坐标
+                     */
+                    if (spectranthemum.getBinding() != null) {
+                        BlockPos blockPos = NbtUtils.readBlockPos(spectranthemum.getUpdateTag().getCompound("binding"));
+                        final int x = blockPos.getX();
+                        final int y = blockPos.getY();
+                        final int z = blockPos.getZ();
+                        iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
+                    } else {
+                        iProbeInfo.text(I18n.get("botanicprobe.text.nonbound"));
+                        if (spectranthemum.getBindingPos() != null) {
+                            BlockPos blockPos = NbtUtils.readBlockPos(spectranthemum.getUpdateTag().getCompound("binding"));
+                            final int x = blockPos.getX();
+                            final int y = blockPos.getY();
+                            final int z = blockPos.getZ();
+                            iProbeInfo.text(I18n.get("botanicprobe.text.last_binding") + x + " " + y + " " + z);
+                        }
+                    }
                 } else {
-                    iProbeInfo.text(I18n.get("botanicprobe.text.nonbound"));
-                    if (functionalFlower.getBindingPos() != null) {
-                        final int x = functionalFlower.getBindingPos().getX();
-                        final int y = functionalFlower.getBindingPos().getY();
-                        final int z = functionalFlower.getBindingPos().getZ();
-                        iProbeInfo.text(I18n.get("botanicprobe.text.last_binding") + x + " " + y + " " + z);
+                    if (functionalFlower.getBinding() != null) {
+                        final int x = functionalFlower.getBinding().getX();
+                        final int y = functionalFlower.getBinding().getY();
+                        final int z = functionalFlower.getBinding().getZ();
+                        iProbeInfo.text(I18n.get("botanicprobe.text.binding") + x + " " + y + " " + z);
+                    } else {
+                        iProbeInfo.text(I18n.get("botanicprobe.text.nonbound"));
+                        if (functionalFlower.getBindingPos() != null) {
+                            final int x = functionalFlower.getBindingPos().getX();
+                            final int y = functionalFlower.getBindingPos().getY();
+                            final int z = functionalFlower.getBindingPos().getZ();
+                            iProbeInfo.text(I18n.get("botanicprobe.text.last_binding") + x + " " + y + " " + z);
+                        }
                     }
                 }
                 iProbeInfo.text("Mana: " + mana + "/" + manaMax);

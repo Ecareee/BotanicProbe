@@ -3,6 +3,7 @@ package com.ecaree.botanicprobe;
 import com.ecaree.botanicprobe.botania.common.*;
 import com.ecaree.botanicprobe.botania.flower.PureDaisy;
 import com.ecaree.botanicprobe.botania.flower.SpecialFlower;
+import com.ecaree.botanicprobe.botania.flower.functional.Spectranthemum;
 import com.ecaree.botanicprobe.botania.flower.generating.*;
 import com.ecaree.botanicprobe.botanicalmachinery.*;
 import mcjty.theoneprobe.api.ITheOneProbe;
@@ -31,6 +32,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new Rafflowsia());
         iTheOneProbe.registerProvider(new Spectrolus());
         iTheOneProbe.registerProvider(new PureDaisy());
+        iTheOneProbe.registerProvider(new Spectranthemum());
 
         if (ModList.get().isLoaded("botanicalmachinery")) {
             iTheOneProbe.registerProvider(new ManaBattery());
