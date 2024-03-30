@@ -32,6 +32,14 @@
   "botanicprobe.text.coords_to_put": "Coords to put: ",
   "botanicprobe.text.replacing_block": "Replacing block",
   "botanicprobe.text.with": "with ",
+  "botanicprobe.text.direction": "Direction: ",
+  "botanicprobe.text.north": "north",
+  "botanicprobe.text.south": "south",
+  "botanicprobe.text.east": "east",
+  "botanicprobe.text.west": "west",
+  "botanicprobe.text.powered": "Powered: ",
+  "botanicprobe.text.yes": "yes",
+  "botanicprobe.text.no": "no",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design concept of Botania.$(p)Botania is a tech mod."
 }

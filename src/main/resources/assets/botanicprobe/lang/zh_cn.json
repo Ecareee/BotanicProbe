@@ -32,6 +32,14 @@
   "botanicprobe.text.coords_to_put": "目标坐标: ",
   "botanicprobe.text.replacing_block": "正在将方块",
   "botanicprobe.text.with": "替换为 ",
+  "botanicprobe.text.direction": "方向: ",
+  "botanicprobe.text.north": "北方",
+  "botanicprobe.text.south": "南方",
+  "botanicprobe.text.east": "东方",
+  "botanicprobe.text.west": "西方",
+  "botanicprobe.text.powered": "红石激活: ",
+  "botanicprobe.text.yes": "是",
+  "botanicprobe.text.no": "否",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念。$(p)植物魔法是一个科技模组。"
 }

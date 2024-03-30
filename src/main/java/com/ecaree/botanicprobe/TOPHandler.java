@@ -35,6 +35,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new Spectranthemum());
         iTheOneProbe.registerProvider(new Clayconia());
         iTheOneProbe.registerProvider(new Orechid());
+        iTheOneProbe.registerProvider(new Daffomill());
 
         if (ModList.get().isLoaded("botanicalmachinery")) {
             iTheOneProbe.registerProvider(new ManaBattery());
