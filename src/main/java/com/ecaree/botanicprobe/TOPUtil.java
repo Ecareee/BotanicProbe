@@ -3,6 +3,7 @@ package com.ecaree.botanicprobe;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.NumberFormat;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -33,6 +34,14 @@ public class TOPUtil {
 
     public static ResourceLocation RL(String rlName) {
         return new ResourceLocation(BotanicProbe.MOD_ID, rlName);
+    }
+
+    public static String getPosString(BlockPos blockPos) {
+        final int x = blockPos.getX();
+        final int y = blockPos.getY();
+        final int z = blockPos.getZ();
+        final String posString = x + " " + y + " " + z;
+        return posString;
     }
 
     // 将存储了 ItemStack 类型的 ListTag 类型转换为 ItemStack 类型
