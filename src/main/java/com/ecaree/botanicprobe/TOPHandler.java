@@ -3,6 +3,7 @@ package com.ecaree.botanicprobe;
 import com.ecaree.botanicprobe.botania.common.*;
 import com.ecaree.botanicprobe.botania.flower.PureDaisy;
 import com.ecaree.botanicprobe.botania.flower.SpecialFlower;
+import com.ecaree.botanicprobe.botania.flower.functional.Hopperhock;
 import com.ecaree.botanicprobe.botania.flower.functional.Spectranthemum;
 import com.ecaree.botanicprobe.botania.flower.generating.*;
 import com.ecaree.botanicprobe.botanicalmachinery.*;
@@ -41,6 +42,9 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
             iTheOneProbe.registerProvider(new MechanicalManaPool());
             iTheOneProbe.registerProvider(new WorkingTile());
         }
+
+        // 晚于植物机械容器的注册
+        iTheOneProbe.registerProvider(new Hopperhock());
 
         return null;
     }
