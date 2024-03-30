@@ -20,12 +20,10 @@ public class Clayconia implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileClayconia tile) {
             BlockPos coordsToPut = tile.getCoordsToPut();
-            if (coordsToPut != null) {
-                int x = tile.getCoordsToPut().getX();
-                int y = tile.getCoordsToPut().getY();
-                int z = tile.getCoordsToPut().getZ();
 
-                iProbeInfo.text(I18n.get("botanicprobe.text.coords_to_put") + x + " " + y + " " + z);
+            if (coordsToPut != null) {
+                iProbeInfo.text(I18n.get("botanicprobe.text.coords_to_put")
+                        + TOPUtil.getPosString(coordsToPut));
             }
         }
     }

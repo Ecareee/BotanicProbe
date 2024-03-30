@@ -35,13 +35,10 @@ public class Orechid implements IProbeInfoProvider {
                 BlockState state = ((AccessorSubTileOrechid) tile).invokeGetOreToPut(coords, level.getBlockState(coords));
                 if (state != null) {
                     String name = new ItemStack(state.getBlock().asItem()).getDisplayName().getString();   // 带中括号的本地化名
-                    int x = coords.getX();
-                    int y = coords.getY();
-                    int z = coords.getZ();
                     int cooldown = tile.getDelay() - ticksExisted % tile.getDelay();
 
                     iProbeInfo.text(I18n.get("botanicprobe.text.replacing_block") + " "
-                            + x + " " + y + " " + z + " "
+                            + TOPUtil.getPosString(coords)
                             + I18n.get("botanicprobe.text.with")
                             + name);
                     if (cooldown != 1) {
