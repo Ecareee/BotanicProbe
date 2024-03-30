@@ -30,6 +30,8 @@
   "botanicprobe.text.mode": "Mode: ",
   "botanicprobe.text.filtered_items": "Filtered items: ",
   "botanicprobe.text.coords_to_put": "Coords to put: ",
+  "botanicprobe.text.replacing_block": "Replacing block",
+  "botanicprobe.text.with": "with ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design concept of Botania.$(p)Botania is a tech mod."
 }

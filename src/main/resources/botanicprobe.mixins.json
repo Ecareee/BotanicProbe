@@ -6,6 +6,7 @@
   "mixins": [
     "AccessorSubTileArcaneRose",
     "AccessorSubTileGourmaryllis",
+    "AccessorSubTileOrechid",
     "AccessorSubTilePureDaisy",
     "AccessorSubTileRafflowsia",
     "MixinBlockMechanicalApothecary"
