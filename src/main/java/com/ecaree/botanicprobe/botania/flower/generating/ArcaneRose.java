@@ -27,7 +27,8 @@ public class ArcaneRose implements IProbeInfoProvider {
                 int xp = ((AccessorSubTileArcaneRose) tile).invokeGetEnchantmentXpValue(itemStack);
                 if (xp > 0) {
                     int manaToGenerate = xp * ((AccessorSubTileArcaneRose) tile).getManaPerXpOrb();
-                    iProbeInfo.text(I18n.get("botanicprobe.text.holding_item") + itemStack.getDisplayName().getString()
+                    iProbeInfo.text(I18n.get("botanicprobe.text.holding_item")
+                            + itemStack.getDisplayName().getString()   // 带中括号的本地化名
                             + " " + I18n.get("botanicprobe.text.will_generate")
                             + manaToGenerate + " Mana");
                     /*

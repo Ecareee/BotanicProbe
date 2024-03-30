@@ -44,7 +44,8 @@ public class Gourmaryllis implements IProbeInfoProvider {
                 iProbeInfo.text(I18n.get("botanicprobe.text.cooldown") + cooldown + " Tick");
             }
             if (itemStack.getItem().isEdible()) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.holding_item") + itemStack.getDisplayName().getString()
+                iProbeInfo.text(I18n.get("botanicprobe.text.holding_item")
+                        + itemStack.getDisplayName().getString()   // 带中括号的本地化名
                         + " " + I18n.get("botanicprobe.text.will_generate")
                         + manaToGenerate(streakLength, itemStack, tile, lastFoodCount, lastFoods)
 //                        + manaToGenerate(streakLength, itemStack, tile)

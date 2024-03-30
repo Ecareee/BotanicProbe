@@ -39,7 +39,8 @@ public class Rafflowsia implements IProbeInfoProvider {
             }
 
             if (block.defaultBlockState().is(ModTags.Blocks.SPECIAL_FLOWERS) && block != ModSubtiles.rafflowsia) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.holding_flower") + itemStack.getDisplayName().getString()
+                iProbeInfo.text(I18n.get("botanicprobe.text.holding_flower")
+                        + itemStack.getDisplayName().getString()   // 带中括号的本地化名
                         + " " + I18n.get("botanicprobe.text.will_generate")
                         + manaToGenerate(streakLength, block, tile, lastFlowerTimes, lastFlowers)
 //                        + manaToGenerate(streakLength, block, tile)
