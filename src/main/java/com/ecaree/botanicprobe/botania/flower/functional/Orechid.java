@@ -38,7 +38,7 @@ public class Orechid implements IProbeInfoProvider {
                     int cooldown = tile.getDelay() - ticksExisted % tile.getDelay();
 
                     iProbeInfo.text(I18n.get("botanicprobe.text.replacing_block") + " "
-                            + TOPUtil.getPosString(coords)
+                            + TOPUtil.getPosString(coords) + " "
                             + I18n.get("botanicprobe.text.with")
                             + name);
                     if (cooldown != 1) {
