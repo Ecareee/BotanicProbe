@@ -2,6 +2,7 @@
   "botanicprobe.text.binding": "绑定至 ",
   "botanicprobe.text.binding_block": "绑定至方块 ",
   "botanicprobe.text.binding_spectranthemum": "绑定至凌空蓟 ",
+  "botanicprobe.text.binding_rannuncarpus": "绑定至手掌花 ",
   "botanicprobe.text.nonbound": "未绑定",
   "botanicprobe.text.nonbound_block": "方块未绑定",
   "botanicprobe.text.last_binding": "上次绑定至 ",
@@ -40,6 +41,10 @@
   "botanicprobe.text.powered": "红石激活: ",
   "botanicprobe.text.yes": "是",
   "botanicprobe.text.no": "否",
+  "botanicprobe.text.working_range": "工作范围: ",
+  "botanicprobe.text.pickup_range": "拾取范围: ",
+  "botanicprobe.text.block_for_placement": "用于放置的方块: ",
+  "botanicprobe.text.block_to_place": "放置的方块: ",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念。$(p)植物魔法是一个科技模组。"
 }

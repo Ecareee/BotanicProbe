@@ -2,6 +2,7 @@
   "botanicprobe.text.binding": "Bound to ",
   "botanicprobe.text.binding_block": "Bound to block ",
   "botanicprobe.text.binding_spectranthemum": "Bound to spectranthemum ",
+  "botanicprobe.text.binding_rannuncarpus": "Bound to rannuncarpus ",
   "botanicprobe.text.nonbound": "Not bound",
   "botanicprobe.text.nonbound_block": "Block not bound",
   "botanicprobe.text.last_binding": "Last bound to ",
@@ -40,6 +41,10 @@
   "botanicprobe.text.powered": "Powered: ",
   "botanicprobe.text.yes": "yes",
   "botanicprobe.text.no": "no",
+  "botanicprobe.text.working_range": "Working range: ",
+  "botanicprobe.text.pickup_range": "Pickup range: ",
+  "botanicprobe.text.block_for_placement": "Block for placement: ",
+  "botanicprobe.text.block_to_place": "Block to place: ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design concept of Botania.$(p)Botania is a tech mod."
 }
