@@ -26,7 +26,7 @@
   "botanicprobe.text.holding_flower": "The holding flower ",
   "botanicprobe.text.last_flowers": "Last flowers: ",
   "botanicprobe.text.deviation": "(Deviation exists)",
-  "botanicprobe.text.range": "Range: ",
+  "botanicprobe.text.range": "Range (radius): ",
   "botanicprobe.text.mode": "Mode: ",
   "botanicprobe.text.filtered_items": "Filtered items: ",
   "botanicprobe.text.coords_to_put": "Coords to put: ",

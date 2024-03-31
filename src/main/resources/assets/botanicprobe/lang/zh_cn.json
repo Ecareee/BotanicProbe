@@ -26,7 +26,7 @@
   "botanicprobe.text.holding_flower": "手持的花 ",
   "botanicprobe.text.last_flowers": "上次吞噬的花: ",
   "botanicprobe.text.deviation": "(存在误差)",
-  "botanicprobe.text.range": "范围: ",
+  "botanicprobe.text.range": "范围 (半径): ",
   "botanicprobe.text.mode": "模式: ",
   "botanicprobe.text.filtered_items": "过滤的物品: ",
   "botanicprobe.text.coords_to_put": "目标坐标: ",
