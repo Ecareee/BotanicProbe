@@ -52,7 +52,6 @@ public class Hopperhock implements IProbeInfoProvider {
                 }
 
                 if (!items.isEmpty()) {
-                    iProbeInfo.text(I18n.get("botanicprobe.text.filtered_items"));
                     int rows = 0;
                     int idx = 0;
                     IProbeInfo horizontal = null;
@@ -69,6 +68,7 @@ public class Hopperhock implements IProbeInfoProvider {
                                     break;
                                 }
                             }
+                            iProbeInfo.text(I18n.get("botanicprobe.text.filtered_items"));
                             horizontal.item(stackInSlot);
                             idx++;
                         }
