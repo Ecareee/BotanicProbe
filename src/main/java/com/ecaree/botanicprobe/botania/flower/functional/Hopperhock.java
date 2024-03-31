@@ -58,6 +58,7 @@ public class Hopperhock implements IProbeInfoProvider {
                     for (ItemStack stackInSlot : items) {
                         if (!stackInSlot.isEmpty()) {   // 不显示当物品展示框没有物品的情况
                             if (idx % 10 == 0) {
+                                iProbeInfo.text(I18n.get("botanicprobe.text.filtered_items"));
                                 horizontal = iProbeInfo.vertical(iProbeInfo
                                                 .defaultLayoutStyle()
                                                 .borderColor(TOPUtil.LIGHT_BLUE)
@@ -68,7 +69,6 @@ public class Hopperhock implements IProbeInfoProvider {
                                     break;
                                 }
                             }
-                            iProbeInfo.text(I18n.get("botanicprobe.text.filtered_items"));
                             horizontal.item(stackInSlot);
                             idx++;
                         }
