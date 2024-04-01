@@ -44,8 +44,8 @@ public class Spark implements IProbeInfoEntityProvider {
             }
             if (itemStack != null && !upgradeName.equals("null")) {
                 iProbeInfo
-                        .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER))
-                        .item(itemStack)
+                        .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
+                        .item(itemStack, iProbeInfo.defaultItemStyle().width(14).height(14))
                         .text(upgradeName);
             }
         }
