@@ -14,6 +14,10 @@
   "botanicprobe.text.status_working": "Working",
   "botanicprobe.text.status_idle": "Idle",
   "botanicprobe.text.status_dandelifeon_not_working": "The dandelifeon is not working!",
+  "botanicprobe.text.status_gather_enchants": "Gather enchants",
+  "botanicprobe.text.status_gather_mana": "Gather mana",
+  "botanicprobe.text.status_do_enchant": "Do enchant",
+  "botanicprobe.text.status_reset": "Reset",
   "botanicprobe.text.burn_time": "Burn time lasts: ",
   "botanicprobe.text.cooldown": "Cooldown: ",
   "botanicprobe.text.generating": "Generating: ",
@@ -54,6 +58,7 @@
   "botanicprobe.text.mana_loss_speed": "Mana loss speed: ",
   "botanicprobe.text.burst_speed": "Burst speed: ",
   "botanicprobe.text.initially": "Initially ",
+  "botanicprobe.text.item_to_enchant": "Item to enchant: ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design concept of Botania.$(p)Botania is a tech mod."
 }
