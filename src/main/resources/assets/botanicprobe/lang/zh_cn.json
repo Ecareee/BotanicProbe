@@ -50,7 +50,7 @@
   "botanicprobe.text.pickup_range": "拾取范围: ",
   "botanicprobe.text.block_for_placement": "用于放置的方块: ",
   "botanicprobe.text.block_to_place": "放置的方块: ",
-  "botanicprobe.text.redstone_signal": "红石信号: ",
+  "botanicprobe.text.redstone_signal_output": "红石信号输出: ",
   "botanicprobe.text.last_recipe": "上次的配方: ",
   "botanicprobe.text.catalyst": "催化器: ",
   "botanicprobe.text.burst_mana": "脉冲魔力量: ",

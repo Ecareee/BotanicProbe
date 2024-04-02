@@ -1,16 +1,21 @@
 package com.ecaree.botanicprobe;
 
+import mcjty.theoneprobe.api.ElementAlignment;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.NumberFormat;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -30,6 +35,16 @@ public class TOPUtil {
                 .backgroundColor(GRAY)
                 .filledColor(LIGHT_BLUE)
                 .alternateFilledColor(LIGHT_BLUE));
+    }
+
+    public static void displayAnalogOutputSignal(IProbeInfo iProbeInfo, BlockState state, Level level, BlockPos pos) {
+        final int analogOutputSignal = state.getAnalogOutputSignal(level, pos);
+        if (analogOutputSignal != 0) {
+            iProbeInfo
+                    .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
+                    .item(new ItemStack(Items.REDSTONE), iProbeInfo.defaultItemStyle().width(14).height(14))
+                    .text(I18n.get("botanicprobe.text.redstone_signal_output") + analogOutputSignal);
+        }
     }
 
     public static ResourceLocation RL(String rlName) {

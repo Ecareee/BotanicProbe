@@ -50,7 +50,7 @@
   "botanicprobe.text.pickup_range": "Pickup range: ",
   "botanicprobe.text.block_for_placement": "Block for placement: ",
   "botanicprobe.text.block_to_place": "Block to place: ",
-  "botanicprobe.text.redstone_signal": "Redstone signal: ",
+  "botanicprobe.text.redstone_signal_output": "Redstone signal output: ",
   "botanicprobe.text.last_recipe": "Last recipe: ",
   "botanicprobe.text.catalyst": "Catalyst: ",
   "botanicprobe.text.burst_mana": "Burst mana: ",

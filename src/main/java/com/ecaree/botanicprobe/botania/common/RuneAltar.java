@@ -8,7 +8,6 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.tile.TileRuneAltar;
@@ -26,16 +25,13 @@ public class RuneAltar implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof TileRuneAltar tile) {
             final int mana = tile.getCurrentMana();
             final int targetMana = tile.getTargetMana();
-            final int signal = tile.signal;
 
             if (targetMana != 0) {
                 iProbeInfo.text("Mana: " + mana + "/" + targetMana);
                 TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
             }
-            iProbeInfo
-                    .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
-                    .item(new ItemStack(Items.REDSTONE), iProbeInfo.defaultItemStyle().width(14).height(14))
-                    .text(I18n.get("botanicprobe.text.redstone_signal") + signal);
+
+            TOPUtil.displayAnalogOutputSignal(iProbeInfo, blockState, level, data.getPos());
 
             if (player.isCrouching()) {
                 List<ItemStack> lastRecipe = ((AccessorTileRuneAltar) tile).getLastRecipe();
@@ -61,7 +57,6 @@ public class RuneAltar implements IProbeInfoProvider {
                     }
                 }
             }
-
         }
     }
 }

@@ -25,6 +25,8 @@ public class TerraPlate implements IProbeInfoProvider {
                 iProbeInfo.text("Mana: " + mana + "/" + targetMana);
                 TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
             }
+
+            TOPUtil.displayAnalogOutputSignal(iProbeInfo, blockState, level, data.getPos());
         }
     }
 }
