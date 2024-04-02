@@ -48,6 +48,11 @@
   "botanicprobe.text.redstone_signal": "Redstone signal: ",
   "botanicprobe.text.last_recipe": "Last recipe: ",
   "botanicprobe.text.catalyst": "Catalyst: ",
+  "botanicprobe.text.burst_mana": "Burst mana: ",
+  "botanicprobe.text.time_before_mana_loss": "Time before mana loss: ",
+  "botanicprobe.text.mana_loss_speed": "Mana loss speed: ",
+  "botanicprobe.text.burst_speed": "Burst speed: ",
+  "botanicprobe.text.initially": "Initially ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design concept of Botania.$(p)Botania is a tech mod."
 }

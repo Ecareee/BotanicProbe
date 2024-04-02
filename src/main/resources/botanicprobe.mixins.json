@@ -11,6 +11,7 @@
     "AccessorSubTileRafflowsia",
     "AccessorSubTileRannuncarpus",
     "AccessorTileRuneAltar",
+    "AccessorTileSpreader",
     "MixinBlockMechanicalApothecary"
   ],
   "client": [

@@ -48,6 +48,11 @@
   "botanicprobe.text.redstone_signal": "红石信号: ",
   "botanicprobe.text.last_recipe": "上次的配方: ",
   "botanicprobe.text.catalyst": "催化器: ",
+  "botanicprobe.text.burst_mana": "脉冲魔力量: ",
+  "botanicprobe.text.time_before_mana_loss": "魔力流失前时间: ",
+  "botanicprobe.text.mana_loss_speed": "魔力流失速度: ",
+  "botanicprobe.text.burst_speed": "脉冲速度: ",
+  "botanicprobe.text.initially": "原来的 ",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念。$(p)植物魔法是一个科技模组。"
 }
