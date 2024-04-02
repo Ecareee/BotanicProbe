@@ -1,12 +1,19 @@
 package com.ecaree.botanicprobe.botania.common;
 
 import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.mixin.AccessorTileRuneAltar;
 import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.tile.TileRuneAltar;
+
+import java.util.List;
 
 public class RuneAltar implements IProbeInfoProvider {
     @Override
@@ -19,11 +26,42 @@ public class RuneAltar implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof TileRuneAltar tile) {
             final int mana = tile.getCurrentMana();
             final int targetMana = tile.getTargetMana();
+            final int signal = tile.signal;
 
             if (mana != 0 && targetMana != 0) {
                 iProbeInfo.text("Mana: " + mana + "/" + targetMana);
                 TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
             }
+            iProbeInfo
+                    .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
+                    .item(new ItemStack(Items.REDSTONE), iProbeInfo.defaultItemStyle().width(14).height(14))
+                    .text(I18n.get("botanicprobe.text.redstone_signal") + signal);
+
+            if (player.isCrouching()) {
+                List<ItemStack> lastRecipe = ((AccessorTileRuneAltar) tile).getLastRecipe();
+                if (lastRecipe != null) {
+                    iProbeInfo.text(I18n.get("botanicprobe.text.last_recipe"));
+                    int rows = 0;
+                    int idx = 0;
+                    IProbeInfo horizontal = null;
+                    for (ItemStack stackInSlot : lastRecipe) {
+                        if (idx % 10 == 0) {
+                            horizontal = iProbeInfo.vertical(iProbeInfo
+                                            .defaultLayoutStyle()
+                                            .borderColor(TOPUtil.LIGHT_BLUE)
+                                            .spacing(0))
+                                    .horizontal(new LayoutStyle().spacing(0));
+                            rows++;
+                            if (rows > 4) {
+                                break;
+                            }
+                        }
+                        horizontal.item(stackInSlot);
+                        idx++;
+                    }
+                }
+            }
+
         }
     }
 }

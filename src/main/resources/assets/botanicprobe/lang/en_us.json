@@ -45,6 +45,8 @@
   "botanicprobe.text.pickup_range": "Pickup range: ",
   "botanicprobe.text.block_for_placement": "Block for placement: ",
   "botanicprobe.text.block_to_place": "Block to place: ",
+  "botanicprobe.text.redstone_signal": "Redstone signal: ",
+  "botanicprobe.text.last_recipe": "Last recipe: ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design concept of Botania.$(p)Botania is a tech mod."
 }
