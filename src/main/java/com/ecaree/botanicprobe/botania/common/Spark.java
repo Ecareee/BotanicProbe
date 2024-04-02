@@ -19,7 +19,6 @@ public class Spark implements IProbeInfoEntityProvider {
     @Override
     public void addProbeEntityInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, Entity entity, IProbeHitEntityData data) {
         if (entity instanceof EntityManaSpark sparkEntity) {
-
             ItemStack itemStack = null;
             String upgradeName = "null";
             switch (sparkEntity.getUpgrade()) {
@@ -42,6 +41,7 @@ public class Spark implements IProbeInfoEntityProvider {
                 case NONE:
                     break;
             }
+
             if (itemStack != null && !upgradeName.equals("null")) {
                 iProbeInfo
                         .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
