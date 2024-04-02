@@ -62,8 +62,8 @@ public class Rannuncarpus implements IProbeInfoProvider {
             if (!recieverStack.isEmpty()) {
                 iProbeInfo.text(I18n.get("botanicprobe.text.block_for_placement"));
                 iProbeInfo
-                        .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER))
-                        .item(recieverStack)
+                        .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
+                        .item(recieverStack, iProbeInfo.defaultItemStyle().width(16).height(16))
                         .text(recieverStack.getHoverName());   // 有图标就不用带中括号的本地化名
             }
 
