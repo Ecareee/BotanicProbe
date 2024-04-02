@@ -5,7 +5,6 @@ import com.ecaree.botanicprobe.mixin.AccessorSubTileOrechid;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -14,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
-import vazkii.botania.api.subtile.TileEntitySpecialFlower;
 import vazkii.botania.common.block.subtile.functional.SubTileOrechid;
 
 public class Orechid implements IProbeInfoProvider {
@@ -27,9 +25,7 @@ public class Orechid implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileOrechid tile) {
             BlockPos coords = ((AccessorSubTileOrechid) tile).invokeGetCoordsToPut();
-            CompoundTag compoundTag = new CompoundTag();
-            tile.saveAdditional(compoundTag);
-            int ticksExisted = compoundTag.getInt(TileEntitySpecialFlower.TAG_TICKS_EXISTED);
+            int ticksExisted = tile.ticksExisted;
 
             if (coords != null) {
                 BlockState state = ((AccessorSubTileOrechid) tile).invokeGetOreToPut(coords, level.getBlockState(coords));
@@ -43,7 +39,7 @@ public class Orechid implements IProbeInfoProvider {
                             + name);
                     if (cooldown != 1) {
                         iProbeInfo.text(I18n.get("botanicprobe.text.cooldown") + cooldown + " Ticks");
-                    } else if (cooldown == 1) {
+                    } else {
                         iProbeInfo.text(I18n.get("botanicprobe.text.cooldown") + cooldown + " Tick");
                     }
                 }
