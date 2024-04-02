@@ -28,7 +28,7 @@ public class RuneAltar implements IProbeInfoProvider {
             final int targetMana = tile.getTargetMana();
             final int signal = tile.signal;
 
-            if (mana != 0 && targetMana != 0) {
+            if (targetMana != 0) {
                 iProbeInfo.text("Mana: " + mana + "/" + targetMana);
                 TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
             }
