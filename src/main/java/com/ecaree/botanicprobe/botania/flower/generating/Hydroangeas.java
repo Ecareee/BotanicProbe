@@ -32,7 +32,7 @@ public class Hydroangeas implements IProbeInfoProvider {
                         I18n.get("botanicprobe.text.passive_decay_time") + (SubTileHydroangeas.DECAY_TIME - passiveDecayTicks) + " Tick");
             }
 
-            ContentCollector.addText(new ItemStack(Items.SNOWBALL),
+            ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
                     I18n.get("botanicprobe.text.generation_delay") + generationDelay + " Ticks");
         }
     }

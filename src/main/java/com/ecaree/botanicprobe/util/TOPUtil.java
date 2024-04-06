@@ -9,6 +9,9 @@ import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import vazkii.botania.common.item.ModItems;
 
 import java.awt.*;
 import java.util.List;
@@ -19,6 +22,10 @@ public class TOPUtil {
     public static final int WHITE = Color.white.getRGB();
     public static final int ORANGE = Color.orange.getRGB();
     public static final int PADDING = 2;
+    public static final ItemStack MANA_STACK = new ItemStack(ModItems.manasteelNugget);
+    public static final ItemStack STATUS_STACK = new ItemStack(Items.CLOCK);
+    public static final ItemStack WAND_STACK = new ItemStack(ModItems.twigWand);
+    public static final ItemStack COOLDOWN_STACK = new ItemStack(Items.SNOWBALL);
 
     public static void setProgressBar(IProbeInfo iProbeInfo, int progress, int maxProgress) {
         iProbeInfo.progress(progress, maxProgress, new ProgressStyle()

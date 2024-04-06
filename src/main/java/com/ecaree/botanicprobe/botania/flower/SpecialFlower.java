@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.api.subtile.TileEntityFunctionalFlower;
 import vazkii.botania.api.subtile.TileEntityGeneratingFlower;
 import vazkii.botania.api.subtile.TileEntitySpecialFlower;
-import vazkii.botania.common.item.ModItems;
 
 public class SpecialFlower implements IProbeInfoProvider {
     @Override
@@ -31,7 +30,7 @@ public class SpecialFlower implements IProbeInfoProvider {
                 String text2 = null;
 
                 if (generatingFlower.isValidBinding()) {
-                    ContentCollector.addText(new ItemStack(ModItems.twigWand),
+                    ContentCollector.addText(TOPUtil.WAND_STACK,
                             I18n.get("botanicprobe.text.binding")
                                     + TOPUtil.getPosString(generatingFlower.getBindingPos()));
                 } else {
@@ -43,13 +42,13 @@ public class SpecialFlower implements IProbeInfoProvider {
                     }
 
                     if (text2 == null) {
-                        ContentCollector.addText(new ItemStack(ModItems.twigWand), text1);
+                        ContentCollector.addText(TOPUtil.WAND_STACK, text1);
                     } else {
-                        ContentCollector.addText(new ItemStack(ModItems.twigWand), text1, text2);
+                        ContentCollector.addText(TOPUtil.WAND_STACK, text1, text2);
                     }
                 }
 
-                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget),
+                ContentCollector.addText(TOPUtil.MANA_STACK,
                         "Mana: " + mana + "/" + manaMax);
             } else if (tile instanceof TileEntityFunctionalFlower functionalFlower) {
                 final int mana = functionalFlower.getMana();
@@ -59,7 +58,7 @@ public class SpecialFlower implements IProbeInfoProvider {
                 String text2 = null;
 
                 if (functionalFlower.isValidBinding()) {
-                    ContentCollector.addText(new ItemStack(ModItems.twigWand),
+                    ContentCollector.addText(TOPUtil.WAND_STACK,
                             I18n.get("botanicprobe.text.binding")
                                     + TOPUtil.getPosString(functionalFlower.getBindingPos()));
                 } else {
@@ -71,13 +70,13 @@ public class SpecialFlower implements IProbeInfoProvider {
                     }
 
                     if (text2 == null) {
-                        ContentCollector.addText(new ItemStack(ModItems.twigWand), text1);
+                        ContentCollector.addText(TOPUtil.WAND_STACK, text1);
                     } else {
-                        ContentCollector.addText(new ItemStack(ModItems.twigWand), text1, text2);
+                        ContentCollector.addText(TOPUtil.WAND_STACK, text1, text2);
                     }
                 }
 
-                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget),
+                ContentCollector.addText(TOPUtil.MANA_STACK,
                         "Mana: " + mana + "/" + manaMax);
 
                 if (functionalFlower.acceptsRedstone() && redstoneSignal != 0) {

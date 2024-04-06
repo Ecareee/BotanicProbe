@@ -35,16 +35,16 @@ public class CellBlock implements IProbeInfoProvider {
                 BlockPos flowerPos = new BlockPos(flowerX, flowerY, flowerZ);
 
                 if (level.hasNeighborSignal(flowerPos)) {
-                    ContentCollector.addText(new ItemStack(Items.CLOCK),
+                    ContentCollector.addText(TOPUtil.STATUS_STACK,
                             I18n.get("botanicprobe.text.status")
                                     + I18n.get("botanicprobe.text.status_working"));
                 } else {
-                    ContentCollector.addText(new ItemStack(Items.CLOCK),
+                    ContentCollector.addText(TOPUtil.STATUS_STACK,
                             I18n.get("botanicprobe.text.status")
                                     + I18n.get("botanicprobe.text.status_dandelifeon_not_working"));
                 }
             } else {
-                ContentCollector.addText(new ItemStack(Items.CLOCK),
+                ContentCollector.addText(TOPUtil.STATUS_STACK,
                         I18n.get("botanicprobe.text.status")
                                 + I18n.get("botanicprobe.text.status_idle"));
             }

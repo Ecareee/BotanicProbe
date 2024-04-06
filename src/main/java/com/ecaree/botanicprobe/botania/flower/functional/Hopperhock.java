@@ -42,7 +42,7 @@ public class Hopperhock implements IProbeInfoProvider {
 
             ContentCollector.addText(new ItemStack(Items.SPYGLASS),
                     I18n.get("botanicprobe.text.range") + range);
-            ContentCollector.addText(new ItemStack(Items.CLOCK),
+            ContentCollector.addText(TOPUtil.STATUS_STACK,
                     I18n.get("botanicprobe.text.mode") + mode);
 
             if (player.isCrouching()) {

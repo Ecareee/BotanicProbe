@@ -7,11 +7,9 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.tile.TileEnchanter;
-import vazkii.botania.common.item.ModItems;
 
 public class Enchanter implements IProbeInfoProvider {
     @Override
@@ -37,20 +35,20 @@ public class Enchanter implements IProbeInfoProvider {
 
             if (manaRequired != -1 && manaRequired != 0) {
                 if (stage != TileEnchanter.State.GATHER_MANA) {
-                    ContentCollector.addText(new ItemStack(ModItems.manasteelNugget),
+                    ContentCollector.addText(TOPUtil.MANA_STACK,
                             "Mana: " + currentMana + "/" + manaRequired);
                 } else {
-                    ContentCollector.addTextWithProgressBar(new ItemStack(ModItems.manasteelNugget),
+                    ContentCollector.addTextWithProgressBar(TOPUtil.MANA_STACK,
                             "Mana: " + currentMana + "/" + manaRequired,
                             currentMana, manaRequired);
                 }
             }
 
             if (stage != TileEnchanter.State.DO_ENCHANT) {
-                ContentCollector.addText(new ItemStack(Items.CLOCK),
+                ContentCollector.addText(TOPUtil.STATUS_STACK,
                         I18n.get("botanicprobe.text.status") + stageName);
             } else {
-                ContentCollector.addTextWithProgressBar(new ItemStack(Items.CLOCK),
+                ContentCollector.addTextWithProgressBar(TOPUtil.STATUS_STACK,
                         I18n.get("botanicprobe.text.status") + stageName,
                         stageTicks, 100); // 硬编码 100，https://github.com/VazkiiMods/Botania/blob/1.18.x/Xplat/src/main/java/vazkii/botania/common/block/tile/TileEnchanter.java#L280
             }

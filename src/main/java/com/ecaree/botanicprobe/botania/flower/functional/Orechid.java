@@ -10,7 +10,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -43,10 +42,10 @@ public class Orechid implements IProbeInfoProvider {
                                     + I18n.get("botanicprobe.text.with")
                                     + name);
                     if (cooldown != 1) {
-                        ContentCollector.addText(new ItemStack(Items.SNOWBALL),
+                        ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
                                 I18n.get("botanicprobe.text.cooldown") + cooldown + " Ticks");
                     } else {
-                        ContentCollector.addText(new ItemStack(Items.SNOWBALL),
+                        ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
                                 I18n.get("botanicprobe.text.cooldown") + cooldown + " Tick");
                     }
                 }

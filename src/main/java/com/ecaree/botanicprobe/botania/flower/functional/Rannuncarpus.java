@@ -67,7 +67,7 @@ public class Rannuncarpus implements IProbeInfoProvider {
                                 + (placeRange * 2 + 1));
             }
 
-            ContentCollector.addText(new ItemStack(Items.CLOCK),
+            ContentCollector.addText(TOPUtil.STATUS_STACK,
                     I18n.get("botanicprobe.text.mode") + mode);
 
             if (!recieverStack.isEmpty()) {

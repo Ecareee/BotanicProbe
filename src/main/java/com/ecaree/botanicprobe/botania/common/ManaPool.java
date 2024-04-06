@@ -6,13 +6,11 @@ import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.block.tile.mana.TilePool;
-import vazkii.botania.common.item.ModItems;
 
 public class ManaPool implements IProbeInfoProvider {
     @Override
@@ -27,9 +25,9 @@ public class ManaPool implements IProbeInfoProvider {
             final int manaCap = tile.manaCap;
 
             if (ForgeRegistries.BLOCKS.getKey(blockState.getBlock()).toString().equals("botania:creative_pool")) {
-                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget), "Mana: ∞");
+                ContentCollector.addText(TOPUtil.MANA_STACK, "Mana: ∞");
             } else {
-                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget), "Mana: " + mana + "/" + manaCap);
+                ContentCollector.addText(TOPUtil.MANA_STACK, "Mana: " + mana + "/" + manaCap);
             }
 
             if (level.getBlockState(data.getPos().below()).is(ModBlocks.alchemyCatalyst)) {

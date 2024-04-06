@@ -12,7 +12,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.tile.TileRuneAltar;
-import vazkii.botania.common.item.ModItems;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class RuneAltar implements IProbeInfoProvider {
             final int targetMana = tile.getTargetMana();
 
             if (targetMana != 0) {
-                ContentCollector.addTextWithProgressBar(new ItemStack(ModItems.manasteelNugget), "Mana: " + mana + "/" + targetMana, mana, targetMana);
+                ContentCollector.addTextWithProgressBar(TOPUtil.MANA_STACK, "Mana: " + mana + "/" + targetMana, mana, targetMana);
             }
 
             if (player.isCrouching()) {

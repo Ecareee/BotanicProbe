@@ -10,11 +10,9 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.subtile.generating.SubTileGourmaryllis;
-import vazkii.botania.common.item.ModItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +35,7 @@ public class Gourmaryllis implements IProbeInfoProvider {
             ItemStack itemStack = player.getMainHandItem();
 
             if (digestingMana != 0) {
-                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget),
+                ContentCollector.addText(TOPUtil.MANA_STACK,
                         I18n.get("botanicprobe.text.generating") + digestingMana + " Mana");
             }
 
@@ -47,10 +45,10 @@ public class Gourmaryllis implements IProbeInfoProvider {
             }
 
             if (cooldown != -1 && cooldown != 1) {
-                ContentCollector.addText(new ItemStack(Items.SNOWBALL),
+                ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
                         I18n.get("botanicprobe.text.cooldown") + cooldown + " Ticks");
             } else if (cooldown == 1) {
-                ContentCollector.addText(new ItemStack(Items.SNOWBALL),
+                ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
                         I18n.get("botanicprobe.text.cooldown") + cooldown + " Tick");
             }
 
