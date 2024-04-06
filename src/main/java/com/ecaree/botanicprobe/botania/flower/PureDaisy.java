@@ -69,7 +69,7 @@ public class PureDaisy implements IProbeInfoProvider {
             }
         }
 
-        if (minTicksRemaining != Integer.MAX_VALUE) {     // 检查 minTicksRemaining 是否被有效的实例更新过
+        if (minTicksRemaining != Integer.MAX_VALUE) { // 检查 minTicksRemaining 是否被有效的实例更新过
             int requiredTicks = fastestRecipe.getTime();
             int progress = requiredTicks - minTicksRemaining;
 

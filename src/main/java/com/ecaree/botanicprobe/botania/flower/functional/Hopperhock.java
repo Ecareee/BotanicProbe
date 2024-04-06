@@ -59,7 +59,7 @@ public class Hopperhock implements IProbeInfoProvider {
                     int rows = 0;
                     int idx = 0;
                     for (ItemStack stackInSlot : items) {
-                        if (!stackInSlot.isEmpty()) {   // 不显示当物品展示框没有物品的情况
+                        if (!stackInSlot.isEmpty()) { // 不显示当物品展示框没有物品的情况
                             if (idx % 10 == 0) {
                                 ContentCollector.addText(I18n.get("botanicprobe.text.filtered_items"));
                                 rows++;
@@ -97,7 +97,7 @@ public class Hopperhock implements IProbeInfoProvider {
                         int idx = 0;
                         IProbeInfo horizontal = null;
                         for (ItemStack stackInSlot : filter) {
-                            if (!stackInSlot.isEmpty()) {   // 不显示当物品展示框没有物品的情况
+                            if (!stackInSlot.isEmpty()) { // 不显示当物品展示框没有物品的情况
                                 if (idx % 10 == 0) {
                                     IProbeInfo box = TOPUtil.getBox(iProbeInfo);
                                     box.text(I18n.get("botanicprobe.text.filtered_items"));

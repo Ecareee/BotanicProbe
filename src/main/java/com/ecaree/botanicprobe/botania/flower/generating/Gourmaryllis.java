@@ -58,7 +58,7 @@ public class Gourmaryllis implements IProbeInfoProvider {
 
                 ContentCollector.addText(displayStack,
                         I18n.get("botanicprobe.text.holding_item")
-                                + itemStack.getDisplayName().getString()   // 带中括号的本地化名
+                                + itemStack.getDisplayName().getString() // 带中括号的本地化名
                                 + " " + I18n.get("botanicprobe.text.will_generate")
                                 + manaToGenerate(streakLength, itemStack, tile, lastFoodCount, lastFoods)
 //                        + manaToGenerate(streakLength, itemStack, tile)

@@ -33,7 +33,7 @@ public class Orechid implements IProbeInfoProvider {
                 BlockState state = ((AccessorSubTileOrechid) tile).invokeGetOreToPut(coords, level.getBlockState(coords));
                 if (state != null) {
                     ItemStack item = new ItemStack(state.getBlock());
-                    String name = item.getDisplayName().getString();   // 带中括号的本地化名
+                    String name = item.getDisplayName().getString(); // 带中括号的本地化名
                     int cooldown = tile.getDelay() - ticksExisted % tile.getDelay();
 
                     ContentCollector.addText(item,
