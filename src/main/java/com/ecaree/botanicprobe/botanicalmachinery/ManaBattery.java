@@ -1,13 +1,16 @@
 package com.ecaree.botanicprobe.botanicalmachinery;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import de.melanx.botanicalmachinery.blocks.tiles.BlockEntityManaBattery;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
+import vazkii.botania.common.item.ModItems;
 
 public class ManaBattery implements IProbeInfoProvider {
     @Override
@@ -22,9 +25,9 @@ public class ManaBattery implements IProbeInfoProvider {
             final int manaCap = tile.getManaCap();
 
             if (ForgeRegistries.BLOCKS.getKey(blockState.getBlock()).toString().equals("botanicalmachinery:mana_battery_creative")) {
-                iProbeInfo.text("Mana: ∞");
+                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget), "Mana: ∞");
             } else {
-                iProbeInfo.text("Mana: " + mana + "/" + manaCap);
+                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget), "Mana: " + mana + "/" + manaCap);
             }
         }
     }

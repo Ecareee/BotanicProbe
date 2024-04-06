@@ -1,7 +1,8 @@
 package com.ecaree.botanicprobe.botania.flower;
 
-import com.ecaree.botanicprobe.TOPUtil;
 import com.ecaree.botanicprobe.mixin.AccessorSubTilePureDaisy;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -26,20 +27,25 @@ public class PureDaisy implements IProbeInfoProvider {
         if (blockEntity instanceof SubTilePureDaisy tile) {
             for (int i = 0; i < 8; i++) {
                 int ticksRemaining = tile.getUpdateTag().getInt("ticksRemaining" + i);
+
                 if (ticksRemaining == -1) {
                     continue;
                 }
+
                 IPureDaisyRecipe recipe = ((AccessorSubTilePureDaisy) tile).invokeFindRecipe(pos.offset(getPositions(tile)[i]));
+
                 if (recipe != null) {
                     int requiredTicks = recipe.getTime();
                     int progress = requiredTicks - ticksRemaining;
-                    TOPUtil.setProgressBar(iProbeInfo, progress, requiredTicks);
+
+                    ContentCollector.addProgressBar(progress, requiredTicks);
                 }
             }
         }
 
         int minTicksRemaining = Integer.MAX_VALUE;
         IPureDaisyRecipe fastestRecipe = null;
+
         for (BlockPos checkPos : BlockPos.withinManhattan(pos, 1, 0, 1)) {
             if (level.getBlockEntity(checkPos) instanceof SubTilePureDaisy tile) {
                 for (int i = 0; i < 8; i++) {
@@ -47,10 +53,13 @@ public class PureDaisy implements IProbeInfoProvider {
 
                     if (relativePos.equals(pos)) {
                         int ticksRemaining = tile.getUpdateTag().getInt("ticksRemaining" + i);
+
                         if (ticksRemaining == -1) {
                             continue;
                         }
+
                         IPureDaisyRecipe recipe = ((AccessorSubTilePureDaisy) tile).invokeFindRecipe(relativePos);
+
                         if (recipe != null && ticksRemaining < minTicksRemaining) {
                             minTicksRemaining = ticksRemaining;
                             fastestRecipe = recipe;
@@ -59,10 +68,12 @@ public class PureDaisy implements IProbeInfoProvider {
                 }
             }
         }
+
         if (minTicksRemaining != Integer.MAX_VALUE) {     // 检查 minTicksRemaining 是否被有效的实例更新过
             int requiredTicks = fastestRecipe.getTime();
             int progress = requiredTicks - minTicksRemaining;
-            TOPUtil.setProgressBar(iProbeInfo, progress, requiredTicks);
+
+            TOPUtil.setProgressBar(TOPUtil.getHorizontal(iProbeInfo), progress, requiredTicks);
         }
     }
 

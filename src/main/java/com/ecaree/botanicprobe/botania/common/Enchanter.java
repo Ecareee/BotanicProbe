@@ -1,14 +1,17 @@
 package com.ecaree.botanicprobe.botania.common;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.tile.TileEnchanter;
+import vazkii.botania.common.item.ModItems;
 
 public class Enchanter implements IProbeInfoProvider {
     @Override
@@ -33,18 +36,29 @@ public class Enchanter implements IProbeInfoProvider {
             ItemStack itemToEnchant = tile.itemToEnchant;
 
             if (manaRequired != -1 && manaRequired != 0) {
-                iProbeInfo.text("Mana: " + currentMana + "/" + manaRequired);
+                if (stage != TileEnchanter.State.GATHER_MANA) {
+                    ContentCollector.addText(new ItemStack(ModItems.manasteelNugget),
+                            "Mana: " + currentMana + "/" + manaRequired);
+                } else {
+                    ContentCollector.addTextWithProgressBar(new ItemStack(ModItems.manasteelNugget),
+                            "Mana: " + currentMana + "/" + manaRequired,
+                            currentMana, manaRequired);
+                }
             }
-            iProbeInfo.text(I18n.get("botanicprobe.text.status") + stageName);
-            if (stage == TileEnchanter.State.GATHER_MANA) {
-                TOPUtil.setProgressBar(iProbeInfo, currentMana, manaRequired);
+
+            if (stage != TileEnchanter.State.DO_ENCHANT) {
+                ContentCollector.addText(new ItemStack(Items.CLOCK),
+                        I18n.get("botanicprobe.text.status") + stageName);
+            } else {
+                ContentCollector.addTextWithProgressBar(new ItemStack(Items.CLOCK),
+                        I18n.get("botanicprobe.text.status") + stageName,
+                        stageTicks, 100); // 硬编码 100，https://github.com/VazkiiMods/Botania/blob/1.18.x/Xplat/src/main/java/vazkii/botania/common/block/tile/TileEnchanter.java#L280
             }
-            if (stage == TileEnchanter.State.DO_ENCHANT) {
-                TOPUtil.setProgressBar(iProbeInfo, stageTicks, 100); // 硬编码 100，https://github.com/VazkiiMods/Botania/blob/1.18.x/Xplat/src/main/java/vazkii/botania/common/block/tile/TileEnchanter.java#L280
-            }
+
             if (!itemToEnchant.isEmpty()) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.item_to_enchant")
-                        + itemToEnchant.getDisplayName().getString()); // 带中括号的本地化名
+                ContentCollector.addText(itemToEnchant,
+                        I18n.get("botanicprobe.text.item_to_enchant")
+                                + itemToEnchant.getDisplayName().getString()); // 带中括号的本地化名
             }
         }
     }

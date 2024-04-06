@@ -1,15 +1,18 @@
 package com.ecaree.botanicprobe.botania.common;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.block.tile.mana.TilePool;
+import vazkii.botania.common.item.ModItems;
 
 public class ManaPool implements IProbeInfoProvider {
     @Override
@@ -24,18 +27,18 @@ public class ManaPool implements IProbeInfoProvider {
             final int manaCap = tile.manaCap;
 
             if (ForgeRegistries.BLOCKS.getKey(blockState.getBlock()).toString().equals("botania:creative_pool")) {
-                iProbeInfo.text("Mana: ∞");
+                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget), "Mana: ∞");
             } else {
-                iProbeInfo.text("Mana: " + mana + "/" + manaCap);
+                ContentCollector.addText(new ItemStack(ModItems.manasteelNugget), "Mana: " + mana + "/" + manaCap);
             }
 
             if (level.getBlockState(data.getPos().below()).is(ModBlocks.alchemyCatalyst)) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.catalyst") + ModBlocks.alchemyCatalyst.getName().getString());
+                ContentCollector.addText(ModBlocks.alchemyCatalyst,
+                        I18n.get("botanicprobe.text.catalyst") + ModBlocks.alchemyCatalyst.getName().getString());
             } else if (level.getBlockState(data.getPos().below()).is(ModBlocks.conjurationCatalyst)) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.catalyst") + ModBlocks.conjurationCatalyst.getName().getString());
+                ContentCollector.addText(ModBlocks.conjurationCatalyst,
+                        I18n.get("botanicprobe.text.catalyst") + ModBlocks.conjurationCatalyst.getName().getString());
             }
-
-            TOPUtil.displayAnalogOutputSignal(iProbeInfo, blockState, level, data.getPos());
         }
     }
 }

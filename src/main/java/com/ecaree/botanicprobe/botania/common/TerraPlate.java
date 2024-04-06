@@ -1,13 +1,16 @@
 package com.ecaree.botanicprobe.botania.common;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.tile.TileTerraPlate;
 import vazkii.botania.common.block.tile.mana.TilePool;
+import vazkii.botania.common.item.ModItems;
 
 public class TerraPlate implements IProbeInfoProvider {
     @Override
@@ -22,11 +25,10 @@ public class TerraPlate implements IProbeInfoProvider {
             final int targetMana = TilePool.MAX_MANA / 2;
 
             if (mana != 0) {
-                iProbeInfo.text("Mana: " + mana + "/" + targetMana);
-                TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
+                ContentCollector.addTextWithProgressBar(new ItemStack(ModItems.manasteelNugget),
+                        "Mana: " + mana + "/" + targetMana,
+                        mana, targetMana);
             }
-
-            TOPUtil.displayAnalogOutputSignal(iProbeInfo, blockState, level, data.getPos());
         }
     }
 }

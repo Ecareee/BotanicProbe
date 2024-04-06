@@ -1,16 +1,20 @@
 package com.ecaree.botanicprobe.botania.flower.functional;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.apiimpl.styles.ItemStyle;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
+import vazkii.botania.common.block.ModSubtiles;
 import vazkii.botania.common.block.subtile.functional.SubTileSpectranthemum;
 
 public class Spectranthemum implements IProbeInfoProvider {
@@ -26,15 +30,25 @@ public class Spectranthemum implements IProbeInfoProvider {
             final int bindY = tile.getUpdateTag().getInt("bindY");
             final int bindZ = tile.getUpdateTag().getInt("bindZ");
             BlockPos blockPos = new BlockPos(bindX, bindY, bindZ);
+            String text1;
+            String text2 = null;
 
             if (!level.getBlockState(blockPos).isAir()) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.binding_block")
-                        + TOPUtil.getPosString(blockPos));
+                ContentCollector.addText(new ItemStack(ModSubtiles.spectranthemum),
+                        I18n.get("botanicprobe.text.binding_block")
+                                + TOPUtil.getPosString(blockPos));
             } else {
-                iProbeInfo.text(I18n.get("botanicprobe.text.nonbound_block"));
-                if (bindY != Integer.MIN_VALUE) {   // 即曾经被绑定过某个方块
-                    iProbeInfo.text(I18n.get("botanicprobe.text.last_binding_block")
-                            + TOPUtil.getPosString(blockPos));
+                text1 = I18n.get("botanicprobe.text.nonbound_block");
+
+                if (bindY != Integer.MIN_VALUE) { // 即曾经被绑定过某个方块
+                    text2 = I18n.get("botanicprobe.text.last_binding_block")
+                            + TOPUtil.getPosString(blockPos);
+                }
+
+                if (text2 == null) {
+                    ContentCollector.addText(new ItemStack(ModSubtiles.spectranthemum), text1);
+                } else {
+                    ContentCollector.addText(new ItemStack(ModSubtiles.spectranthemum), text1, text2);
                 }
             }
 
@@ -66,11 +80,15 @@ public class Spectranthemum implements IProbeInfoProvider {
                                     BlockPos flowerPos = tile.getBlockPos();
 
                                     if (level.getBlockEntity(flowerPos) != null) {
-                                        iProbeInfo.text(I18n.get("botanicprobe.text.binding_spectranthemum")
-                                                + TOPUtil.getPosString(flowerPos));
+                                        TOPUtil.getHorizontal(iProbeInfo)
+                                                .item(new ItemStack(ModSubtiles.spectranthemum), new ItemStyle().width(16).height(16))
+                                                .text(I18n.get("botanicprobe.text.binding_spectranthemum")
+                                                        + TOPUtil.getPosString(flowerPos));
                                     } else {
-                                        iProbeInfo.text(I18n.get("botanicprobe.text.last_binding_spectranthemum")
-                                                + TOPUtil.getPosString(flowerPos));
+                                        TOPUtil.getHorizontal(iProbeInfo)
+                                                .item(new ItemStack(ModSubtiles.spectranthemum), new ItemStyle().width(16).height(16))
+                                                .text(I18n.get("botanicprobe.text.last_binding_spectranthemum")
+                                                        + TOPUtil.getPosString(flowerPos));
                                         // 不显示未绑定的情况
                                     }
                                     return;

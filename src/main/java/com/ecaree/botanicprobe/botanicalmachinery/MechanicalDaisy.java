@@ -1,6 +1,7 @@
 package com.ecaree.botanicprobe.botanicalmachinery;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import de.melanx.botanicalmachinery.blocks.tiles.BlockEntityMechanicalDaisy;
 import de.melanx.botanicalmachinery.config.LibXServerConfig;
 import mcjty.theoneprobe.api.*;
@@ -24,8 +25,10 @@ public class MechanicalDaisy implements IProbeInfoProvider {
                 if (workingTicks[i] == 0 || workingTicks[i] == -1) {
                     continue;
                 }
+
                 final int workingTicksMax = tile.getRecipe(tile.getState(i)).getTime() * LibXServerConfig.WorkingDurationMultiplier.mechanicalDaisy;
-                TOPUtil.setProgressBar(iProbeInfo, workingTicks[i], workingTicksMax);
+
+                ContentCollector.addProgressBar(workingTicks[i], workingTicksMax);
             }
         }
     }

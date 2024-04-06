@@ -39,6 +39,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new Rannuncarpus());
         iTheOneProbe.registerProvider(new Enchanter());
         iTheOneProbe.registerEntityProvider(new PoolMinecart());
+        iTheOneProbe.registerProvider(new TileMod());
 
         if (ModList.get().isLoaded("botanicalmachinery")) {
             iTheOneProbe.registerProvider(new ManaBattery());
@@ -50,6 +51,9 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
 
         // 晚于植物机械容器的注册
         iTheOneProbe.registerProvider(new Hopperhock());
+
+        // 晚于其他任何注册
+        iTheOneProbe.registerProvider(new Tile());
 
         return null;
     }

@@ -1,15 +1,17 @@
 package com.ecaree.botanicprobe.botania.flower.functional;
 
-import com.ecaree.botanicprobe.TOPUtil;
 import com.ecaree.botanicprobe.mixin.AccessorSubTileRannuncarpus;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
-import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
+import mcjty.theoneprobe.apiimpl.styles.ItemStyle;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -19,6 +21,7 @@ import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.phys.AABB;
 import vazkii.botania.api.item.IFlowerPlaceable;
 import vazkii.botania.api.subtile.RadiusDescriptor;
+import vazkii.botania.common.block.ModSubtiles;
 import vazkii.botania.common.block.subtile.functional.SubTileHopperhock;
 import vazkii.botania.common.block.subtile.functional.SubTileRannuncarpus;
 
@@ -41,30 +44,36 @@ public class Rannuncarpus implements IProbeInfoProvider {
             final String mode = stateSensitive ? I18n.get("botaniamisc.rannuncarpus.state_sensitive") : I18n.get("botaniamisc.rannuncarpus.state_insensitive");
             ItemStack recieverStack = new ItemStack(tile.getUnderlyingBlock().getBlock());
 
-            iProbeInfo.text(I18n.get("botanicprobe.text.working_range")
-                    + (placeRange * 2 + 1) + " x "
-                    + (verticalPlaceRange * 2 + 1) + " x "
-                    + (placeRange * 2 + 1));
+            ContentCollector.addText(new ItemStack(Items.SPYGLASS),
+                    I18n.get("botanicprobe.text.working_range")
+                            + (placeRange * 2 + 1) + " x "
+                            + (verticalPlaceRange * 2 + 1) + " x "
+                            + (placeRange * 2 + 1));
+
             if (secondaryRadius != null) {
                 final int pickupRange = convertRectangleToRadius((RadiusDescriptor.Rectangle) secondaryRadius);
-                iProbeInfo.text(I18n.get("botanicprobe.text.pickup_range")
-                        + (pickupRange * 2 + 1) + " x "
-                        + (3 * 2 + 1) + " x "   // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
-                        + (pickupRange * 2 + 1));
+
+                ContentCollector.addText(new ItemStack(Items.COMPASS),
+                        I18n.get("botanicprobe.text.pickup_range")
+                                + (pickupRange * 2 + 1) + " x "
+                                + (3 * 2 + 1) + " x "   // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
+                                + (pickupRange * 2 + 1));
             } else {
                 // 当 placeRange 等于 pickupRange 导致 getSecondaryRadius 方法返回 null 的情况
-                iProbeInfo.text(I18n.get("botanicprobe.text.pickup_range")
-                        + (placeRange * 2 + 1) + " x "
-                        + (3 * 2 + 1) + " x "   // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
-                        + (placeRange * 2 + 1));
+                ContentCollector.addText(new ItemStack(Items.COMPASS),
+                        I18n.get("botanicprobe.text.pickup_range")
+                                + (placeRange * 2 + 1) + " x "
+                                + (3 * 2 + 1) + " x "   // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
+                                + (placeRange * 2 + 1));
             }
-            iProbeInfo.text(I18n.get("botanicprobe.text.mode") + mode);
+
+            ContentCollector.addText(new ItemStack(Items.CLOCK),
+                    I18n.get("botanicprobe.text.mode") + mode);
+
             if (!recieverStack.isEmpty()) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.block_for_placement"));
-                iProbeInfo
-                        .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
-                        .item(recieverStack, iProbeInfo.defaultItemStyle().width(16).height(16))
-                        .text(recieverStack.getHoverName());   // 有图标就不用带中括号的本地化名
+                ContentCollector.addText(recieverStack,
+                        I18n.get("botanicprobe.text.block_for_placement")
+                                + recieverStack.getDisplayName().getString()); // 带中括号的本地化名
             }
 
             if (player.isCrouching()) {
@@ -73,23 +82,17 @@ public class Rannuncarpus implements IProbeInfoProvider {
                 if (!filter.isEmpty()) {
                     int rows = 0;
                     int idx = 0;
-                    IProbeInfo horizontal = null;
                     for (ItemStack stackInSlot : filter) {
-                        if (!stackInSlot.isEmpty()) {   // 不显示当物品展示框没有物品的情况
-                            if (stackInSlot.getItem() instanceof BlockItem || stackInSlot.getItem() instanceof IFlowerPlaceable) {   // 必须是可放置的方块
+                        if (!stackInSlot.isEmpty()) { // 不显示当物品展示框没有物品的情况
+                            if (stackInSlot.getItem() instanceof BlockItem || stackInSlot.getItem() instanceof IFlowerPlaceable) { // 必须是可放置的方块
                                 if (idx % 10 == 0) {
-                                    iProbeInfo.text(I18n.get("botanicprobe.text.block_to_place"));
-                                    horizontal = iProbeInfo.vertical(iProbeInfo
-                                                    .defaultLayoutStyle()
-                                                    .borderColor(TOPUtil.LIGHT_BLUE)
-                                                    .spacing(0))
-                                            .horizontal(new LayoutStyle().spacing(0));
+                                    ContentCollector.addText(I18n.get("botanicprobe.text.block_to_place"));
                                     rows++;
                                     if (rows > 4) {
                                         break;
                                     }
                                 }
-                                horizontal.item(stackInSlot);
+                                ContentCollector.addItem(stackInSlot);
                                 idx++;
                             }
                         }
@@ -125,8 +128,10 @@ public class Rannuncarpus implements IProbeInfoProvider {
                                     if (pos.getX() <= tilePos.getX() + placeRange && pos.getX() >= tilePos.getX() - placeRange &&
                                             pos.getY() <= tilePos.getY() + verticalPlaceRange && pos.getY() >= tilePos.getY() - verticalPlaceRange &&
                                             pos.getZ() <= tilePos.getZ() + placeRange && pos.getZ() >= tilePos.getZ() - placeRange) {
-                                        iProbeInfo.text(I18n.get("botanicprobe.text.binding_rannuncarpus")
-                                                + TOPUtil.getPosString(tilePos));
+                                        TOPUtil.getHorizontal(iProbeInfo)
+                                                .item(new ItemStack(ModSubtiles.rannuncarpus), new ItemStyle().width(16).height(16))
+                                                .text(I18n.get("botanicprobe.text.binding_rannuncarpus")
+                                                        + TOPUtil.getPosString(tilePos));
                                         return;
                                     }
                                 }

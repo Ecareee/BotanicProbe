@@ -1,11 +1,14 @@
 package com.ecaree.botanicprobe.botania.flower.functional;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.subtile.functional.SubTileDaffomill;
@@ -31,8 +34,10 @@ public class Daffomill implements IProbeInfoProvider {
             final boolean powered = tile.getUpdateTag().getBoolean("powered");
             String poweredName = powered ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
 
-            iProbeInfo.text(I18n.get("botanicprobe.text.direction") + directionName);
-            iProbeInfo.text(I18n.get("botanicprobe.text.powered") + poweredName);
+            ContentCollector.addText(new ItemStack(Items.COMPASS),
+                    I18n.get("botanicprobe.text.direction") + directionName);
+            ContentCollector.addText(new ItemStack(Items.REDSTONE),
+                    I18n.get("botanicprobe.text.powered") + poweredName);
         }
     }
 }

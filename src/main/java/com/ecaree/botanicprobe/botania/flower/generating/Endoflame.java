@@ -1,10 +1,13 @@
 package com.ecaree.botanicprobe.botania.flower.generating;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.subtile.generating.SubTileEndoflame;
@@ -21,9 +24,11 @@ public class Endoflame implements IProbeInfoProvider {
             final int burnTime = tile.getUpdateTag().getInt("burnTime");
 
             if (burnTime != 0 && burnTime != 1) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.burn_time") + burnTime + " Ticks");
+                ContentCollector.addText(new ItemStack(Items.BLAZE_POWDER),
+                        I18n.get("botanicprobe.text.burn_time") + burnTime + " Ticks");
             } else if (burnTime == 1) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.burn_time") + burnTime + " Tick");
+                ContentCollector.addText(new ItemStack(Items.BLAZE_POWDER),
+                        I18n.get("botanicprobe.text.burn_time") + burnTime + " Tick");
             }
         }
     }

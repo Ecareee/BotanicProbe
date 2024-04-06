@@ -1,6 +1,7 @@
 package com.ecaree.botanicprobe.botania.flower.functional;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
 import net.minecraft.client.resources.language.I18n;
@@ -10,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -38,8 +40,10 @@ public class Hopperhock implements IProbeInfoProvider {
                 default -> "null";
             };
 
-            iProbeInfo.text(I18n.get("botanicprobe.text.range") + range);
-            iProbeInfo.text(I18n.get("botanicprobe.text.mode") + mode);
+            ContentCollector.addText(new ItemStack(Items.SPYGLASS),
+                    I18n.get("botanicprobe.text.range") + range);
+            ContentCollector.addText(new ItemStack(Items.CLOCK),
+                    I18n.get("botanicprobe.text.mode") + mode);
 
             if (player.isCrouching()) {
                 List<ItemStack> items = new ArrayList<>();
@@ -54,22 +58,16 @@ public class Hopperhock implements IProbeInfoProvider {
                 if (!items.isEmpty()) {
                     int rows = 0;
                     int idx = 0;
-                    IProbeInfo horizontal = null;
                     for (ItemStack stackInSlot : items) {
                         if (!stackInSlot.isEmpty()) {   // 不显示当物品展示框没有物品的情况
                             if (idx % 10 == 0) {
-                                iProbeInfo.text(I18n.get("botanicprobe.text.filtered_items"));
-                                horizontal = iProbeInfo.vertical(iProbeInfo
-                                                .defaultLayoutStyle()
-                                                .borderColor(TOPUtil.LIGHT_BLUE)
-                                                .spacing(0))
-                                        .horizontal(new LayoutStyle().spacing(0));
+                                ContentCollector.addText(I18n.get("botanicprobe.text.filtered_items"));
                                 rows++;
                                 if (rows > 4) {
                                     break;
                                 }
                             }
-                            horizontal.item(stackInSlot);
+                            ContentCollector.addItem(stackInSlot);
                             idx++;
                         }
                     }
@@ -101,8 +99,9 @@ public class Hopperhock implements IProbeInfoProvider {
                         for (ItemStack stackInSlot : filter) {
                             if (!stackInSlot.isEmpty()) {   // 不显示当物品展示框没有物品的情况
                                 if (idx % 10 == 0) {
-                                    iProbeInfo.text(I18n.get("botanicprobe.text.filtered_items"));
-                                    horizontal = iProbeInfo.vertical(iProbeInfo
+                                    IProbeInfo box = TOPUtil.getBox(iProbeInfo);
+                                    box.text(I18n.get("botanicprobe.text.filtered_items"));
+                                    horizontal = box.vertical(iProbeInfo
                                                     .defaultLayoutStyle()
                                                     .borderColor(TOPUtil.LIGHT_BLUE)
                                                     .spacing(0))

@@ -1,12 +1,15 @@
 package com.ecaree.botanicprobe.botanicalmachinery;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import de.melanx.botanicalmachinery.blocks.tiles.BlockEntityMechanicalManaPool;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import vazkii.botania.common.item.ModItems;
 
 public class MechanicalManaPool implements IProbeInfoProvider {
     @Override
@@ -20,7 +23,7 @@ public class MechanicalManaPool implements IProbeInfoProvider {
             final int mana = tile.getCurrentMana();
             final int manaCap = tile.getManaCap();
 
-            iProbeInfo.text("Mana: " + mana + "/" + manaCap);
+            ContentCollector.addText(new ItemStack(ModItems.manasteelNugget), "Mana: " + mana + "/" + manaCap);
         }
     }
 }
