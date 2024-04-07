@@ -1,4 +1,4 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.tile;
 
 import com.ecaree.botanicprobe.util.ContentCollector;
 import com.ecaree.botanicprobe.util.TOPUtil;
@@ -7,20 +7,23 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import vazkii.botania.common.block.tile.TileSpawnerClaw;
+import vazkii.botania.common.block.tile.TileBrewery;
 
-public class SpawnerClaw implements IProbeInfoProvider {
+public class Brewery implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("spawnerclaw");
+        return TOPUtil.RL("brewery");
     }
 
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
-        if (level.getBlockEntity(data.getPos()) instanceof TileSpawnerClaw tile) {
+        if (level.getBlockEntity(data.getPos()) instanceof TileBrewery tile) {
             final int mana = tile.getCurrentMana();
+            final int targetMana = tile.getManaCost();
 
-            ContentCollector.addText(TOPUtil.MANA_STACK, "Mana: " + mana + "/" + 160); // 硬编码 160，TileSpawnerClaw.MAX_MANA = 160
+            if (targetMana != 0) {
+                ContentCollector.addTextWithProgressBar(TOPUtil.MANA_STACK, "Mana: " + mana + "/" + targetMana, mana, targetMana);
+            }
         }
     }
 }

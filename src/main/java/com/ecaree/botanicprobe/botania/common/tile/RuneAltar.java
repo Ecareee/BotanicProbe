@@ -1,4 +1,4 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.tile;
 
 import com.ecaree.botanicprobe.mixin.AccessorTileRuneAltar;
 import com.ecaree.botanicprobe.util.ContentCollector;

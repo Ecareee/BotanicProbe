@@ -1,4 +1,4 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.entity;
 
 import com.ecaree.botanicprobe.BotanicProbe;
 import com.ecaree.botanicprobe.util.TOPUtil;
