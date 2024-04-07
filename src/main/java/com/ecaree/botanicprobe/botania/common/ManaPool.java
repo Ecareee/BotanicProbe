@@ -36,6 +36,9 @@ public class ManaPool implements IProbeInfoProvider {
             } else if (level.getBlockState(data.getPos().below()).is(ModBlocks.conjurationCatalyst)) {
                 ContentCollector.addText(ModBlocks.conjurationCatalyst,
                         I18n.get("botanicprobe.text.catalyst") + ModBlocks.conjurationCatalyst.getName().getString());
+            } else if (level.getBlockState(data.getPos().below()).is(ModBlocks.manaVoid)) {
+                ContentCollector.addText(ModBlocks.manaVoid,
+                        I18n.get("botanicprobe.text.mana_void"));
             }
         }
     }

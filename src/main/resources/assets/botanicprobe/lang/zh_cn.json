@@ -60,6 +60,7 @@
   "botanicprobe.text.burst_speed": "脉冲速度: ",
   "botanicprobe.text.initially": "原来的 ",
   "botanicprobe.text.item_to_enchant": "附魔物品: ",
+  "botanicprobe.text.mana_void": "魔力销毁!",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念，保重！"
 }
