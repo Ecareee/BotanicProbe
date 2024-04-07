@@ -1,7 +1,8 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.tile;
 
-import com.ecaree.botanicprobe.TOPUtil;
 import com.ecaree.botanicprobe.mixin.AccessorTileRuneAltar;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
 import net.minecraft.client.resources.language.I18n;
@@ -27,11 +28,8 @@ public class RuneAltar implements IProbeInfoProvider {
             final int targetMana = tile.getTargetMana();
 
             if (targetMana != 0) {
-                iProbeInfo.text("Mana: " + mana + "/" + targetMana);
-                TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
+                ContentCollector.addTextWithProgressBar(TOPUtil.MANA_STACK, "Mana: " + mana + "/" + targetMana, mana, targetMana);
             }
-
-            TOPUtil.displayAnalogOutputSignal(iProbeInfo, blockState, level, data.getPos());
 
             if (player.isCrouching()) {
                 List<ItemStack> lastRecipe = ((AccessorTileRuneAltar) tile).getLastRecipe();

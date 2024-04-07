@@ -1,8 +1,10 @@
 package com.ecaree.botanicprobe.botania.flower.functional;
 
-import com.ecaree.botanicprobe.TOPUtil;
 import com.ecaree.botanicprobe.mixin.AccessorSubTileOrechid;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.apiimpl.styles.ItemStyle;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -30,17 +32,21 @@ public class Orechid implements IProbeInfoProvider {
             if (coords != null) {
                 BlockState state = ((AccessorSubTileOrechid) tile).invokeGetOreToPut(coords, level.getBlockState(coords));
                 if (state != null) {
-                    String name = new ItemStack(state.getBlock().asItem()).getDisplayName().getString();   // 带中括号的本地化名
+                    ItemStack item = new ItemStack(state.getBlock());
+                    String name = item.getDisplayName().getString(); // 带中括号的本地化名
                     int cooldown = tile.getDelay() - ticksExisted % tile.getDelay();
 
-                    iProbeInfo.text(I18n.get("botanicprobe.text.replacing_block") + " "
-                            + TOPUtil.getPosString(coords) + " "
-                            + I18n.get("botanicprobe.text.with")
-                            + name);
+                    ContentCollector.addText(item,
+                            I18n.get("botanicprobe.text.replacing_block") + " "
+                                    + TOPUtil.getPosString(coords) + " "
+                                    + I18n.get("botanicprobe.text.with")
+                                    + name);
                     if (cooldown != 1) {
-                        iProbeInfo.text(I18n.get("botanicprobe.text.cooldown") + cooldown + " Ticks");
+                        ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
+                                I18n.get("botanicprobe.text.cooldown") + cooldown + " Ticks");
                     } else {
-                        iProbeInfo.text(I18n.get("botanicprobe.text.cooldown") + cooldown + " Tick");
+                        ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
+                                I18n.get("botanicprobe.text.cooldown") + cooldown + " Tick");
                     }
                 }
             }
@@ -67,12 +73,15 @@ public class Orechid implements IProbeInfoProvider {
                                 if (coords != null) {
                                     BlockState state = ((AccessorSubTileOrechid) tile).invokeGetOreToPut(coords, level.getBlockState(coords));
                                     if (state != null) {
-                                        String name = new ItemStack(state.getBlock().asItem()).getDisplayName().getString();   // 带中括号的本地化名
+                                        ItemStack item = new ItemStack(state.getBlock());
+                                        String name = item.getDisplayName().getString(); // 带中括号的本地化名
 
                                         if (coords.equals(data.getPos())) {
-                                            iProbeInfo.text(I18n.get("botanicprobe.text.replacing_block")
-                                                    + I18n.get("botanicprobe.text.with")
-                                                    + name);
+                                            TOPUtil.getHorizontal(iProbeInfo)
+                                                    .item(item, new ItemStyle().width(16).height(16))
+                                                    .text(I18n.get("botanicprobe.text.replacing_block")
+                                                            + I18n.get("botanicprobe.text.with")
+                                                            + name);
                                             return;
                                         }
                                     }

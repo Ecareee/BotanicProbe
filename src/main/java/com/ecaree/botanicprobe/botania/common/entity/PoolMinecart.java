@@ -1,7 +1,9 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.entity;
 
 import com.ecaree.botanicprobe.BotanicProbe;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.apiimpl.styles.ItemStyle;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -20,7 +22,9 @@ public class PoolMinecart implements IProbeInfoEntityProvider {
             final int mana = minecart.getMana();
             final int manaCap = TilePool.MAX_MANA;
 
-            iProbeInfo.text("Mana: " + mana + "/" + manaCap);
+            TOPUtil.getHorizontal(iProbeInfo)
+                    .item(TOPUtil.MANA_STACK, new ItemStyle().width(16).height(16))
+                    .text("Mana: " + mana + "/" + manaCap);
         }
     }
 }

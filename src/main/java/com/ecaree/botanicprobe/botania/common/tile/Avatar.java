@@ -1,4 +1,4 @@
-package com.ecaree.botanicprobe.botania.flower.functional;
+package com.ecaree.botanicprobe.botania.common.tile;
 
 import com.ecaree.botanicprobe.util.ContentCollector;
 import com.ecaree.botanicprobe.util.TOPUtil;
@@ -7,23 +7,22 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import vazkii.botania.common.block.subtile.functional.SubTileDaffomill;
+import vazkii.botania.common.block.tile.TileAvatar;
 
-public class Daffomill implements IProbeInfoProvider {
+public class Avatar implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("daffomill");
+        return TOPUtil.RL("avatar");
     }
 
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
-        if (level.getBlockEntity(data.getPos()) instanceof SubTileDaffomill tile) {
-            final int orientation = tile.getUpdateTag().getInt("orientation");
-            Direction direction = Direction.from3DDataValue(orientation);
+        if (level.getBlockEntity(data.getPos()) instanceof TileAvatar tile) {
+            final int mana = tile.getCurrentMana();
+//            Map<UUID, Integer> boostCooldowns = tile.getBoostCooldowns(); 不知道有什么用。
+            Direction direction = tile.getAvatarFacing();
             String directionName = switch (direction) {
                 case NORTH -> I18n.get("botanicprobe.text.north");
                 case SOUTH -> I18n.get("botanicprobe.text.south");
@@ -31,13 +30,10 @@ public class Daffomill implements IProbeInfoProvider {
                 case EAST -> I18n.get("botanicprobe.text.east");
                 default -> "null";
             };
-            final boolean powered = tile.getUpdateTag().getBoolean("powered");
-            String poweredName = powered ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
 
+            ContentCollector.addText(TOPUtil.MANA_STACK, "Mana: " + mana + "/" + 6400); // 硬编码 6400，TileAvatar.MAX_MANA = 6400
             ContentCollector.addText(TOPUtil.COMPASS,
                     I18n.get("botanicprobe.text.direction") + directionName);
-            ContentCollector.addText(new ItemStack(Items.REDSTONE),
-                    I18n.get("botanicprobe.text.powered") + poweredName);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.ecaree.botanicprobe.botanicalmachinery;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import de.melanx.botanicalmachinery.blocks.tiles.BlockEntityMechanicalApothecary;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
@@ -23,10 +24,11 @@ public class WorkingTile implements IProbeInfoProvider {
             final int maxProgress = tile.getMaxProgress();
 
             if (manaCap != 0) {
-                iProbeInfo.text("Mana: " + mana + "/" + manaCap);
+                ContentCollector.addText(TOPUtil.MANA_STACK, "Mana: " + mana + "/" + manaCap);
             }
+
             if (progress != 0) {
-                TOPUtil.setProgressBar(iProbeInfo, progress, maxProgress);
+                ContentCollector.addProgressBar(progress, maxProgress);
             }
         }
     }

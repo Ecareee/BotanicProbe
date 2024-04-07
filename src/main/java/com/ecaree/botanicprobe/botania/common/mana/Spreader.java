@@ -1,7 +1,8 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.mana;
 
-import com.ecaree.botanicprobe.TOPUtil;
 import com.ecaree.botanicprobe.mixin.AccessorTileSpreader;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +28,7 @@ public class Spreader implements IProbeInfoProvider {
             final int mana = tile.getCurrentMana();
             final int manaMax = tile.getMaxMana();
 
-            iProbeInfo.text("Mana: " + mana + "/" + manaMax);
+            ContentCollector.addText("Mana: " + mana + "/" + manaMax);
 
             EntityManaBurst burst = ((AccessorTileSpreader) tile).invokeGetBurst(true);
             ItemStack lens = burst.getSourceLens();
@@ -54,30 +55,31 @@ public class Spreader implements IProbeInfoProvider {
                 currentManaLossPerTick = originalManaLossPerTick;
                 currentMotionModifier = originalMotionModifier;
             }
-            displayWithCheckingValue(iProbeInfo, I18n.get("botanicprobe.text.burst_mana"), currentBurstMana, originalBurstMana, " Mana");
-            displayWithCheckingValue(iProbeInfo, I18n.get("botanicprobe.text.time_before_mana_loss"), currentTicksBeforeManaLoss, originalTicksBeforeManaLoss, " Ticks");
-            displayWithCheckingValue(iProbeInfo, I18n.get("botanicprobe.text.mana_loss_speed"), currentManaLossPerTick, originalManaLossPerTick, " Mana / Tick");
-            displayWithCheckingValue(iProbeInfo, I18n.get("botanicprobe.text.burst_speed"), currentMotionModifier, originalMotionModifier, I18n.get("botanicprobe.text.times"));
+
+            displayWithCheckingValue(I18n.get("botanicprobe.text.burst_mana"), currentBurstMana, originalBurstMana, " Mana");
+            displayWithCheckingValue(I18n.get("botanicprobe.text.time_before_mana_loss"), currentTicksBeforeManaLoss, originalTicksBeforeManaLoss, " Ticks");
+            displayWithCheckingValue(I18n.get("botanicprobe.text.mana_loss_speed"), currentManaLossPerTick, originalManaLossPerTick, " Mana / Tick");
+            displayWithCheckingValue(I18n.get("botanicprobe.text.burst_speed"), currentMotionModifier, originalMotionModifier, I18n.get("botanicprobe.text.times"));
         }
     }
 
-    private void displayWithCheckingValue(IProbeInfo iProbeInfo, String label, int currentValue, int originalValue, String unit) {
+    private void displayWithCheckingValue(String label, int currentValue, int originalValue, String unit) {
         java.text.NumberFormat percentFormat = java.text.NumberFormat.getPercentInstance();
         if (currentValue == originalValue) {
-            iProbeInfo.text(label + currentValue + unit);
+            ContentCollector.addText(label + currentValue + unit);
         } else {
-            iProbeInfo.text(label + currentValue + unit
+            ContentCollector.addText(label + currentValue + unit
                     + " (" + I18n.get("botanicprobe.text.initially")
                     + percentFormat.format((float) currentValue / originalValue) + ")");
         }
     }
 
-    private void displayWithCheckingValue(IProbeInfo iProbeInfo, String label, float currentValue, float originalValue, String unit) {
+    private void displayWithCheckingValue(String label, float currentValue, float originalValue, String unit) {
         java.text.NumberFormat percentFormat = java.text.NumberFormat.getPercentInstance();
         if (currentValue == originalValue) {
-            iProbeInfo.text(label + currentValue + unit);
+            ContentCollector.addText(label + currentValue + unit);
         } else {
-            iProbeInfo.text(label + currentValue + unit
+            ContentCollector.addText(label + currentValue + unit
                     + " (" + I18n.get("botanicprobe.text.initially")
                     + percentFormat.format(currentValue / originalValue) + ")");
         }

@@ -50,7 +50,8 @@
   "botanicprobe.text.pickup_range": "Pickup range: ",
   "botanicprobe.text.block_for_placement": "Block for placement: ",
   "botanicprobe.text.block_to_place": "Block to place: ",
-  "botanicprobe.text.redstone_signal_output": "Redstone signal output: ",
+  "botanicprobe.text.analog_signal_output": "Analog signal output: ",
+  "botanicprobe.text.redstone_signal_accepted": "Restone signal accepted: ",
   "botanicprobe.text.last_recipe": "Last recipe: ",
   "botanicprobe.text.catalyst": "Catalyst: ",
   "botanicprobe.text.burst_mana": "Burst mana: ",
@@ -59,6 +60,7 @@
   "botanicprobe.text.burst_speed": "Burst speed: ",
   "botanicprobe.text.initially": "Initially ",
   "botanicprobe.text.item_to_enchant": "Item to enchant: ",
+  "botanicprobe.text.mana_void": "Mana void!",
 
-  "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design concept of Botania.$(p)Botania is a tech mod."
+  "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design philosophy of Botania, take care!"
 }

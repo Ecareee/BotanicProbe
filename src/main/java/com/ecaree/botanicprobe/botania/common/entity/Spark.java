@@ -1,7 +1,9 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.entity;
 
 import com.ecaree.botanicprobe.BotanicProbe;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.apiimpl.styles.ItemStyle;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -43,9 +45,8 @@ public class Spark implements IProbeInfoEntityProvider {
             }
 
             if (itemStack != null && !upgradeName.equals("null")) {
-                iProbeInfo
-                        .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
-                        .item(itemStack, iProbeInfo.defaultItemStyle().width(14).height(14))
+                TOPUtil.getHorizontal(iProbeInfo)
+                        .item(itemStack, new ItemStyle().width(16).height(16))
                         .text(upgradeName);
             }
         }

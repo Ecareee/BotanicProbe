@@ -1,6 +1,11 @@
 package com.ecaree.botanicprobe;
 
 import com.ecaree.botanicprobe.botania.common.*;
+import com.ecaree.botanicprobe.botania.common.entity.PoolMinecart;
+import com.ecaree.botanicprobe.botania.common.entity.Spark;
+import com.ecaree.botanicprobe.botania.common.mana.ManaPool;
+import com.ecaree.botanicprobe.botania.common.mana.Spreader;
+import com.ecaree.botanicprobe.botania.common.tile.*;
 import com.ecaree.botanicprobe.botania.flower.PureDaisy;
 import com.ecaree.botanicprobe.botania.flower.SpecialFlower;
 import com.ecaree.botanicprobe.botania.flower.functional.*;
@@ -14,16 +19,29 @@ import java.util.function.Function;
 public class TOPHandler implements Function<ITheOneProbe, Void>  {
     @Override
     public Void apply(ITheOneProbe iTheOneProbe) {
+        iTheOneProbe.registerProvider(new Avatar());
+        iTheOneProbe.registerProvider(new Brewery());
         iTheOneProbe.registerProvider(new CellBlock());
+        iTheOneProbe.registerProvider(new Enchanter());
         iTheOneProbe.registerProvider(new ManaPool());
+        iTheOneProbe.registerEntityProvider(new PoolMinecart());
+        iTheOneProbe.registerProvider(new RedString());
         iTheOneProbe.registerProvider(new RuneAltar());
         iTheOneProbe.registerEntityProvider(new Spark());
+        iTheOneProbe.registerProvider(new SpawnerClaw());
         iTheOneProbe.registerProvider(new Spreader());
         iTheOneProbe.registerProvider(new TerraPlate());
+
+        iTheOneProbe.registerProvider(new TileMod());
 
         iTheOneProbe.registerProvider(new SpecialFlower());
 
         // 使其注册晚于 `SpecialFlower` 以调整显示顺序
+        iTheOneProbe.registerProvider(new Clayconia());
+        iTheOneProbe.registerProvider(new Daffomill());
+        iTheOneProbe.registerProvider(new Orechid());
+        iTheOneProbe.registerProvider(new Rannuncarpus());
+        iTheOneProbe.registerProvider(new Spectranthemum());
         iTheOneProbe.registerProvider(new ArcaneRose());
         iTheOneProbe.registerProvider(new Endoflame());
         iTheOneProbe.registerProvider(new Gourmaryllis());
@@ -32,13 +50,6 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new Rafflowsia());
         iTheOneProbe.registerProvider(new Spectrolus());
         iTheOneProbe.registerProvider(new PureDaisy());
-        iTheOneProbe.registerProvider(new Spectranthemum());
-        iTheOneProbe.registerProvider(new Clayconia());
-        iTheOneProbe.registerProvider(new Orechid());
-        iTheOneProbe.registerProvider(new Daffomill());
-        iTheOneProbe.registerProvider(new Rannuncarpus());
-        iTheOneProbe.registerProvider(new Enchanter());
-        iTheOneProbe.registerEntityProvider(new PoolMinecart());
 
         if (ModList.get().isLoaded("botanicalmachinery")) {
             iTheOneProbe.registerProvider(new ManaBattery());
@@ -48,8 +59,11 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
             iTheOneProbe.registerProvider(new WorkingTile());
         }
 
-        // 晚于植物机械容器的注册
+        // 晚于作为容器的植物机械的注册
         iTheOneProbe.registerProvider(new Hopperhock());
+
+        // 晚于其他任何注册
+        iTheOneProbe.registerProvider(new Tile());
 
         return null;
     }

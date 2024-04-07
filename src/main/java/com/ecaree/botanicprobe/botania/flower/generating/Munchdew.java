@@ -1,6 +1,7 @@
 package com.ecaree.botanicprobe.botania.flower.generating;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
@@ -21,9 +22,11 @@ public class Munchdew implements IProbeInfoProvider {
             final int cooldown = tile.getUpdateTag().getInt(SubTileMunchdew.TAG_COOLDOWN);
 
             if (cooldown != 0 && cooldown != 1) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.cooldown") + cooldown + " Ticks");
+                ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
+                        I18n.get("botanicprobe.text.cooldown") + cooldown + " Ticks");
             } else if (cooldown == 1) {
-                iProbeInfo.text(I18n.get("botanicprobe.text.cooldown") + cooldown + " Tick");
+                ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
+                        I18n.get("botanicprobe.text.cooldown") + cooldown + " Tick");
             }
         }
     }

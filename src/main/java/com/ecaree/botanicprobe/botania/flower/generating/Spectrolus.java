@@ -1,6 +1,7 @@
 package com.ecaree.botanicprobe.botania.flower.generating;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
@@ -26,11 +27,9 @@ public class Spectrolus implements IProbeInfoProvider {
             Block block = ColorHelper.WOOL_MAP.apply(DyeColor.byId(nextColor));
             ItemStack itemStack = new ItemStack(block);
 
-            iProbeInfo.text(I18n.get("botanicprobe.text.required_wool"));
-            iProbeInfo
-                    .horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER))
-                    .item(itemStack, iProbeInfo.defaultItemStyle().width(16).height(16))
-                    .text(itemStack.getDescriptionId());
+            ContentCollector.addText(itemStack,
+                    I18n.get("botanicprobe.text.required_wool")
+                            + itemStack.getDisplayName().getString());
         }
     }
 }

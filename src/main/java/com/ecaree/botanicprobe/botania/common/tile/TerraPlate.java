@@ -1,6 +1,7 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.tile;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -22,11 +23,10 @@ public class TerraPlate implements IProbeInfoProvider {
             final int targetMana = TilePool.MAX_MANA / 2;
 
             if (mana != 0) {
-                iProbeInfo.text("Mana: " + mana + "/" + targetMana);
-                TOPUtil.setProgressBar(iProbeInfo, mana, targetMana);
+                ContentCollector.addTextWithProgressBar(TOPUtil.MANA_STACK,
+                        "Mana: " + mana + "/" + targetMana,
+                        mana, targetMana);
             }
-
-            TOPUtil.displayAnalogOutputSignal(iProbeInfo, blockState, level, data.getPos());
         }
     }
 }

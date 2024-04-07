@@ -1,11 +1,14 @@
-package com.ecaree.botanicprobe.botania.common;
+package com.ecaree.botanicprobe.botania.common.tile;
 
-import com.ecaree.botanicprobe.TOPUtil;
+import com.ecaree.botanicprobe.util.ContentCollector;
+import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.tile.TileCell;
@@ -22,23 +25,28 @@ public class CellBlock implements IProbeInfoProvider {
             final int generation = tile.getGeneration();
             final boolean ticked = tile.getUpdateTag().getBoolean("ticked");
 
-            iProbeInfo.text(I18n.get("botanicprobe.text.cell_generation") + generation);
+            ContentCollector.addText(new ItemStack(Items.MEDIUM_AMETHYST_BUD),
+                    I18n.get("botanicprobe.text.cell_generation") + generation);
 
             if (ticked) {
                 final int flowerX = tile.getUpdateTag().getInt("flowerX");
                 final int flowerY = tile.getUpdateTag().getInt("flowerY");
                 final int flowerZ = tile.getUpdateTag().getInt("flowerZ");
                 BlockPos flowerPos = new BlockPos(flowerX, flowerY, flowerZ);
+
                 if (level.hasNeighborSignal(flowerPos)) {
-                    iProbeInfo.text(I18n.get("botanicprobe.text.status")
-                            + I18n.get("botanicprobe.text.status_working"));
+                    ContentCollector.addText(TOPUtil.STATUS_STACK,
+                            I18n.get("botanicprobe.text.status")
+                                    + I18n.get("botanicprobe.text.status_working"));
                 } else {
-                    iProbeInfo.text(I18n.get("botanicprobe.text.status")
-                            + I18n.get("botanicprobe.text.status_dandelifeon_not_working"));
+                    ContentCollector.addText(TOPUtil.STATUS_STACK,
+                            I18n.get("botanicprobe.text.status")
+                                    + I18n.get("botanicprobe.text.status_dandelifeon_not_working"));
                 }
             } else {
-                iProbeInfo.text(I18n.get("botanicprobe.text.status")
-                        + I18n.get("botanicprobe.text.status_idle"));
+                ContentCollector.addText(TOPUtil.STATUS_STACK,
+                        I18n.get("botanicprobe.text.status")
+                                + I18n.get("botanicprobe.text.status_idle"));
             }
         }
     }
