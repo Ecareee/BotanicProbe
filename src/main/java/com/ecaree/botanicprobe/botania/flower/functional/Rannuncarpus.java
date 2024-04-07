@@ -53,14 +53,14 @@ public class Rannuncarpus implements IProbeInfoProvider {
             if (secondaryRadius != null) {
                 final int pickupRange = convertRectangleToRadius((RadiusDescriptor.Rectangle) secondaryRadius);
 
-                ContentCollector.addText(new ItemStack(Items.COMPASS),
+                ContentCollector.addText(TOPUtil.COMPASS,
                         I18n.get("botanicprobe.text.pickup_range")
                                 + (pickupRange * 2 + 1) + " x "
                                 + (3 * 2 + 1) + " x " // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
                                 + (pickupRange * 2 + 1));
             } else {
                 // 当 placeRange 等于 pickupRange 导致 getSecondaryRadius 方法返回 null 的情况
-                ContentCollector.addText(new ItemStack(Items.COMPASS),
+                ContentCollector.addText(TOPUtil.COMPASS,
                         I18n.get("botanicprobe.text.pickup_range")
                                 + (placeRange * 2 + 1) + " x "
                                 + (3 * 2 + 1) + " x " // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3

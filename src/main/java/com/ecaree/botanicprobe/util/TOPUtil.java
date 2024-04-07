@@ -26,6 +26,7 @@ public class TOPUtil {
     public static final ItemStack STATUS_STACK = new ItemStack(Items.CLOCK);
     public static final ItemStack WAND_STACK = new ItemStack(ModItems.twigWand);
     public static final ItemStack COOLDOWN_STACK = new ItemStack(Items.SNOWBALL);
+    public static final ItemStack COMPASS = new ItemStack(Items.COMPASS);
 
     public static void setProgressBar(IProbeInfo iProbeInfo, int progress, int maxProgress) {
         iProbeInfo.progress(progress, maxProgress, new ProgressStyle()

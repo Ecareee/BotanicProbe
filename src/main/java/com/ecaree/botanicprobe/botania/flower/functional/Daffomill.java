@@ -34,7 +34,7 @@ public class Daffomill implements IProbeInfoProvider {
             final boolean powered = tile.getUpdateTag().getBoolean("powered");
             String poweredName = powered ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
 
-            ContentCollector.addText(new ItemStack(Items.COMPASS),
+            ContentCollector.addText(TOPUtil.COMPASS,
                     I18n.get("botanicprobe.text.direction") + directionName);
             ContentCollector.addText(new ItemStack(Items.REDSTONE),
                     I18n.get("botanicprobe.text.powered") + poweredName);
