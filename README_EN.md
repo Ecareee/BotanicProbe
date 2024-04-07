@@ -9,8 +9,8 @@ it also reduces the original fun of Botania to a certain extent, just like Botan
 So, if you appreciate the unique design philosophy of Botania, do not install this mod!
 
 ### Credits
-Ideas come from：[TOP Community Edition](https://github.com/ukmojb/The-One-Probe-Community-Edition/tree/main/src/main/java/mcjty/theoneprobe/mods/botania), [Extra Botany](https://github.com/ExtraMeteorP/Extra-Botany/tree/master/src/main/java/com/meteor/extrabotany/client/integration/theoneprobe), [KJS Tricks](https://www.mcmod.cn/post/3406.html)<br>
-Style creativity comes from：[EioBox](https://github.com/SleepyTrousers/EnderIO-1.5-1.12/blob/master/enderio-base/src/main/java/crazypants/enderio/base/integration/top/TOPCompatibility.java)
+Ideas come from: [TOP Community Edition](https://github.com/ukmojb/The-One-Probe-Community-Edition/tree/main/src/main/java/mcjty/theoneprobe/mods/botania), [Extra Botany](https://github.com/ExtraMeteorP/Extra-Botany/tree/master/src/main/java/com/meteor/extrabotany/client/integration/theoneprobe), [KJS Tricks](https://www.mcmod.cn/post/3406.html)<br>
+Style creativity comes from: [EioBox](https://github.com/SleepyTrousers/EnderIO-1.5-1.12/blob/master/enderio-base/src/main/java/crazypants/enderio/base/integration/top/TOPCompatibility.java)
 
 ### Compiling
 - Clone the repository.
