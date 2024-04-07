@@ -14,6 +14,7 @@ import java.util.function.Function;
 public class TOPHandler implements Function<ITheOneProbe, Void>  {
     @Override
     public Void apply(ITheOneProbe iTheOneProbe) {
+        iTheOneProbe.registerProvider(new Avatar());
         iTheOneProbe.registerProvider(new Brewery());
         iTheOneProbe.registerProvider(new CellBlock());
         iTheOneProbe.registerProvider(new Enchanter());
@@ -22,6 +23,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new RedString());
         iTheOneProbe.registerProvider(new RuneAltar());
         iTheOneProbe.registerEntityProvider(new Spark());
+        iTheOneProbe.registerProvider(new SpawnerClaw());
         iTheOneProbe.registerProvider(new Spreader());
         iTheOneProbe.registerProvider(new TerraPlate());
 
