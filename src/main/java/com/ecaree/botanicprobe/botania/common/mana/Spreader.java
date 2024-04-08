@@ -33,7 +33,7 @@ public class Spreader implements IProbeInfoProvider {
             if (bindingPos != null) {
                 ContentCollector.addText(I18n.get("botanicprobe.text.binding") + TOPUtil.getPosString(bindingPos));
             } else {
-                ContentCollector.addText(I18n.get("botanicprobe.text.nonbound"));
+                ContentCollector.addText(I18n.get("botanicprobe.text.unbound"));
             }
 
             ContentCollector.addText("Mana: " + mana + "/" + manaMax);

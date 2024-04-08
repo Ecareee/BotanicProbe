@@ -34,7 +34,7 @@ public class SpecialFlower implements IProbeInfoProvider {
                             I18n.get("botanicprobe.text.binding")
                                     + TOPUtil.getPosString(generatingFlower.getBindingPos()));
                 } else {
-                    text1 = I18n.get("botanicprobe.text.nonbound");
+                    text1 = I18n.get("botanicprobe.text.unbound");
 
                     if (generatingFlower.getBindingPos() != null) {
                         text2 = I18n.get("botanicprobe.text.last_binding")
@@ -62,7 +62,7 @@ public class SpecialFlower implements IProbeInfoProvider {
                             I18n.get("botanicprobe.text.binding")
                                     + TOPUtil.getPosString(functionalFlower.getBindingPos()));
                 } else {
-                    text1 = I18n.get("botanicprobe.text.nonbound");
+                    text1 = I18n.get("botanicprobe.text.unbound");
 
                     if (functionalFlower.getBindingPos() != null) {
                         text2 = I18n.get("botanicprobe.text.last_binding")

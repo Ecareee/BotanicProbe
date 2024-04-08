@@ -33,7 +33,7 @@ public class LightRelay implements IProbeInfoProvider {
                         I18n.get("botanicprobe.text.binding")
                                 + TOPUtil.getPosString(tile.getBinding()));
             } else {
-                text1 = I18n.get("botanicprobe.text.nonbound");
+                text1 = I18n.get("botanicprobe.text.unbound");
 
                 if (!tile.getBinding().equals(ITileBound.UNBOUND_POS)) {
                     text2 = I18n.get("botanicprobe.text.last_binding")

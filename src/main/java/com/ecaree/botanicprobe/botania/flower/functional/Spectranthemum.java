@@ -39,7 +39,7 @@ public class Spectranthemum implements IProbeInfoProvider {
                         I18n.get("botanicprobe.text.binding_block")
                                 + TOPUtil.getPosString(blockPos));
             } else {
-                text1 = I18n.get("botanicprobe.text.nonbound_block");
+                text1 = I18n.get("botanicprobe.text.unbound_block");
 
                 if (!blockPos.equals(ITileBound.UNBOUND_POS)) { // 即曾经被绑定过某个方块
                     text2 = I18n.get("botanicprobe.text.last_binding_block")
