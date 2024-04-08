@@ -9,8 +9,10 @@ import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import vazkii.botania.api.item.IFlowerPlaceable;
 import vazkii.botania.common.item.ModItems;
 
 import java.awt.*;
@@ -70,14 +72,58 @@ public class TOPUtil {
                                 .text(content.getText());
                         break;
                     case ITEMS:
-                        if (itemHorizontal == null) { // 防止每个物品都有一个边框
-                            itemHorizontal = horizontal.vertical(probeInfo
-                                            .defaultLayoutStyle()
-                                            .borderColor(TOPUtil.LIGHT_BLUE)
-                                            .spacing(0))
-                                    .horizontal(new LayoutStyle().spacing(0));
+                        // 尝试修复两个边框间间距问题
+                        if (content.getItems() != null) {
+                            int rows = 0;
+                            int idx = 0;
+                            IProbeInfo vertical = horizontal.vertical();
+
+                            for (ItemStack stackInSlot : content.getItems()) {
+                                if (!stackInSlot.isEmpty()) { // 跳过空物品
+                                    if (!content.isCheckPlaceable()) {
+                                        preprocessItems(rows, idx, vertical, content);
+
+                                        if (itemHorizontal == null) { // 防止每个物品都有一个边框
+                                            itemHorizontal = vertical
+                                                    .vertical(probeInfo
+                                                            .defaultLayoutStyle()
+                                                            .borderColor(TOPUtil.LIGHT_BLUE)
+                                                            .spacing(0))
+                                                    .horizontal(new LayoutStyle().spacing(0));
+                                        }
+
+                                        itemHorizontal.item(stackInSlot);
+
+                                        if (content.isSetCount()) {
+                                            content.getItems().get(0).setCount(content.getCount());
+                                        }
+
+                                        idx++;
+                                    } else {
+                                        if (stackInSlot.getItem() instanceof BlockItem || stackInSlot.getItem() instanceof IFlowerPlaceable) { // 必须是可放置的方块
+                                            preprocessItems(rows, idx, vertical, content);
+
+                                            if (itemHorizontal == null) { // 防止每个物品都有一个边框
+                                                itemHorizontal = vertical
+                                                        .vertical(probeInfo
+                                                                .defaultLayoutStyle()
+                                                                .borderColor(TOPUtil.LIGHT_BLUE)
+                                                                .spacing(0))
+                                                        .horizontal(new LayoutStyle().spacing(0));
+                                            }
+
+                                            itemHorizontal.item(stackInSlot);
+
+                                            if (content.isSetCount()) {
+                                                content.getItems().get(0).setCount(content.getCount());
+                                            }
+
+                                            idx++;
+                                        }
+                                    }
+                                }
+                            }
                         }
-                        itemHorizontal.item(content.getItem());
                         break;
                     case PROGRESS_BAR:
                         setProgressBar(horizontal, content.getProgress(), content.getMaxProgress());
@@ -99,6 +145,17 @@ public class TOPUtil {
 
     public static IProbeInfo getHorizontal(IProbeInfo probeInfo) {
         return getBox(probeInfo).horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(PADDING));
+    }
+
+    // 把 itemHorizontal.item 也提取进来有 BUGS
+    private static void preprocessItems(int rows, int idx, IProbeInfo vertical, BoxContent content) {
+        if (idx % 10 == 0) {
+            vertical.text(content.getText());
+            rows++;
+            if (rows > 4) {
+                return;
+            }
+        }
     }
 
     public static ResourceLocation RL(String rlName) {

@@ -57,21 +57,9 @@ public class Rafflowsia implements IProbeInfoProvider {
 
             if (player.isCrouching()) {
                 List<ItemStack> lastFlowersStack = convertBlockListTagToItemStack(lastFlowers);
+
                 if (!lastFlowersStack.isEmpty()) {
-                    int rows = 0;
-                    int idx = 0;
-                    for (ItemStack stackInSlot : lastFlowersStack) {
-                        if (idx % 10 == 0) {
-                            ContentCollector.addText(I18n.get("botanicprobe.text.last_flowers"));
-                            rows++;
-                            if (rows > 4) {
-                                break;
-                            }
-                        }
-                        ContentCollector.addItem(stackInSlot);
-                        lastFlowersStack.get(0).setCount(lastFlowerTimes);
-                        idx++;
-                    }
+                    ContentCollector.addText(lastFlowersStack, I18n.get("botanicprobe.text.last_flowers"), false, true, lastFlowerTimes);
                 }
             }
         }

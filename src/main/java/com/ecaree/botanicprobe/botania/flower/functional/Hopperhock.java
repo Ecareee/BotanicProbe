@@ -56,21 +56,7 @@ public class Hopperhock implements IProbeInfoProvider {
                 }
 
                 if (!items.isEmpty()) {
-                    int rows = 0;
-                    int idx = 0;
-                    for (ItemStack stackInSlot : items) {
-                        if (!stackInSlot.isEmpty()) { // 不显示当物品展示框没有物品的情况
-                            if (idx % 10 == 0) {
-                                ContentCollector.addText(I18n.get("botanicprobe.text.filtered_items"));
-                                rows++;
-                                if (rows > 4) {
-                                    break;
-                                }
-                            }
-                            ContentCollector.addItem(stackInSlot);
-                            idx++;
-                        }
-                    }
+                    ContentCollector.addText(items, I18n.get("botanicprobe.text.filtered_items"), false, false);
                 }
             }
         }
@@ -99,7 +85,7 @@ public class Hopperhock implements IProbeInfoProvider {
                         for (ItemStack stackInSlot : filter) {
                             if (!stackInSlot.isEmpty()) { // 不显示当物品展示框没有物品的情况
                                 if (idx % 10 == 0) {
-                                    IProbeInfo box = TOPUtil.getBox(iProbeInfo);
+                                    IProbeInfo box = TOPUtil.getBox(iProbeInfo); // 不使用 getHorizontal 方法防止对齐问题
                                     box.text(I18n.get("botanicprobe.text.filtered_items"));
                                     horizontal = box.vertical(iProbeInfo
                                                     .defaultLayoutStyle()

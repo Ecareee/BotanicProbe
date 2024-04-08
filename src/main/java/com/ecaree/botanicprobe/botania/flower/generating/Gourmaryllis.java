@@ -67,21 +67,9 @@ public class Gourmaryllis implements IProbeInfoProvider {
 
             if (player.isCrouching()) {
                 List<ItemStack> lastFoodsStack = convertListTagToItemStack(lastFoods);
+
                 if (!lastFoodsStack.isEmpty()) {
-                    int rows = 0;
-                    int idx = 0;
-                    for (ItemStack stackInSlot : lastFoodsStack) {
-                        if (idx % 10 == 0) {
-                            ContentCollector.addText(I18n.get("botanicprobe.text.last_foods"));
-                            rows++;
-                            if (rows > 4) {
-                                break;
-                            }
-                        }
-                        ContentCollector.addItem(stackInSlot);
-                        lastFoodsStack.get(0).setCount(lastFoodCount);
-                        idx++;
-                    }
+                    ContentCollector.addText(lastFoodsStack, I18n.get("botanicprobe.text.last_foods"), false, true, lastFoodCount);
                 }
             }
         }

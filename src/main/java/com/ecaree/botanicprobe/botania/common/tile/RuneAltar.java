@@ -4,7 +4,6 @@ import com.ecaree.botanicprobe.mixin.AccessorTileRuneAltar;
 import com.ecaree.botanicprobe.util.ContentCollector;
 import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
-import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -33,26 +32,9 @@ public class RuneAltar implements IProbeInfoProvider {
 
             if (player.isCrouching()) {
                 List<ItemStack> lastRecipe = ((AccessorTileRuneAltar) tile).getLastRecipe();
+
                 if (lastRecipe != null) {
-                    iProbeInfo.text(I18n.get("botanicprobe.text.last_recipe"));
-                    int rows = 0;
-                    int idx = 0;
-                    IProbeInfo horizontal = null;
-                    for (ItemStack stackInSlot : lastRecipe) {
-                        if (idx % 10 == 0) {
-                            horizontal = iProbeInfo.vertical(iProbeInfo
-                                            .defaultLayoutStyle()
-                                            .borderColor(TOPUtil.LIGHT_BLUE)
-                                            .spacing(0))
-                                    .horizontal(new LayoutStyle().spacing(0));
-                            rows++;
-                            if (rows > 4) {
-                                break;
-                            }
-                        }
-                        horizontal.item(stackInSlot);
-                        idx++;
-                    }
+                    ContentCollector.addText(lastRecipe, I18n.get("botanicprobe.text.last_recipe"), false, false);
                 }
             }
         }

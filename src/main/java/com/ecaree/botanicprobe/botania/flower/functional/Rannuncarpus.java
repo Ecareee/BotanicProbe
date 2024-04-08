@@ -9,7 +9,6 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ChunkPos;
@@ -19,7 +18,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.phys.AABB;
-import vazkii.botania.api.item.IFlowerPlaceable;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 import vazkii.botania.common.block.ModSubtiles;
 import vazkii.botania.common.block.subtile.functional.SubTileHopperhock;
@@ -80,23 +78,7 @@ public class Rannuncarpus implements IProbeInfoProvider {
                 List<ItemStack> filter = SubTileHopperhock.getFilterForInventory(level, ((AccessorSubTileRannuncarpus) tile).invokeGetFilterPos(), false);
 
                 if (!filter.isEmpty()) {
-                    int rows = 0;
-                    int idx = 0;
-                    for (ItemStack stackInSlot : filter) {
-                        if (!stackInSlot.isEmpty()) { // 不显示当物品展示框没有物品的情况
-                            if (stackInSlot.getItem() instanceof BlockItem || stackInSlot.getItem() instanceof IFlowerPlaceable) { // 必须是可放置的方块
-                                if (idx % 10 == 0) {
-                                    ContentCollector.addText(I18n.get("botanicprobe.text.block_to_place"));
-                                    rows++;
-                                    if (rows > 4) {
-                                        break;
-                                    }
-                                }
-                                ContentCollector.addItem(stackInSlot);
-                                idx++;
-                            }
-                        }
-                    }
+                    ContentCollector.addText(filter, I18n.get("botanicprobe.text.block_to_place"), true, false);
                 }
             }
 

@@ -3,51 +3,101 @@ package com.ecaree.botanicprobe.util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+
 public class BoxContent {
     private final ResourceLocation iconRL;
     private final ItemStack item;
+    private final List<ItemStack> items;
+    private final boolean checkPlaceable;
+    private final boolean setCount;
+    private final int count;
     private final String text;
     private final String text2;
     private final int progress;
     private final int maxProgress;
     private final ContentType type;
 
-    public BoxContent(String text) {
-        this(null, null, text, null, 0, 0, ContentType.TEXT_WITHOUT_ICON);
+    public static class Builder {
+        private ResourceLocation iconRL;
+        private ItemStack item;
+        private List<ItemStack> items;
+        private boolean checkPlaceable;
+        private boolean setCount;
+        private int count;
+        private String text;
+        private String text2;
+        private int progress;
+        private int maxProgress;
+        private final ContentType type;
+
+        public Builder(ContentType type) {
+            this.type = type;
+        }
+
+        public Builder iconRL(ResourceLocation iconRL) {
+            this.iconRL = iconRL;
+            return this;
+        }
+
+        public Builder item(ItemStack item) {
+            this.item = item;
+            return this;
+        }
+
+        public Builder items(List<ItemStack> items) {
+            this.items = items;
+            return this;
+        }
+
+        public Builder checkPlaceable(boolean checkPlaceable) {
+            this.checkPlaceable = checkPlaceable;
+            return this;
+        }
+
+        public Builder setCount(boolean setCount) {
+            this.setCount = setCount;
+            return this;
+        }
+
+        public Builder count(int count) {
+            this.count = count;
+            return this;
+        }
+
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
+        public Builder text2(String text2) {
+            this.text2 = text2;
+            return this;
+        }
+
+        public Builder progress(int progress, int maxProgress) {
+            this.progress = progress;
+            this.maxProgress = maxProgress;
+            return this;
+        }
+
+        public BoxContent build() {
+            return new BoxContent(this);
+        }
     }
 
-    public BoxContent(ItemStack item) {
-        this(null, item, null, null, 0, 0, ContentType.ITEMS);
-    }
-
-    public BoxContent(ItemStack item, String text) {
-        this(null, item, text, null, 0, 0, ContentType.TEXT);
-    }
-
-    public BoxContent(ItemStack item, String text, String text2) {
-        this(null, item, text, text2, 0, 0, ContentType.MULTITEXT);
-    }
-
-    public BoxContent(ResourceLocation iconRL, String text) {
-        this(iconRL, null, text, null, 0, 0, ContentType.TEXT_WITH_ICONRL);
-    }
-
-    public BoxContent(int progress, int maxProgress) {
-        this(null, null, null, null, progress, maxProgress, ContentType.PROGRESS_BAR);
-    }
-
-    public BoxContent(ItemStack item, String text, int progress, int maxProgress) {
-        this(null, item, text, null, progress, maxProgress, ContentType.TEXT_WITH_PROGRESS_BAR);
-    }
-
-    private BoxContent(ResourceLocation iconRL, ItemStack item, String text, String text2, int progress, int maxProgress, ContentType type) {
-        this.iconRL = iconRL;
-        this.item = item;
-        this.text = text;
-        this.text2 = text2;
-        this.progress = progress;
-        this.maxProgress = maxProgress;
-        this.type = type;
+    private BoxContent(Builder builder) {
+        this.iconRL = builder.iconRL;
+        this.item = builder.item;
+        this.items = builder.items;
+        this.checkPlaceable = builder.checkPlaceable;
+        this.setCount = builder.setCount;
+        this.count = builder.count;
+        this.text = builder.text;
+        this.text2 = builder.text2;
+        this.progress = builder.progress;
+        this.maxProgress = builder.maxProgress;
+        this.type = builder.type;
     }
 
     public ResourceLocation getIconRL() {
@@ -56,6 +106,22 @@ public class BoxContent {
 
     public ItemStack getItem() {
         return item;
+    }
+
+    public List<ItemStack> getItems() {
+        return items;
+    }
+
+    public boolean isCheckPlaceable() {
+        return checkPlaceable;
+    }
+
+    public boolean isSetCount() {
+        return setCount;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public String getText() {
