@@ -47,10 +47,15 @@ public class LightRelay implements IProbeInfoProvider {
                 }
             }
 
-            if (nextDestination != ITileBound.UNBOUND_POS) {
-                ContentCollector.addText(ModBlocks.lightRelayDefault,
-                        I18n.get("botanicprobe.text.next_destination") + TOPUtil.getPosString(nextDestination),
-                        I18n.get("botanicprobe.text.endpoint") + TOPUtil.getPosString(endpoint));
+            if (!nextDestination.equals(ITileBound.UNBOUND_POS)) {
+                if (endpoint != null) {
+                    ContentCollector.addText(ModBlocks.lightRelayDefault,
+                            I18n.get("botanicprobe.text.next_destination") + TOPUtil.getPosString(nextDestination),
+                            I18n.get("botanicprobe.text.endpoint") + TOPUtil.getPosString(endpoint));
+                } else {
+                    ContentCollector.addText(ModBlocks.lightRelayDefault,
+                            I18n.get("botanicprobe.text.next_destination") + TOPUtil.getPosString(nextDestination));
+                }
             }
         }
     }
