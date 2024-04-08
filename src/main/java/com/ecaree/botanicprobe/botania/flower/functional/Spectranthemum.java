@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
+import vazkii.botania.api.block.ITileBound;
 import vazkii.botania.common.block.ModSubtiles;
 import vazkii.botania.common.block.subtile.functional.SubTileSpectranthemum;
 
@@ -34,21 +35,21 @@ public class Spectranthemum implements IProbeInfoProvider {
             String text2 = null;
 
             if (!level.getBlockState(blockPos).isAir()) {
-                ContentCollector.addText(new ItemStack(ModSubtiles.spectranthemum),
+                ContentCollector.addText(ModSubtiles.spectranthemum,
                         I18n.get("botanicprobe.text.binding_block")
                                 + TOPUtil.getPosString(blockPos));
             } else {
                 text1 = I18n.get("botanicprobe.text.nonbound_block");
 
-                if (bindY != Integer.MIN_VALUE) { // 即曾经被绑定过某个方块
+                if (!blockPos.equals(ITileBound.UNBOUND_POS)) { // 即曾经被绑定过某个方块
                     text2 = I18n.get("botanicprobe.text.last_binding_block")
                             + TOPUtil.getPosString(blockPos);
                 }
 
                 if (text2 == null) {
-                    ContentCollector.addText(new ItemStack(ModSubtiles.spectranthemum), text1);
+                    ContentCollector.addText(ModSubtiles.spectranthemum, text1);
                 } else {
-                    ContentCollector.addText(new ItemStack(ModSubtiles.spectranthemum), text1, text2);
+                    ContentCollector.addText(ModSubtiles.spectranthemum, text1, text2);
                 }
             }
 
