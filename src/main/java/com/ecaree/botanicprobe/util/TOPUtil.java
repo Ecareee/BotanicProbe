@@ -12,10 +12,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.items.ItemHandlerHelper;
 import vazkii.botania.api.item.IFlowerPlaceable;
 import vazkii.botania.common.item.ModItems;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TOPUtil {
@@ -88,20 +90,36 @@ public class TOPUtil {
                         if (content.getItems() != null) {
                             int rows = 0;
                             int idx = 0;
-                            IProbeInfo vertical = horizontal.vertical();
+                            boolean isTextSet = false;
+                            IProbeInfo vertical = null;
+                            IProbeInfo itemVertical = null;
+                            List<ItemStack> mergedStacks = new ArrayList<>();
 
                             for (ItemStack stackInSlot : content.getItems()) {
+                                mergeItemStacks(mergedStacks, stackInSlot);
+                            }
+
+                            for (ItemStack stackInSlot : mergedStacks) {
+                                // 提取方法有 BUGS
                                 if (!stackInSlot.isEmpty()) { // 跳过空物品
                                     if (!content.isCheckPlaceable()) {
-                                        preprocessItems(rows, idx, vertical, content);
+                                        if (vertical == null) {
+                                            vertical = horizontal.vertical();
+                                        }
 
-                                        if (itemHorizontal == null) { // 防止每个物品都有一个边框
-                                            itemHorizontal = vertical
-                                                    .vertical(probeInfo
-                                                            .defaultLayoutStyle()
-                                                            .borderColor(TOPUtil.LIGHT_BLUE)
-                                                            .spacing(0))
-                                                    .horizontal(new LayoutStyle().spacing(0));
+                                        if (!isTextSet) {
+                                            vertical.text(content.getText());
+                                            isTextSet = true;
+                                            itemVertical = box.vertical(probeInfo.defaultLayoutStyle().borderColor(LIGHT_BLUE).spacing(0));
+                                        }
+
+                                        if (idx % 10 == 0 || itemHorizontal == null) {
+                                            itemHorizontal = itemVertical.vertical().horizontal(new LayoutStyle().spacing(0));
+
+                                            rows++;
+                                            if (rows > 4) {
+                                                break;
+                                            }
                                         }
 
                                         itemHorizontal.item(stackInSlot);
@@ -113,15 +131,23 @@ public class TOPUtil {
                                         idx++;
                                     } else {
                                         if (stackInSlot.getItem() instanceof BlockItem || stackInSlot.getItem() instanceof IFlowerPlaceable) { // 必须是可放置的方块
-                                            preprocessItems(rows, idx, vertical, content);
+                                            if (vertical == null) {
+                                                vertical = horizontal.vertical();
+                                            }
 
-                                            if (itemHorizontal == null) { // 防止每个物品都有一个边框
-                                                itemHorizontal = vertical
-                                                        .vertical(probeInfo
-                                                                .defaultLayoutStyle()
-                                                                .borderColor(TOPUtil.LIGHT_BLUE)
-                                                                .spacing(0))
-                                                        .horizontal(new LayoutStyle().spacing(0));
+                                            if (!isTextSet) {
+                                                vertical.text(content.getText());
+                                                isTextSet = true;
+                                                itemVertical = box.vertical(probeInfo.defaultLayoutStyle().borderColor(LIGHT_BLUE).spacing(0));
+                                            }
+
+                                            if (idx % 10 == 0 || itemHorizontal == null) {
+                                                itemHorizontal = itemVertical.vertical().horizontal(new LayoutStyle().spacing(0));
+
+                                                rows++;
+                                                if (rows > 4) {
+                                                    break;
+                                                }
                                             }
 
                                             itemHorizontal.item(stackInSlot);
@@ -159,15 +185,19 @@ public class TOPUtil {
         return getBox(probeInfo).horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(PADDING));
     }
 
-    // 把 itemHorizontal.item 也提取进来有 BUGS
-    private static void preprocessItems(int rows, int idx, IProbeInfo vertical, BoxContent content) {
-        if (idx % 10 == 0) {
-            vertical.text(content.getText());
-            rows++;
-            if (rows > 4) {
+    public static void mergeItemStacks(List<ItemStack> stacks, ItemStack newStack) {
+        if (newStack.isEmpty()) {
+            return;
+        }
+
+        for (ItemStack stack : stacks) {
+            if (ItemHandlerHelper.canItemStacksStack(stack, newStack)) {
+                stack.grow(newStack.getCount());
                 return;
             }
         }
+
+        stacks.add(newStack.copy());
     }
 
     public static ResourceLocation RL(String rlName) {
