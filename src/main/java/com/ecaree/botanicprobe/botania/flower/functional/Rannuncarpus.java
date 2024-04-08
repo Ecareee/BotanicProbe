@@ -35,6 +35,8 @@ public class Rannuncarpus implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         BlockPos pos = data.getPos();
         if (level.getBlockEntity(data.getPos()) instanceof SubTileRannuncarpus tile) {
+            final String text1;
+            final String text2;
             final int placeRange = tile.getPlaceRange();
             final int verticalPlaceRange = tile.getVerticalPlaceRange();
             RadiusDescriptor secondaryRadius = tile.getSecondaryRadius();
@@ -42,28 +44,27 @@ public class Rannuncarpus implements IProbeInfoProvider {
             final String mode = stateSensitive ? I18n.get("botaniamisc.rannuncarpus.state_sensitive") : I18n.get("botaniamisc.rannuncarpus.state_insensitive");
             ItemStack recieverStack = new ItemStack(tile.getUnderlyingBlock().getBlock());
 
-            ContentCollector.addText(new ItemStack(Items.SPYGLASS),
-                    I18n.get("botanicprobe.text.working_range")
-                            + (placeRange * 2 + 1) + " x "
-                            + (verticalPlaceRange * 2 + 1) + " x "
-                            + (placeRange * 2 + 1));
+            text1 = I18n.get("botanicprobe.text.working_range")
+                    + (placeRange * 2 + 1) + " x "
+                    + (verticalPlaceRange * 2 + 1) + " x "
+                    + (placeRange * 2 + 1);
 
             if (secondaryRadius != null) {
                 final int pickupRange = convertRectangleToRadius((RadiusDescriptor.Rectangle) secondaryRadius);
 
-                ContentCollector.addText(TOPUtil.COMPASS,
-                        I18n.get("botanicprobe.text.pickup_range")
-                                + (pickupRange * 2 + 1) + " x "
-                                + (3 * 2 + 1) + " x " // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
-                                + (pickupRange * 2 + 1));
+                text2 = I18n.get("botanicprobe.text.pickup_range")
+                        + (pickupRange * 2 + 1) + " x "
+                        + (3 * 2 + 1) + " x " // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
+                        + (pickupRange * 2 + 1);
             } else {
                 // 当 placeRange 等于 pickupRange 导致 getSecondaryRadius 方法返回 null 的情况
-                ContentCollector.addText(TOPUtil.COMPASS,
-                        I18n.get("botanicprobe.text.pickup_range")
-                                + (placeRange * 2 + 1) + " x "
-                                + (3 * 2 + 1) + " x " // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
-                                + (placeRange * 2 + 1));
+                text2 = I18n.get("botanicprobe.text.pickup_range")
+                        + (placeRange * 2 + 1) + " x "
+                        + (3 * 2 + 1) + " x " // 硬编码，SubTileRannuncarpus.PICKUP_RANGE_Y = 3
+                        + (placeRange * 2 + 1);
             }
+
+            ContentCollector.addText(new ItemStack(Items.SPYGLASS), text1, text2);
 
             ContentCollector.addText(TOPUtil.STATUS_STACK,
                     I18n.get("botanicprobe.text.mode") + mode);

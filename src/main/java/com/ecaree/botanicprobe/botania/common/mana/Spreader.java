@@ -17,6 +17,8 @@ import vazkii.botania.common.block.mana.BlockSpreader;
 import vazkii.botania.common.block.tile.mana.TileSpreader;
 import vazkii.botania.common.entity.EntityManaBurst;
 
+import java.util.Arrays;
+
 public class Spreader implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
@@ -29,14 +31,14 @@ public class Spreader implements IProbeInfoProvider {
             final BlockPos bindingPos = tile.getBinding();
             final int mana = tile.getCurrentMana();
             final int manaMax = tile.getMaxMana();
+            String text1;
+            String text2 = "Mana: " + mana + "/" + manaMax;
 
             if (bindingPos != null) {
-                ContentCollector.addText(I18n.get("botanicprobe.text.binding") + TOPUtil.getPosString(bindingPos));
+                text1 = I18n.get("botanicprobe.text.binding") + TOPUtil.getPosString(bindingPos);
             } else {
-                ContentCollector.addText(I18n.get("botanicprobe.text.unbound"));
+                text1 = I18n.get("botanicprobe.text.unbound");
             }
-
-            ContentCollector.addText("Mana: " + mana + "/" + manaMax);
 
             EntityManaBurst burst = ((AccessorTileSpreader) tile).invokeGetBurst(true);
             ItemStack lens = burst.getSourceLens();
@@ -64,32 +66,36 @@ public class Spreader implements IProbeInfoProvider {
                 currentMotionModifier = originalMotionModifier;
             }
 
-            displayWithCheckingValue(I18n.get("botanicprobe.text.burst_mana"), currentBurstMana, originalBurstMana, " Mana");
-            displayWithCheckingValue(I18n.get("botanicprobe.text.time_before_mana_loss"), currentTicksBeforeManaLoss, originalTicksBeforeManaLoss, " Ticks");
-            displayWithCheckingValue(I18n.get("botanicprobe.text.mana_loss_speed"), currentManaLossPerTick, originalManaLossPerTick, " Mana / Tick");
-            displayWithCheckingValue(I18n.get("botanicprobe.text.burst_speed"), currentMotionModifier, originalMotionModifier, I18n.get("botanicprobe.text.times"));
+            String text3 = getTextWithCheckingValue(I18n.get("botanicprobe.text.burst_mana"), currentBurstMana, originalBurstMana, " Mana");
+            String text4 = getTextWithCheckingValue(I18n.get("botanicprobe.text.time_before_mana_loss"), currentTicksBeforeManaLoss, originalTicksBeforeManaLoss, " Ticks");
+            String text5 = getTextWithCheckingValue(I18n.get("botanicprobe.text.mana_loss_speed"), currentManaLossPerTick, originalManaLossPerTick, " Mana / Tick");
+            String text6 = getTextWithCheckingValue(I18n.get("botanicprobe.text.burst_speed"), currentMotionModifier, originalMotionModifier, I18n.get("botanicprobe.text.times"));
+
+            ContentCollector.addText(TOPUtil.WAND_STACK, Arrays.asList(text1, text2, text3, text4, text5, text6));
         }
     }
 
-    private void displayWithCheckingValue(String label, int currentValue, int originalValue, String unit) {
+    private String getTextWithCheckingValue(String label, int currentValue, int originalValue, String unit) {
         java.text.NumberFormat percentFormat = java.text.NumberFormat.getPercentInstance();
+
         if (currentValue == originalValue) {
-            ContentCollector.addText(label + currentValue + unit);
+            return label + currentValue + unit;
         } else {
-            ContentCollector.addText(label + currentValue + unit
+            return label + currentValue + unit
                     + " (" + I18n.get("botanicprobe.text.initially")
-                    + percentFormat.format((float) currentValue / originalValue) + ")");
+                    + percentFormat.format((float) currentValue / originalValue) + ")";
         }
     }
 
-    private void displayWithCheckingValue(String label, float currentValue, float originalValue, String unit) {
+    private String getTextWithCheckingValue(String label, float currentValue, float originalValue, String unit) {
         java.text.NumberFormat percentFormat = java.text.NumberFormat.getPercentInstance();
+
         if (currentValue == originalValue) {
-            ContentCollector.addText(label + currentValue + unit);
+            return label + currentValue + unit;
         } else {
-            ContentCollector.addText(label + currentValue + unit
+            return label + currentValue + unit
                     + " (" + I18n.get("botanicprobe.text.initially")
-                    + percentFormat.format(currentValue / originalValue) + ")");
+                    + percentFormat.format(currentValue / originalValue) + ")";
         }
     }
 }

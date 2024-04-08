@@ -3,7 +3,9 @@ package com.ecaree.botanicprobe.util;
 public enum ContentType {
     TEXT_WITHOUT_ICON,
     TEXT,
-    MULTITEXT,
+    TWO_LINES,
+    THREE_LINES,
+    MULTILINE,
     TEXT_WITH_ICONRL,
     ITEMS,
     PROGRESS_BAR,

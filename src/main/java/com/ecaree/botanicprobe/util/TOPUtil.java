@@ -61,15 +61,27 @@ public class TOPUtil {
                                 .item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16))
                                 .text(content.getText());
                         break;
-                    case MULTITEXT:
+                    case TWO_LINES:
                         horizontal.item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16));
-                        IProbeInfo textVertical = horizontal.vertical();
-                        textVertical.text(content.getText()).text(content.getText2());
+                        horizontal.vertical().text(content.getText()).text(content.getText2());
+                        break;
+                    case THREE_LINES:
+                        horizontal.item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16));
+                        horizontal.vertical().text(content.getText()).text(content.getText2()).text(content.getText3());
                         break;
                     case TEXT_WITH_ICONRL:
                         horizontal
                                 .icon(content.getIconRL(), 0, 0, 16, 16, new IconStyle().bounds(16, 16).textureBounds(16, 16))
                                 .text(content.getText());
+                        break;
+                    case MULTILINE:
+                        horizontal.item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16));
+
+                        IProbeInfo textVertical = horizontal.vertical();
+
+                        for (String text : content.getTexts()) {
+                            textVertical.text(text);
+                        }
                         break;
                     case ITEMS:
                         // 尝试修复两个边框间间距问题

@@ -28,11 +28,11 @@ public class SpecialFlower implements IProbeInfoProvider {
                 final int manaMax = generatingFlower.getMaxMana();
                 String text1;
                 String text2 = null;
+                String text3 = "Mana: " + mana + "/" + manaMax;
 
                 if (generatingFlower.isValidBinding()) {
-                    ContentCollector.addText(TOPUtil.WAND_STACK,
-                            I18n.get("botanicprobe.text.binding")
-                                    + TOPUtil.getPosString(generatingFlower.getBindingPos()));
+                    text1 = I18n.get("botanicprobe.text.binding")
+                            + TOPUtil.getPosString(generatingFlower.getBindingPos());
                 } else {
                     text1 = I18n.get("botanicprobe.text.unbound");
 
@@ -40,27 +40,25 @@ public class SpecialFlower implements IProbeInfoProvider {
                         text2 = I18n.get("botanicprobe.text.last_binding")
                                 + TOPUtil.getPosString(generatingFlower.getBindingPos());
                     }
-
-                    if (text2 == null) {
-                        ContentCollector.addText(TOPUtil.WAND_STACK, text1);
-                    } else {
-                        ContentCollector.addText(TOPUtil.WAND_STACK, text1, text2);
-                    }
                 }
 
-                ContentCollector.addText(TOPUtil.MANA_STACK,
-                        "Mana: " + mana + "/" + manaMax);
+                if (text2 == null) {
+                    ContentCollector.addText(TOPUtil.WAND_STACK, text1, text3);
+                } else {
+                    ContentCollector.addText(TOPUtil.WAND_STACK, text1, text2, text3);
+                }
+
             } else if (tile instanceof TileEntityFunctionalFlower functionalFlower) {
                 final int mana = functionalFlower.getMana();
                 final int manaMax = functionalFlower.getMaxMana();
                 final int redstoneSignal = functionalFlower.redstoneSignal;
                 String text1;
                 String text2 = null;
+                String text3 = "Mana: " + mana + "/" + manaMax;
 
                 if (functionalFlower.isValidBinding()) {
-                    ContentCollector.addText(TOPUtil.WAND_STACK,
-                            I18n.get("botanicprobe.text.binding")
-                                    + TOPUtil.getPosString(functionalFlower.getBindingPos()));
+                    text1 = I18n.get("botanicprobe.text.binding")
+                            + TOPUtil.getPosString(functionalFlower.getBindingPos());
                 } else {
                     text1 = I18n.get("botanicprobe.text.unbound");
 
@@ -68,16 +66,13 @@ public class SpecialFlower implements IProbeInfoProvider {
                         text2 = I18n.get("botanicprobe.text.last_binding")
                                 + TOPUtil.getPosString(functionalFlower.getBindingPos());
                     }
-
-                    if (text2 == null) {
-                        ContentCollector.addText(TOPUtil.WAND_STACK, text1);
-                    } else {
-                        ContentCollector.addText(TOPUtil.WAND_STACK, text1, text2);
-                    }
                 }
 
-                ContentCollector.addText(TOPUtil.MANA_STACK,
-                        "Mana: " + mana + "/" + manaMax);
+                if (text2 == null) {
+                    ContentCollector.addText(TOPUtil.WAND_STACK, text1, text3);
+                } else {
+                    ContentCollector.addText(TOPUtil.WAND_STACK, text1, text2, text3);
+                }
 
                 if (functionalFlower.acceptsRedstone() && redstoneSignal != 0) {
                     ContentCollector.addText(new ItemStack(Items.REDSTONE),

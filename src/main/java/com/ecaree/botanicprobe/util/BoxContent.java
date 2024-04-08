@@ -14,6 +14,8 @@ public class BoxContent {
     private final int count;
     private final String text;
     private final String text2;
+    private final String text3;
+    private final List<String> texts;
     private final int progress;
     private final int maxProgress;
     private final ContentType type;
@@ -27,6 +29,8 @@ public class BoxContent {
         private int count;
         private String text;
         private String text2;
+        private String text3;
+        private List<String> texts;
         private int progress;
         private int maxProgress;
         private final ContentType type;
@@ -75,6 +79,16 @@ public class BoxContent {
             return this;
         }
 
+        public Builder text3(String text3) {
+            this.text3 = text3;
+            return this;
+        }
+
+        public Builder texts(List<String> texts) {
+            this.texts = texts;
+            return this;
+        }
+
         public Builder progress(int progress, int maxProgress) {
             this.progress = progress;
             this.maxProgress = maxProgress;
@@ -95,6 +109,8 @@ public class BoxContent {
         this.count = builder.count;
         this.text = builder.text;
         this.text2 = builder.text2;
+        this.text3 = builder.text3;
+        this.texts = builder.texts;
         this.progress = builder.progress;
         this.maxProgress = builder.maxProgress;
         this.type = builder.type;
@@ -130,6 +146,14 @@ public class BoxContent {
 
     public String getText2() {
         return text2;
+    }
+
+    public String getText3() {
+        return text3;
+    }
+
+    public List<String> getTexts() {
+        return texts;
     }
 
     public int getProgress() {
