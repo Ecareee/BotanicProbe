@@ -5,6 +5,7 @@ import com.ecaree.botanicprobe.util.ContentCollector;
 import com.ecaree.botanicprobe.util.TOPUtil;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -25,8 +26,13 @@ public class Spreader implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof TileSpreader tile) {
+            final BlockPos bindingPos = tile.getBinding();
             final int mana = tile.getCurrentMana();
             final int manaMax = tile.getMaxMana();
+
+            if (bindingPos != null) {
+                ContentCollector.addText(I18n.get("botanicprobe.text.binding") + TOPUtil.getPosString(bindingPos));
+            }
 
             ContentCollector.addText("Mana: " + mana + "/" + manaMax);
 
@@ -42,7 +48,7 @@ public class Spreader implements IProbeInfoProvider {
             float currentManaLossPerTick;
             float currentMotionModifier;
             if (!lens.isEmpty()) {
-                BurstProperties props = new BurstProperties(variant.burstMana, variant.preLossTicks, variant.lossPerTick, 0F, variant.motionModifier, variant.color);
+                BurstProperties props = new BurstProperties(originalBurstMana, originalTicksBeforeManaLoss, originalManaLossPerTick, 0F, originalMotionModifier, variant.color);
                 ILensEffect lensEffect = (ILensEffect) lens.getItem();
                 lensEffect.apply(lens, props, level);
                 currentBurstMana = props.maxMana;
