@@ -30,6 +30,10 @@ public class ContentCollector {
         contents.add(new BoxContent.Builder(ContentType.MULTITEXT).item(item).text(text).text2(text2).build());
     }
 
+    public static void addText(Block block, String text, String text2) {
+        contents.add(new BoxContent.Builder(ContentType.MULTITEXT).item(new ItemStack(block)).text(text).text2(text2).build());
+    }
+
     public static void addText(ResourceLocation iconRL, String text) {
         contents.add(new BoxContent.Builder(ContentType.TEXT_WITH_ICONRL).iconRL(iconRL).text(text).build());
     }

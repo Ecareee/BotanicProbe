@@ -61,6 +61,8 @@
   "botanicprobe.text.initially": "Initially ",
   "botanicprobe.text.item_to_enchant": "Item to enchant: ",
   "botanicprobe.text.mana_void": "Mana void!",
+  "botanicprobe.text.next_destination": "Next destination: ",
+  "botanicprobe.text.endpoint": "Endpoint: ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design philosophy of Botania, take care!"
 }
