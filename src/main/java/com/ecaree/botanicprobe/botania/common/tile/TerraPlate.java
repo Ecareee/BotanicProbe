@@ -8,7 +8,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vazkii.botania.common.block.tile.TileTerraPlate;
-import vazkii.botania.common.block.tile.mana.TilePool;
 
 public class TerraPlate implements IProbeInfoProvider {
     @Override
@@ -20,7 +19,7 @@ public class TerraPlate implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof TileTerraPlate tile) {
             final int mana = tile.getCurrentMana();
-            final int targetMana = TilePool.MAX_MANA / 2;
+            final int targetMana = tile.getCurrentMana() + tile.getAvailableSpaceForMana();
 
             if (mana != 0) {
                 ContentCollector.addTextWithProgressBar(TOPUtil.MANA_STACK,
