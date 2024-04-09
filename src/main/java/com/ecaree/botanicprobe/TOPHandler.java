@@ -36,6 +36,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new SpawnerClaw());
         iTheOneProbe.registerProvider(new Spreader());
         iTheOneProbe.registerProvider(new TerraPlate());
+        iTheOneProbe.registerProvider(new Turntable());
 
         iTheOneProbe.registerProvider(new TileMod());
 
