@@ -25,6 +25,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new Brewery());
         iTheOneProbe.registerProvider(new CellBlock());
         iTheOneProbe.registerProvider(new Enchanter());
+        iTheOneProbe.registerProvider(new Hourglass());
         iTheOneProbe.registerProvider(new LightRelay());
         iTheOneProbe.registerProvider(new ManaPool());
         iTheOneProbe.registerEntityProvider(new PoolMinecart());
