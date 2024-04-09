@@ -1,4 +1,4 @@
-package com.ecaree.botanicprobe.botania.common.mana;
+package com.ecaree.botanicprobe.botania.common.tile.mana;
 
 import com.ecaree.botanicprobe.util.ContentCollector;
 import com.ecaree.botanicprobe.util.TOPUtil;
