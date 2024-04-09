@@ -7,7 +7,9 @@ import mcjty.theoneprobe.api.NumberFormat;
 import mcjty.theoneprobe.apiimpl.styles.IconStyle;
 import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -209,5 +211,15 @@ public class TOPUtil {
         final int y = blockPos.getY();
         final int z = blockPos.getZ();
         return x + " " + y + " " + z;
+    }
+
+    public static String getDirectionName(Direction direction) {
+        return switch (direction) {
+            case NORTH -> I18n.get("botanicprobe.text.north");
+            case SOUTH -> I18n.get("botanicprobe.text.south");
+            case WEST -> I18n.get("botanicprobe.text.west");
+            case EAST -> I18n.get("botanicprobe.text.east");
+            default -> "null";
+        };
     }
 }

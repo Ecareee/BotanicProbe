@@ -24,13 +24,7 @@ public class Daffomill implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileDaffomill tile) {
             final int orientation = tile.getUpdateTag().getInt("orientation");
             Direction direction = Direction.from3DDataValue(orientation);
-            String directionName = switch (direction) {
-                case NORTH -> I18n.get("botanicprobe.text.north");
-                case SOUTH -> I18n.get("botanicprobe.text.south");
-                case WEST -> I18n.get("botanicprobe.text.west");
-                case EAST -> I18n.get("botanicprobe.text.east");
-                default -> "null";
-            };
+            String directionName = TOPUtil.getDirectionName(direction);
             final boolean powered = tile.getUpdateTag().getBoolean("powered");
             String poweredName = powered ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
 
