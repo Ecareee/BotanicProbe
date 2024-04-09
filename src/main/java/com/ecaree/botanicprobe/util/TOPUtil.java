@@ -103,7 +103,7 @@ public class TOPUtil {
 
                             for (ItemStack stackInSlot : mergedStacks) {
                                 // 提取方法有 BUGS
-                                if (!stackInSlot.isEmpty()) { // 跳过空物品
+                                if (!stackInSlot.isEmpty()) { // 跳过空气物品
                                     if (!content.isCheckPlaceable()) {
                                         if (vertical == null) {
                                             vertical = horizontal.vertical();
@@ -127,7 +127,7 @@ public class TOPUtil {
                                         itemHorizontal.item(stackInSlot);
 
                                         if (content.isSetCount()) {
-                                            content.getItems().get(0).setCount(content.getCount());
+                                            mergedStacks.get(0).setCount(content.getCount());
                                         }
 
                                         idx++;
@@ -155,7 +155,7 @@ public class TOPUtil {
                                             itemHorizontal.item(stackInSlot);
 
                                             if (content.isSetCount()) {
-                                                content.getItems().get(0).setCount(content.getCount());
+                                                mergedStacks.get(0).setCount(content.getCount());
                                             }
 
                                             idx++;
