@@ -68,6 +68,7 @@
   "botanicprobe.text.time": "Time: ",
   "botanicprobe.text.will_increase_time": "will increase time ",
   "botanicprobe.text.locked": "Locked!",
+  "botanicprobe.text.disguise": "Disguise: ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design philosophy of Botania, take care!"
 }

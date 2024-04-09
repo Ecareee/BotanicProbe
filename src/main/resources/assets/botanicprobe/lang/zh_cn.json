@@ -68,6 +68,7 @@
   "botanicprobe.text.time": "时间: ",
   "botanicprobe.text.will_increase_time": "将增加时间 ",
   "botanicprobe.text.locked": "已锁定!",
+  "botanicprobe.text.disguise": "伪装物: ",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念，保重！"
 }
