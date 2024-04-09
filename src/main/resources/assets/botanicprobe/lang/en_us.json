@@ -64,6 +64,7 @@
   "botanicprobe.text.next_destination": "Next destination: ",
   "botanicprobe.text.endpoint": "Endpoint: ",
   "botanicprobe.text.items": "Items: ",
+  "botanicprobe.text.next_random_rotation": "Next random rotation: ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design philosophy of Botania, take care!"
 }

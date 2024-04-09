@@ -64,6 +64,7 @@
   "botanicprobe.text.next_destination": "下一个目的地: ",
   "botanicprobe.text.endpoint": "终点: ",
   "botanicprobe.text.items": "物品: ",
+  "botanicprobe.text.next_random_rotation": "下次随机旋转: ",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念，保重！"
 }
