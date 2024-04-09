@@ -19,6 +19,7 @@ import java.util.function.Function;
 public class TOPHandler implements Function<ITheOneProbe, Void>  {
     @Override
     public Void apply(ITheOneProbe iTheOneProbe) {
+        iTheOneProbe.registerProvider(new AlfPortal());
         iTheOneProbe.registerProvider(new Avatar());
         iTheOneProbe.registerProvider(new Brewery());
         iTheOneProbe.registerProvider(new CellBlock());
