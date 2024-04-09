@@ -11,7 +11,7 @@ So, if you appreciate the unique design philosophy of Botania, do not install th
 ### Credits
 Ideas come from: [TOP Community Edition](https://github.com/ukmojb/The-One-Probe-Community-Edition/tree/main/src/main/java/mcjty/theoneprobe/mods/botania), [Extra Botany](https://github.com/ExtraMeteorP/Extra-Botany/tree/master/src/main/java/com/meteor/extrabotany/client/integration/theoneprobe), [KJS Tricks](https://www.mcmod.cn/post/3406.html)<br>
 Style creativity comes from: [EioBox](https://github.com/SleepyTrousers/EnderIO-1.5-1.12/blob/master/enderio-base/src/main/java/crazypants/enderio/base/integration/top/TOPCompatibility.java)<br>
-Wonderful mods：[Botania](https://github.com/VazkiiMods/Botania), [TheOneProbe](https://github.com/McJtyMods/TheOneProbe)
+Wonderful mods: [Botania](https://github.com/VazkiiMods/Botania), [TheOneProbe](https://github.com/McJtyMods/TheOneProbe)
 
 ### Compiling
 - Clone the repository.
