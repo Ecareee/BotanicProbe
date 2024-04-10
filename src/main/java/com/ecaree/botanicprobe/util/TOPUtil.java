@@ -222,4 +222,9 @@ public class TOPUtil {
             default -> "null";
         };
     }
+
+    public static String floatToPercentage(float f) {
+        java.text.NumberFormat percentFormat = java.text.NumberFormat.getPercentInstance();
+        return percentFormat.format(f);
+    }
 }

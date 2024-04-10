@@ -76,26 +76,22 @@ public class Spreader implements IProbeInfoProvider {
     }
 
     private String getTextWithCheckingValue(String label, int currentValue, int originalValue, String unit) {
-        java.text.NumberFormat percentFormat = java.text.NumberFormat.getPercentInstance();
-
         if (currentValue == originalValue) {
             return label + currentValue + unit;
         } else {
             return label + currentValue + unit
                     + " (" + I18n.get("botanicprobe.text.initially")
-                    + percentFormat.format((float) currentValue / originalValue) + ")";
+                    + TOPUtil.floatToPercentage((float) currentValue / originalValue) + ")";
         }
     }
 
     private String getTextWithCheckingValue(String label, float currentValue, float originalValue, String unit) {
-        java.text.NumberFormat percentFormat = java.text.NumberFormat.getPercentInstance();
-
         if (currentValue == originalValue) {
             return label + currentValue + unit;
         } else {
             return label + currentValue + unit
                     + " (" + I18n.get("botanicprobe.text.initially")
-                    + percentFormat.format(currentValue / originalValue) + ")";
+                    + TOPUtil.floatToPercentage(currentValue / originalValue) + ")";
         }
     }
 }
