@@ -3,7 +3,7 @@
 # BotanicProbe
 
 ### 概述
-为你的 [Botania](https://www.curseforge.com/minecraft/mc-mods/botania) 和 [BotanicalMachinery](https://www.curseforge.com/minecraft/mc-mods/botanical-machinery) 添加 [TOP](https://www.curseforge.com/minecraft/mc-mods/the-one-probe) 支持，例如魔力显示、合成进度和工作状态。<br>
+为你的 [Botania](https://www.curseforge.com/minecraft/mc-mods/botania) 和 [BotanicalMachinery](https://www.curseforge.com/minecraft/mc-mods/botanical-machinery) 添加 [TOP](https://www.curseforge.com/minecraft/mc-mods/the-one-probe) 支持，例如魔力显示、合成进度和工作状态。（有一些信息需要按住 Shift 才能显示）<br>
 在为你提供大量量化信息的同时，也在一定程度上减少了 Botania 原本应有的乐趣，就如同 BotanicalMachinery 方便你的自动化一样。<br>
 所以，如果你欣赏 Botania 独特的设计理念的话，请不要安装这个模组！
 
