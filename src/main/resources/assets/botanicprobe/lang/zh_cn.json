@@ -72,6 +72,11 @@
   "botanicprobe.text.disguise": "伪装物: ",
   "botanicprobe.text.vanishing_time": "消失时间: ",
   "botanicprobe.text.remaining_last_recipe_keep_time": "剩余上次配方保存时间: ",
+  "botanicprobe.text.gaia_spirit_given": "给予盖亚之魂: ",
+  "botanicprobe.text.emeralds_given": "给予的绿宝石数量: ",
+  "botanicprobe.text.villager_chance": "村民生成几率: ",
+  "botanicprobe.text.chorus_fruit_given": "给予的紫颂果数量: ",
+  "botanicprobe.text.shulker_chance": "潜影贝生成几率: ",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念，保重！"
 }

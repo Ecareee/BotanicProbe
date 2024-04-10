@@ -72,6 +72,11 @@
   "botanicprobe.text.disguise": "Disguise: ",
   "botanicprobe.text.vanishing_time": "Vanishing time: ",
   "botanicprobe.text.remaining_last_recipe_keep_time": "Remaining last recipe keep time: ",
+  "botanicprobe.text.gaia_spirit_given": "Gaia spirit given: ",
+  "botanicprobe.text.emeralds_given": "Emeralds given: ",
+  "botanicprobe.text.villager_chance": "Villager generation chance: ",
+  "botanicprobe.text.chorus_fruit_given": "Chorus fruit given: ",
+  "botanicprobe.text.shulker_chance": "Shulker generation chance: ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design philosophy of Botania, take care!"
 }
