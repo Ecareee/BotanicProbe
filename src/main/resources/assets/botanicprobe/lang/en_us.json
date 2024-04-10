@@ -77,6 +77,7 @@
   "botanicprobe.text.villager_chance": "Villager generation chance: ",
   "botanicprobe.text.chorus_fruit_given": "Chorus fruit given: ",
   "botanicprobe.text.shulker_chance": "Shulker generation chance: ",
+  "botanicprobe.text.burning": "Burning: ",
 
   "botania.page.preventingDecay0": "Fine, as you have Botanic Probe loaded...$(p)This mod goes against the design philosophy of Botania, take care!"
 }
