@@ -81,7 +81,7 @@ public class Spreader implements IProbeInfoProvider {
         } else {
             return label + currentValue + unit
                     + " (" + I18n.get("botanicprobe.text.initially")
-                    + TOPUtil.floatToPercentage((float) currentValue / originalValue) + ")";
+                    + TOPUtil.floatToPercentage((float) currentValue / (float) originalValue) + ")";
         }
     }
 
