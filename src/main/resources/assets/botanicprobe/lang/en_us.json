@@ -25,6 +25,7 @@
   "botanicprobe.text.times": " times",
   "botanicprobe.text.holding_item": "The holding item ",
   "botanicprobe.text.will_generate": "will generate ",
+  "botanicprobe.text.will_consume": "will consume ",
   "botanicprobe.text.last_foods": "Last foods: ",
   "botanicprobe.text.passive_decay_time": "Passive decay time: ",
   "botanicprobe.text.generation_delay": "Generation delay: ",

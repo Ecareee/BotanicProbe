@@ -25,6 +25,7 @@
   "botanicprobe.text.times": " 倍",
   "botanicprobe.text.holding_item": "手持的物品 ",
   "botanicprobe.text.will_generate": "将产出 ",
+  "botanicprobe.text.will_consume": "将消耗 ",
   "botanicprobe.text.last_foods": "上次投喂的食物: ",
   "botanicprobe.text.passive_decay_time": "剩余枯萎时间: ",
   "botanicprobe.text.generation_delay": "产能冷却时间: ",
