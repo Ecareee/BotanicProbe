@@ -12,6 +12,12 @@
 风格灵感来自：[EioBox](https://github.com/SleepyTrousers/EnderIO-1.5-1.12/blob/master/enderio-base/src/main/java/crazypants/enderio/base/integration/top/TOPCompatibility.java)<br>
 了不起的模组：[Botania](https://github.com/VazkiiMods/Botania), [TheOneProbe](https://github.com/McJtyMods/TheOneProbe)
 
+### 画廊
+<img src="images/manapool.png" alt="manapool">
+<img src="images/hourglass.png" alt="hourglass">
+<img src="images/puredaisy.png" alt="puredaisy">
+<img src="images/hopperhock.png" alt="hopperhock">
+
 ### 编译
 - 克隆本仓库。
 - 打开命令行并定位到仓库目录。

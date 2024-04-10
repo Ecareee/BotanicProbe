@@ -14,6 +14,12 @@ Ideas come from: [TOP Community Edition](https://github.com/ukmojb/The-One-Probe
 Style idea comes from: [EioBox](https://github.com/SleepyTrousers/EnderIO-1.5-1.12/blob/master/enderio-base/src/main/java/crazypants/enderio/base/integration/top/TOPCompatibility.java)<br>
 Wonderful mods: [Botania](https://github.com/VazkiiMods/Botania), [TheOneProbe](https://github.com/McJtyMods/TheOneProbe)
 
+### Gallery
+<img src="images/manapool.png" alt="manapool">
+<img src="images/hourglass.png" alt="hourglass">
+<img src="images/puredaisy.png" alt="puredaisy">
+<img src="images/hopperhock.png" alt="hopperhock">
+
 ### Compiling
 - Clone the repository.
 - Open a command prompt/terminal to the repository directory.
