@@ -22,6 +22,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
     @Override
     public Void apply(ITheOneProbe iTheOneProbe) {
         iTheOneProbe.registerProvider(new AlfPortal());
+        iTheOneProbe.registerProvider(new Altar());
         iTheOneProbe.registerProvider(new AnimatedTorch());
         iTheOneProbe.registerProvider(new Avatar());
         iTheOneProbe.registerProvider(new Bifrost());
