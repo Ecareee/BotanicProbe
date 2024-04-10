@@ -28,10 +28,12 @@ public class Hourglass implements IProbeInfoProvider {
             ItemStack itemStack = player.getMainHandItem();
             final int itemTime = TileHourglass.getStackItemTime(itemStack);
 
-            ContentCollector.addTextWithProgressBar(TOPUtil.STATUS_STACK,
-                    I18n.get("botanicprobe.text.time")
-                            + StringUtil.formatTickDuration(time) + "/" + StringUtil.formatTickDuration(totalTime),
-                    time, totalTime);
+            if (totalTime != 0) {
+                ContentCollector.addTextWithProgressBar(TOPUtil.STATUS_STACK,
+                        I18n.get("botanicprobe.text.time")
+                                + StringUtil.formatTickDuration(time) + "/" + StringUtil.formatTickDuration(totalTime),
+                        time, totalTime);
+            }
 
             if (locked) {
                 ContentCollector.addText(new ItemStack(Items.BARRIER),
