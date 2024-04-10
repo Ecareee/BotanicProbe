@@ -11,4 +11,7 @@ import java.util.List;
 public interface AccessorTileRuneAltar {
     @Accessor("lastRecipe")
     List<ItemStack> getLastRecipe();
+
+    @Accessor("recipeKeepTicks")
+    int getRecipeKeepTicks();
 }

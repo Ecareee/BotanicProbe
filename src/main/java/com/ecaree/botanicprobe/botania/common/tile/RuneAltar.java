@@ -32,9 +32,18 @@ public class RuneAltar implements IProbeInfoProvider {
 
             if (player.isCrouching()) {
                 List<ItemStack> lastRecipe = ((AccessorTileRuneAltar) tile).getLastRecipe();
+                int recipeKeepTicks = ((AccessorTileRuneAltar) tile).getRecipeKeepTicks();
 
                 if (lastRecipe != null) {
                     ContentCollector.addText(lastRecipe, I18n.get("botanicprobe.text.last_recipe"), false, false);
+                }
+
+                if (recipeKeepTicks != 0 && recipeKeepTicks != 1) {
+                    ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
+                            I18n.get("botanicprobe.text.remaining_last_recipe_keep_time") + recipeKeepTicks + " Ticks");
+                } else if (recipeKeepTicks == 1) {
+                    ContentCollector.addText(TOPUtil.COOLDOWN_STACK,
+                            I18n.get("botanicprobe.text.remaining_last_recipe_keep_time") + recipeKeepTicks + " Tick");
                 }
             }
         }
