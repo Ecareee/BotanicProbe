@@ -25,10 +25,10 @@ public class Turntable implements IProbeInfoProvider {
             char motion = backwards ? '<' : '>';
             String speedStr = ChatFormatting.BOLD + "";
             for (int i = 0; i < speed; i++) {
-                speedStr = ChatFormatting.DARK_GREEN + speedStr + motion;
+                speedStr = speedStr + motion;
             }
 
-            ContentCollector.addText(TOPUtil.STATUS_STACK, speedStr);
+            ContentCollector.addText(TOPUtil.STATUS_STACK, speedStr, 0x006600);
         }
     }
 }
