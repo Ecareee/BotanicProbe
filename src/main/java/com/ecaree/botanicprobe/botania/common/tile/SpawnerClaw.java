@@ -12,7 +12,7 @@ import vazkii.botania.common.block.tile.TileSpawnerClaw;
 public class SpawnerClaw implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("spawnerclaw");
+        return TOPUtil.rl("spawnerclaw");
     }
 
     @Override

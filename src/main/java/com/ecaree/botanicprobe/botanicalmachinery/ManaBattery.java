@@ -13,7 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ManaBattery implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("manabattery");
+        return TOPUtil.rl("manabattery");
     }
 
     @Override

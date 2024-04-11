@@ -24,8 +24,8 @@ public class CorporeaSpark implements IProbeInfoEntityProvider {
             ItemStack itemStack = corporeaSpark.getPickResult();
             final boolean master = corporeaSpark.isMaster();
             final boolean creative = corporeaSpark.isCreative();
-            final String isMaster = TOPUtil.getBooleanString(master);
-            final String isCreative = TOPUtil.getBooleanString(creative);
+            final String isMaster = TOPUtil.booleanToString(master);
+            final String isCreative = TOPUtil.booleanToString(creative);
             BlockPos attachPos = null;
 
             if (corporeaSpark.getMaster() != null) {
@@ -39,7 +39,7 @@ public class CorporeaSpark implements IProbeInfoEntityProvider {
             } else {
                 ContentCollector.addText(itemStack,
                         I18n.get("botanicprobe.text.master") + isMaster,
-                        I18n.get("botanicprobe.text.master_pos") + TOPUtil.getPosString(attachPos),
+                        I18n.get("botanicprobe.text.master_pos") + TOPUtil.posToString(attachPos),
                         I18n.get("botanicprobe.text.creative") + isCreative);
             }
         }

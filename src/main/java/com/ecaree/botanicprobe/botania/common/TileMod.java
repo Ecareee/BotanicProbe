@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class TileMod implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("tilemod");
+        return TOPUtil.rl("tilemod");
     }
 
     @Override

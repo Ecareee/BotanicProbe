@@ -16,7 +16,7 @@ import vazkii.botania.common.block.subtile.generating.SubTileArcaneRose;
 public class ArcaneRose implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("arcanerose");
+        return TOPUtil.rl("arcanerose");
     }
 
     @Override

@@ -13,7 +13,7 @@ import vazkii.botania.common.block.tile.TileMod;
 public class Tile implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("tile");
+        return TOPUtil.rl("tile");
     }
 
     @Override

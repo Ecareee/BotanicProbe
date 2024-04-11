@@ -21,7 +21,7 @@ import vazkii.botania.common.block.subtile.functional.SubTileSpectranthemum;
 public class Spectranthemum implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("spectranthemum");
+        return TOPUtil.rl("spectranthemum");
     }
 
     @Override
@@ -37,13 +37,13 @@ public class Spectranthemum implements IProbeInfoProvider {
             if (!level.getBlockState(blockPos).isAir()) {
                 ContentCollector.addText(ModSubtiles.spectranthemum,
                         I18n.get("botanicprobe.text.binding_block")
-                                + TOPUtil.getPosString(blockPos));
+                                + TOPUtil.posToString(blockPos));
             } else {
                 text1 = I18n.get("botanicprobe.text.unbound_block");
 
                 if (!blockPos.equals(ITileBound.UNBOUND_POS)) { // 即曾经被绑定过某个方块
                     text2 = I18n.get("botanicprobe.text.last_binding_block")
-                            + TOPUtil.getPosString(blockPos);
+                            + TOPUtil.posToString(blockPos);
                 }
 
                 if (text2 == null) {
@@ -84,12 +84,12 @@ public class Spectranthemum implements IProbeInfoProvider {
                                         TOPUtil.getHorizontal(iProbeInfo)
                                                 .item(new ItemStack(ModSubtiles.spectranthemum), new ItemStyle().width(16).height(16))
                                                 .text(I18n.get("botanicprobe.text.binding_spectranthemum")
-                                                        + TOPUtil.getPosString(flowerPos));
+                                                        + TOPUtil.posToString(flowerPos));
                                     } else {
                                         TOPUtil.getHorizontal(iProbeInfo)
                                                 .item(new ItemStack(ModSubtiles.spectranthemum), new ItemStyle().width(16).height(16))
                                                 .text(I18n.get("botanicprobe.text.last_binding_spectranthemum")
-                                                        + TOPUtil.getPosString(flowerPos));
+                                                        + TOPUtil.posToString(flowerPos));
                                         // 不显示未绑定的情况
                                     }
                                     return;

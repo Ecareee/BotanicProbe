@@ -16,7 +16,7 @@ import java.util.List;
 public class CorporeaFunnel implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("corporeafunnel");
+        return TOPUtil.rl("corporeafunnel");
     }
 
     @Override

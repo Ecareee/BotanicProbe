@@ -28,7 +28,7 @@ import java.util.List;
 public class Rannuncarpus implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("rannuncarpus");
+        return TOPUtil.rl("rannuncarpus");
     }
 
     @Override
@@ -114,7 +114,7 @@ public class Rannuncarpus implements IProbeInfoProvider {
                                         TOPUtil.getHorizontal(iProbeInfo)
                                                 .item(new ItemStack(ModSubtiles.rannuncarpus), new ItemStyle().width(16).height(16))
                                                 .text(I18n.get("botanicprobe.text.binding_rannuncarpus")
-                                                        + TOPUtil.getPosString(tilePos));
+                                                        + TOPUtil.posToString(tilePos));
                                         return;
                                     }
                                 }

@@ -20,7 +20,7 @@ import vazkii.botania.common.block.subtile.functional.SubTileOrechid;
 public class Orechid implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("orechid");
+        return TOPUtil.rl("orechid");
     }
 
     @Override
@@ -38,7 +38,7 @@ public class Orechid implements IProbeInfoProvider {
 
                     ContentCollector.addText(item,
                             I18n.get("botanicprobe.text.replacing_block") + " "
-                                    + TOPUtil.getPosString(coords) + " "
+                                    + TOPUtil.posToString(coords) + " "
                                     + I18n.get("botanicprobe.text.with")
                                     + name);
                     if (cooldown != 1) {

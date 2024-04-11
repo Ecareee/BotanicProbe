@@ -15,7 +15,7 @@ import vazkii.botania.common.block.tile.string.TileRedString;
 public class RedString implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("redstring");
+        return TOPUtil.rl("redstring");
     }
 
     @Override
@@ -26,7 +26,7 @@ public class RedString implements IProbeInfoProvider {
 
             if (pos != null) {
                 ContentCollector.addText(block,
-                        I18n.get("botanicprobe.text.binding") + TOPUtil.getPosString(pos));
+                        I18n.get("botanicprobe.text.binding") + TOPUtil.posToString(pos));
             }
         }
     }

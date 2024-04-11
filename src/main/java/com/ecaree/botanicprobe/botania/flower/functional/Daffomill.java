@@ -16,7 +16,7 @@ import vazkii.botania.common.block.subtile.functional.SubTileDaffomill;
 public class Daffomill implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("daffomill");
+        return TOPUtil.rl("daffomill");
     }
 
     @Override
@@ -24,9 +24,9 @@ public class Daffomill implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof SubTileDaffomill tile) {
             final int orientation = tile.getUpdateTag().getInt("orientation");
             Direction direction = Direction.from3DDataValue(orientation);
-            String directionName = TOPUtil.getDirectionName(direction);
+            String directionName = TOPUtil.directionToString(direction);
             final boolean powered = tile.getUpdateTag().getBoolean("powered");
-            String isPowered = TOPUtil.getBooleanString(powered);
+            String isPowered = TOPUtil.booleanToString(powered);
 
             ContentCollector.addText(TOPUtil.COMPASS,
                     I18n.get("botanicprobe.text.direction") + directionName);

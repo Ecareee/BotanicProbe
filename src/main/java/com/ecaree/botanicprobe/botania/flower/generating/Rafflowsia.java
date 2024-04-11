@@ -25,7 +25,7 @@ import java.util.ListIterator;
 public class Rafflowsia implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("rafflowsia");
+        return TOPUtil.rl("rafflowsia");
     }
 
     @Override

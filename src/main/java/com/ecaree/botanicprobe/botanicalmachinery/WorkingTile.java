@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class WorkingTile implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("workingtile");
+        return TOPUtil.rl("workingtile");
     }
 
     @Override

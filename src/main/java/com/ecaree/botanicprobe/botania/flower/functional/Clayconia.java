@@ -14,7 +14,7 @@ import vazkii.botania.common.block.subtile.functional.SubTileClayconia;
 public class Clayconia implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("clayconia");
+        return TOPUtil.rl("clayconia");
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Clayconia implements IProbeInfoProvider {
             if (coordsToPut != null) {
                 ContentCollector.addText(TOPUtil.COMPASS,
                         I18n.get("botanicprobe.text.coords_to_put")
-                                + TOPUtil.getPosString(coordsToPut));
+                                + TOPUtil.posToString(coordsToPut));
             }
         }
     }

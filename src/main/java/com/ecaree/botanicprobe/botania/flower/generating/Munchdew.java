@@ -13,7 +13,7 @@ import vazkii.botania.common.block.subtile.generating.SubTileMunchdew;
 public class Munchdew implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("munchdew");
+        return TOPUtil.rl("munchdew");
     }
 
     @Override

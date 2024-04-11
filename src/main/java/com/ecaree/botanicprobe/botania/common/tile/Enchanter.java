@@ -14,7 +14,7 @@ import vazkii.botania.common.block.tile.TileEnchanter;
 public class Enchanter implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("enchanter");
+        return TOPUtil.rl("enchanter");
     }
 
     @Override

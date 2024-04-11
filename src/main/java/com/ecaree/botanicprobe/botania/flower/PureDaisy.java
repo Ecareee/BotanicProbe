@@ -16,7 +16,7 @@ import vazkii.botania.common.block.subtile.SubTilePureDaisy;
 public class PureDaisy implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("puredaisy");
+        return TOPUtil.rl("puredaisy");
     }
 
     @Override

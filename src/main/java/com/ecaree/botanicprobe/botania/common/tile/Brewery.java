@@ -12,7 +12,7 @@ import vazkii.botania.common.block.tile.TileBrewery;
 public class Brewery implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("brewery");
+        return TOPUtil.rl("brewery");
     }
 
     @Override

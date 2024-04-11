@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class MechanicalManaPool implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("mechanicalmanapool");
+        return TOPUtil.rl("mechanicalmanapool");
     }
 
     @Override

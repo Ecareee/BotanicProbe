@@ -14,7 +14,7 @@ import vazkii.botania.common.block.tile.TileCell;
 public class CellBlock implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("cellblock");
+        return TOPUtil.rl("cellblock");
     }
 
     @Override

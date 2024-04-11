@@ -14,7 +14,7 @@ import vazkii.botania.common.block.tile.TileAnimatedTorch;
 public class AnimatedTorch implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("animatedtorch");
+        return TOPUtil.rl("animatedtorch");
     }
 
     @Override
@@ -22,7 +22,7 @@ public class AnimatedTorch implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof TileAnimatedTorch tile) {
             final int side = tile.side;
             Direction direction = TileAnimatedTorch.SIDES[side].getOpposite();
-            String directionName = TOPUtil.getDirectionName(direction);
+            String directionName = TOPUtil.directionToString(direction);
             final int torchModeIndex = tile.getUpdateTag().getInt("torchMode");
             TileAnimatedTorch.TorchMode torchMode = TileAnimatedTorch.TorchMode.values()[torchModeIndex];
             String torchModeName = switch (torchMode) {
@@ -34,7 +34,7 @@ public class AnimatedTorch implements IProbeInfoProvider {
             if (torchMode == TileAnimatedTorch.TorchMode.RANDOM) {
                 final int nextRandomRotation = tile.nextRandomRotation;
                 Direction nextRandomRotationDirection = TileAnimatedTorch.SIDES[nextRandomRotation].getOpposite();
-                String nextRandomRotationName = TOPUtil.getDirectionName(nextRandomRotationDirection);
+                String nextRandomRotationName = TOPUtil.directionToString(nextRandomRotationDirection);
                 String nextRandomRotationAngle = " (+" + (nextRandomRotation - side + 4) % 4 * 90 + "°)";
 
                 ContentCollector.addText(TOPUtil.COMPASS,

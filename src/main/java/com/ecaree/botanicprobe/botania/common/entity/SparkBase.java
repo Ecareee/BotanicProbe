@@ -25,7 +25,7 @@ public class SparkBase implements IProbeInfoEntityProvider {
             final int textColor = ColorHelper.getColorValue(networkColor);
             final String networkColorName = I18n.get("color.minecraft." + networkColor.getName());
             final boolean invisible = spark.serializeNBT().getBoolean("invis");
-            final String isInvisible = TOPUtil.getBooleanString(invisible);
+            final String isInvisible = TOPUtil.booleanToString(invisible);
 
             ContentCollector.addText(TOPUtil.STATUS_STACK,
                     I18n.get("botanicprobe.text.network") + networkColorName, I18n.get("botanicprobe.text.invisible") + isInvisible,

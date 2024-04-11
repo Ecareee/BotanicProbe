@@ -21,7 +21,7 @@ import java.util.ListIterator;
 public class Gourmaryllis implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("gourmaryllis");
+        return TOPUtil.rl("gourmaryllis");
     }
 
     @Override

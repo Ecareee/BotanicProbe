@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class MechanicalDaisy implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("mechanicaldaisy");
+        return TOPUtil.rl("mechanicaldaisy");
     }
 
     @Override

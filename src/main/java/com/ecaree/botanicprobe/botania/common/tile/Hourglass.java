@@ -16,7 +16,7 @@ import vazkii.botania.common.block.tile.TileHourglass;
 public class Hourglass implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("hourglass");
+        return TOPUtil.rl("hourglass");
     }
 
     @Override

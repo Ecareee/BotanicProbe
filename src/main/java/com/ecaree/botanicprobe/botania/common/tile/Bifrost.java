@@ -13,7 +13,7 @@ import vazkii.botania.common.block.tile.TileBifrost;
 public class Bifrost implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("bifrost");
+        return TOPUtil.rl("bifrost");
     }
 
     @Override

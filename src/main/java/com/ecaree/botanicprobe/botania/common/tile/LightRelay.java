@@ -17,7 +17,7 @@ import vazkii.botania.common.block.tile.TileLightRelay;
 public class LightRelay implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("lightrelay");
+        return TOPUtil.rl("lightrelay");
     }
 
     @Override
@@ -31,13 +31,13 @@ public class LightRelay implements IProbeInfoProvider {
             if (((AccessorTileLightRelay) tile).invokeIsValidBinding()) {
                 ContentCollector.addText(TOPUtil.WAND_STACK,
                         I18n.get("botanicprobe.text.binding")
-                                + TOPUtil.getPosString(tile.getBinding()));
+                                + TOPUtil.posToString(tile.getBinding()));
             } else {
                 text1 = I18n.get("botanicprobe.text.unbound");
 
                 if (!tile.getBinding().equals(ITileBound.UNBOUND_POS)) {
                     text2 = I18n.get("botanicprobe.text.last_binding")
-                            + TOPUtil.getPosString(tile.getBinding());
+                            + TOPUtil.posToString(tile.getBinding());
                 }
 
                 if (text2 == null) {
@@ -50,11 +50,11 @@ public class LightRelay implements IProbeInfoProvider {
             if (!nextDestination.equals(ITileBound.UNBOUND_POS)) {
                 if (endpoint != null) {
                     ContentCollector.addText(ModBlocks.lightRelayDefault,
-                            I18n.get("botanicprobe.text.next_destination") + TOPUtil.getPosString(nextDestination),
-                            I18n.get("botanicprobe.text.endpoint") + TOPUtil.getPosString(endpoint));
+                            I18n.get("botanicprobe.text.next_destination") + TOPUtil.posToString(nextDestination),
+                            I18n.get("botanicprobe.text.endpoint") + TOPUtil.posToString(endpoint));
                 } else {
                     ContentCollector.addText(ModBlocks.lightRelayDefault,
-                            I18n.get("botanicprobe.text.next_destination") + TOPUtil.getPosString(nextDestination));
+                            I18n.get("botanicprobe.text.next_destination") + TOPUtil.posToString(nextDestination));
                 }
             }
         }

@@ -17,7 +17,7 @@ import vazkii.botania.common.block.tile.corporea.TileCorporeaRetainer;
 public class CorporeaRetainer implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("corporearetainer");
+        return TOPUtil.rl("corporearetainer");
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CorporeaRetainer implements IProbeInfoProvider {
 
             if (requestX != 0 && requestY != 0 && requestZ != 0) {
                 ContentCollector.addText(level.getBlockState(requestPos).getBlock(),
-                        I18n.get("botanicprobe.text.request_from") + TOPUtil.getPosString(requestPos),
+                        I18n.get("botanicprobe.text.request_from") + TOPUtil.posToString(requestPos),
                         I18n.get("botanicprobe.text.request_type") + requestType);
                 ContentCollector.addText(requestStack, I18n.get("botanicprobe.text.request_item")
                         + requestStack.getDisplayName().getString() + " x" + requestStack.getCount());

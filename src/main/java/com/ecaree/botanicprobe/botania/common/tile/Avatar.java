@@ -14,7 +14,7 @@ import vazkii.botania.common.block.tile.TileAvatar;
 public class Avatar implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("avatar");
+        return TOPUtil.rl("avatar");
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Avatar implements IProbeInfoProvider {
             final int mana = tile.getCurrentMana();
 //            Map<UUID, Integer> boostCooldowns = tile.getBoostCooldowns(); 不知道有什么用。
             Direction direction = tile.getAvatarFacing();
-            String directionName = TOPUtil.getDirectionName(direction);
+            String directionName = TOPUtil.directionToString(direction);
 
             ContentCollector.addText(TOPUtil.MANA_STACK, "Mana: " + mana + "/" + 6400); // 硬编码 6400，TileAvatar.MAX_MANA = 6400
             ContentCollector.addText(TOPUtil.COMPASS,

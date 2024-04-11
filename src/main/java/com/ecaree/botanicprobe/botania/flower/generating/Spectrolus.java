@@ -17,7 +17,7 @@ import vazkii.botania.common.helper.ColorHelper;
 public class Spectrolus implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("spectrolus");
+        return TOPUtil.rl("spectrolus");
     }
 
     @Override

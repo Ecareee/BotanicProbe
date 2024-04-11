@@ -17,7 +17,7 @@ import vazkii.botania.api.subtile.TileEntitySpecialFlower;
 public class SpecialFlower implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("specialflower");
+        return TOPUtil.rl("specialflower");
     }
 
     @Override
@@ -32,13 +32,13 @@ public class SpecialFlower implements IProbeInfoProvider {
 
                 if (generatingFlower.isValidBinding()) {
                     text1 = I18n.get("botanicprobe.text.binding")
-                            + TOPUtil.getPosString(generatingFlower.getBindingPos());
+                            + TOPUtil.posToString(generatingFlower.getBindingPos());
                 } else {
                     text1 = I18n.get("botanicprobe.text.unbound");
 
                     if (generatingFlower.getBindingPos() != null) {
                         text2 = I18n.get("botanicprobe.text.last_binding")
-                                + TOPUtil.getPosString(generatingFlower.getBindingPos());
+                                + TOPUtil.posToString(generatingFlower.getBindingPos());
                     }
                 }
 
@@ -58,13 +58,13 @@ public class SpecialFlower implements IProbeInfoProvider {
 
                 if (functionalFlower.isValidBinding()) {
                     text1 = I18n.get("botanicprobe.text.binding")
-                            + TOPUtil.getPosString(functionalFlower.getBindingPos());
+                            + TOPUtil.posToString(functionalFlower.getBindingPos());
                 } else {
                     text1 = I18n.get("botanicprobe.text.unbound");
 
                     if (functionalFlower.getBindingPos() != null) {
                         text2 = I18n.get("botanicprobe.text.last_binding")
-                                + TOPUtil.getPosString(functionalFlower.getBindingPos());
+                                + TOPUtil.posToString(functionalFlower.getBindingPos());
                     }
                 }
 

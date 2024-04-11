@@ -14,7 +14,7 @@ import vazkii.botania.common.block.tile.TileCacophonium;
 public class Cacophonium implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("cacophonium");
+        return TOPUtil.rl("cacophonium");
     }
 
     @Override

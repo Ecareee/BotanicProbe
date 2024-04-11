@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class MechanicalApothecary implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("mechanicalapothecary");
+        return TOPUtil.rl("mechanicalapothecary");
     }
 
     @Override

@@ -13,7 +13,7 @@ import vazkii.botania.common.block.tile.mana.TileTurntable;
 public class Turntable implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("turntable");
+        return TOPUtil.rl("turntable");
     }
 
     @Override

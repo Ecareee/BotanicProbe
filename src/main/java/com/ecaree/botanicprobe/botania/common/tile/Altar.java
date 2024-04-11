@@ -17,7 +17,7 @@ import java.util.List;
 public class Altar implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("altar");
+        return TOPUtil.rl("altar");
     }
 
     @Override

@@ -15,7 +15,7 @@ import vazkii.botania.common.block.subtile.generating.SubTileHydroangeas;
 public class Hydroangeas implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("hydroangeas");
+        return TOPUtil.rl("hydroangeas");
     }
 
     @Override

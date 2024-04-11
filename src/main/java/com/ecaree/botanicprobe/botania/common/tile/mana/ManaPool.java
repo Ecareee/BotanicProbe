@@ -17,7 +17,7 @@ import vazkii.botania.common.block.tile.mana.TilePool;
 public class ManaPool implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("manapool");
+        return TOPUtil.rl("manapool");
     }
 
     @Override

@@ -15,7 +15,7 @@ import vazkii.botania.common.block.tile.TilePlatform;
 public class Platform implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("platform");
+        return TOPUtil.rl("platform");
     }
 
     @Override

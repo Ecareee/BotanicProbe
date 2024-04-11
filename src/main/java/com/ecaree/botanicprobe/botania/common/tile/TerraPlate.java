@@ -12,7 +12,7 @@ import vazkii.botania.common.block.tile.TileTerraPlate;
 public class TerraPlate implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("terraplate");
+        return TOPUtil.rl("terraplate");
     }
 
     @Override

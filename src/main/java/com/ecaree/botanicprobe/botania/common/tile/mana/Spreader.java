@@ -22,7 +22,7 @@ import java.util.Arrays;
 public class Spreader implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("spreader");
+        return TOPUtil.rl("spreader");
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Spreader implements IProbeInfoProvider {
             String text2 = "Mana: " + mana + "/" + manaMax;
 
             if (bindingPos != null) {
-                text1 = I18n.get("botanicprobe.text.binding") + TOPUtil.getPosString(bindingPos);
+                text1 = I18n.get("botanicprobe.text.binding") + TOPUtil.posToString(bindingPos);
             } else {
                 text1 = I18n.get("botanicprobe.text.unbound");
             }

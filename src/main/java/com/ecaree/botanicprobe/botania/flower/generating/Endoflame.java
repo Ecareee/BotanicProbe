@@ -15,7 +15,7 @@ import vazkii.botania.common.block.subtile.generating.SubTileEndoflame;
 public class Endoflame implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("endoflame");
+        return TOPUtil.rl("endoflame");
     }
 
     @Override

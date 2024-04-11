@@ -225,22 +225,22 @@ public class TOPUtil {
         }
     }
 
-    public static ResourceLocation RL(String rlName) {
+    public static ResourceLocation rl(String rlName) {
         return new ResourceLocation(BotanicProbe.MOD_ID, rlName);
     }
 
-    public static String getPosString(BlockPos blockPos) {
+    public static String posToString(BlockPos blockPos) {
         final int x = blockPos.getX();
         final int y = blockPos.getY();
         final int z = blockPos.getZ();
         return x + " " + y + " " + z;
     }
 
-    public static String getBooleanString(boolean b) {
+    public static String booleanToString(boolean b) {
         return b ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
     }
 
-    public static String getDirectionName(Direction direction) {
+    public static String directionToString(Direction direction) {
         return switch (direction) {
             case NORTH -> I18n.get("botanicprobe.text.north");
             case SOUTH -> I18n.get("botanicprobe.text.south");

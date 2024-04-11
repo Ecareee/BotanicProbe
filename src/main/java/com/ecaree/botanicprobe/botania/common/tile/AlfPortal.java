@@ -21,7 +21,7 @@ import java.util.List;
 public class AlfPortal implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("alfportal");
+        return TOPUtil.rl("alfportal");
     }
 
     @Override
@@ -50,11 +50,11 @@ public class AlfPortal implements IProbeInfoProvider {
 
             if (!manaValues.isEmpty()) {
                 text1 = "Mana: " + manaValues.get(0) + "/" + manaCapValues.get(0);
-                pos1 = "(" + TOPUtil.getPosString(pools.get(0)) + ")";
+                pos1 = "(" + TOPUtil.posToString(pools.get(0)) + ")";
 
                 if (manaValues.size() > 1) {
                     text2 = "Mana: " + manaValues.get(1) + "/" + manaCapValues.get(1);
-                    pos2 = "(" + TOPUtil.getPosString(pools.get(1)) + ")";
+                    pos2 = "(" + TOPUtil.posToString(pools.get(1)) + ")";
                 }
 
                 if (text2 == null && pos2 == null) {

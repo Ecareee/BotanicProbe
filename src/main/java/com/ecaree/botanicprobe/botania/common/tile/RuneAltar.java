@@ -17,7 +17,7 @@ import java.util.List;
 public class RuneAltar implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("runealtar");
+        return TOPUtil.rl("runealtar");
     }
 
     @Override

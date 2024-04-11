@@ -13,7 +13,7 @@ import vazkii.botania.common.block.tile.TileIncensePlate;
 public class IncensePlate implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("incenseplate");
+        return TOPUtil.rl("incenseplate");
     }
 
     @Override
@@ -21,7 +21,7 @@ public class IncensePlate implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof TileIncensePlate tile) {
             final int timeLeft = tile.getUpdateTag().getInt("timeLeft");
             final boolean burning = tile.burning;
-            final String isBurning = TOPUtil.getBooleanString(burning);
+            final String isBurning = TOPUtil.booleanToString(burning);
             final String burningStr = I18n.get("botanicprobe.text.burning") + isBurning;
 
             if (burning) {

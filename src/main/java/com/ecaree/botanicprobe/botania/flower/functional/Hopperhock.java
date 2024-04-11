@@ -23,7 +23,7 @@ import java.util.List;
 public class Hopperhock implements IProbeInfoProvider {
     @Override
     public ResourceLocation getID() {
-        return TOPUtil.RL("hopperhock");
+        return TOPUtil.rl("hopperhock");
     }
 
     @Override
