@@ -78,6 +78,8 @@
   "botanicprobe.text.chorus_fruit_given": "给予的紫颂果数量: ",
   "botanicprobe.text.shulker_chance": "潜影贝生成几率: ",
   "botanicprobe.text.burning": "燃烧中: ",
+  "botanicprobe.text.network": "网络: ",
+  "botanicprobe.text.invisible": "隐形: ",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念，保重！"
 }

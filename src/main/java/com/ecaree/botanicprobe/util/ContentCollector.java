@@ -18,12 +18,24 @@ public class ContentCollector {
         contents.add(new BoxContent.Builder(ContentType.TEXT).item(item).text(text).build());
     }
 
+    public static void addText(ItemStack item, String text, int textColor) {
+        contents.add(new BoxContent.Builder(ContentType.TEXT).item(item).text(text).textColor(textColor).build());
+    }
+
     public static void addText(ItemStack item, String text, String text2) {
         contents.add(new BoxContent.Builder(ContentType.TWO_LINES).item(item).text(text).text2(text2).build());
     }
 
+    public static void addText(ItemStack item, String text, String text2, int textColor, int textColor2) {
+        contents.add(new BoxContent.Builder(ContentType.TWO_LINES).item(item).text(text).text2(text2).textColor(textColor).textColor2(textColor2).build());
+    }
+
     public static void addText(ItemStack item, String text, String text2, String text3) {
         contents.add(new BoxContent.Builder(ContentType.THREE_LINES).item(item).text(text).text2(text2).text3(text3).build());
+    }
+
+    public static void addText(ItemStack item, String text, String text2, String text3, int textColor, int textColor2, int textColor3) {
+        contents.add(new BoxContent.Builder(ContentType.THREE_LINES).item(item).text(text).text2(text2).text3(text3).textColor(textColor).textColor2(textColor2).textColor3(textColor3).build());
     }
 
     public static void addText(ItemStack item, List<String> texts) {

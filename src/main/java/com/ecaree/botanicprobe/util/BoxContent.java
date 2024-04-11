@@ -15,6 +15,9 @@ public class BoxContent {
     private final String text;
     private final String text2;
     private final String text3;
+    private final int textColor;
+    private final int textColor2;
+    private final int textColor3;
     private final List<String> texts;
     private final int progress;
     private final int maxProgress;
@@ -30,6 +33,9 @@ public class BoxContent {
         private String text;
         private String text2;
         private String text3;
+        private int textColor;
+        private int textColor2;
+        private int textColor3;
         private List<String> texts;
         private int progress;
         private int maxProgress;
@@ -84,6 +90,21 @@ public class BoxContent {
             return this;
         }
 
+        public Builder textColor(int textColor) {
+            this.textColor = textColor;
+            return this;
+        }
+
+        public Builder textColor2(int textColor2) {
+            this.textColor2 = textColor2;
+            return this;
+        }
+
+        public Builder textColor3(int textColor3) {
+            this.textColor3 = textColor3;
+            return this;
+        }
+
         public Builder texts(List<String> texts) {
             this.texts = texts;
             return this;
@@ -110,6 +131,9 @@ public class BoxContent {
         this.text = builder.text;
         this.text2 = builder.text2;
         this.text3 = builder.text3;
+        this.textColor = builder.textColor;
+        this.textColor2 = builder.textColor2;
+        this.textColor3 = builder.textColor3;
         this.texts = builder.texts;
         this.progress = builder.progress;
         this.maxProgress = builder.maxProgress;
@@ -150,6 +174,18 @@ public class BoxContent {
 
     public String getText3() {
         return text3;
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public int getTextColor2() {
+        return textColor2;
+    }
+
+    public int getTextColor3() {
+        return textColor3;
     }
 
     public List<String> getTexts() {

@@ -1,8 +1,7 @@
 package com.ecaree.botanicprobe;
 
 import com.ecaree.botanicprobe.botania.common.*;
-import com.ecaree.botanicprobe.botania.common.entity.PoolMinecart;
-import com.ecaree.botanicprobe.botania.common.entity.Spark;
+import com.ecaree.botanicprobe.botania.common.entity.*;
 import com.ecaree.botanicprobe.botania.common.tile.mana.ManaPool;
 import com.ecaree.botanicprobe.botania.common.tile.mana.Spreader;
 import com.ecaree.botanicprobe.botania.common.tile.*;
@@ -39,7 +38,6 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerEntityProvider(new PoolMinecart());
         iTheOneProbe.registerProvider(new RedString());
         iTheOneProbe.registerProvider(new RuneAltar());
-        iTheOneProbe.registerEntityProvider(new Spark());
         iTheOneProbe.registerProvider(new SpawnerClaw());
         iTheOneProbe.registerProvider(new Spreader());
         iTheOneProbe.registerProvider(new TerraPlate());
@@ -47,9 +45,12 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
 
         iTheOneProbe.registerProvider(new TileMod());
 
-        iTheOneProbe.registerProvider(new SpecialFlower());
+        iTheOneProbe.registerEntityProvider(new SparkBase());
+        // 使其注册晚于 SparkBase
+        iTheOneProbe.registerEntityProvider(new ManaSpark());
 
-        // 使其注册晚于 `SpecialFlower` 以调整显示顺序
+        iTheOneProbe.registerProvider(new SpecialFlower());
+        // 使其注册晚于 SpecialFlower
         iTheOneProbe.registerProvider(new Clayconia());
         iTheOneProbe.registerProvider(new Daffomill());
         iTheOneProbe.registerProvider(new Orechid());
@@ -77,6 +78,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
 
         // 晚于其他任何注册
         iTheOneProbe.registerProvider(new Tile());
+        iTheOneProbe.registerEntityProvider(new Spark());
 
         return null;
     }

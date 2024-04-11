@@ -10,6 +10,7 @@ import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -61,17 +62,24 @@ public class TOPUtil {
                         horizontal.text(content.getText());
                         break;
                     case TEXT:
-                        horizontal
-                                .item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16))
-                                .text(content.getText());
+                        horizontal.item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16));
+
+                        addTextComponent(horizontal, content.getText(), content.getTextColor());
                         break;
                     case TWO_LINES:
                         horizontal.item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16));
-                        horizontal.vertical().text(content.getText()).text(content.getText2());
+                        IProbeInfo vertical1 = horizontal.vertical();
+
+                        addTextComponent(vertical1, content.getText(), content.getTextColor());
+                        addTextComponent(vertical1, content.getText2(), content.getTextColor2());
                         break;
                     case THREE_LINES:
                         horizontal.item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16));
-                        horizontal.vertical().text(content.getText()).text(content.getText2()).text(content.getText3());
+                        IProbeInfo vertical2 = horizontal.vertical();
+
+                        addTextComponent(vertical2, content.getText(), content.getTextColor());
+                        addTextComponent(vertical2, content.getText2(), content.getTextColor2());
+                        addTextComponent(vertical2, content.getText3(), content.getTextColor3());
                         break;
                     case MULTILINE:
                         horizontal.item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16));
@@ -200,6 +208,15 @@ public class TOPUtil {
         }
 
         stacks.add(newStack.copy());
+    }
+
+    private static void addTextComponent(IProbeInfo probeInfo, String text, int textColor) {
+        if (textColor != 0) {
+            net.minecraft.network.chat.Component cmp = new net.minecraft.network.chat.TextComponent(text).setStyle(Style.EMPTY.withColor(textColor));
+            probeInfo.mcText(cmp);
+        } else {
+            probeInfo.text(text);
+        }
     }
 
     public static ResourceLocation RL(String rlName) {
