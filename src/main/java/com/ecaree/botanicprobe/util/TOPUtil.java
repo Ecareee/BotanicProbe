@@ -230,6 +230,10 @@ public class TOPUtil {
         return x + " " + y + " " + z;
     }
 
+    public static String getBooleanString(boolean b) {
+        return b ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
+    }
+
     public static String getDirectionName(Direction direction) {
         return switch (direction) {
             case NORTH -> I18n.get("botanicprobe.text.north");

@@ -26,12 +26,12 @@ public class Daffomill implements IProbeInfoProvider {
             Direction direction = Direction.from3DDataValue(orientation);
             String directionName = TOPUtil.getDirectionName(direction);
             final boolean powered = tile.getUpdateTag().getBoolean("powered");
-            String poweredName = powered ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
+            String isPowered = TOPUtil.getBooleanString(powered);
 
             ContentCollector.addText(TOPUtil.COMPASS,
                     I18n.get("botanicprobe.text.direction") + directionName);
             ContentCollector.addText(new ItemStack(Items.REDSTONE),
-                    I18n.get("botanicprobe.text.powered") + poweredName);
+                    I18n.get("botanicprobe.text.powered") + isPowered);
         }
     }
 }

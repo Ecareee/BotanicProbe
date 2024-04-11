@@ -27,7 +27,7 @@ public class Cocoon implements IProbeInfoProvider {
             final int emeraldsGiven = tile.emeraldsGiven;
             final int chorusFruitGiven = tile.chorusFruitGiven;
             final boolean gaiaSpiritGiven = tile.gaiaSpiritGiven;
-            final String isGaiaSpiritGiven = gaiaSpiritGiven ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
+            final String isGaiaSpiritGiven = TOPUtil.getBooleanString(gaiaSpiritGiven);
             final String gaiaSpiritGivenStr = I18n.get("botanicprobe.text.gaia_spirit_given") + isGaiaSpiritGiven;
             final String villagerChance = TOPUtil.floatToPercentage(Math.min(1F, (float) emeraldsGiven / (float) MAX_EMERALDS));
             final String shulkerChance = TOPUtil.floatToPercentage(Math.min(1F, (float) chorusFruitGiven / (float) MAX_CHORUS_FRUITS));

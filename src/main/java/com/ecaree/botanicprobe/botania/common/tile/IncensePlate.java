@@ -21,7 +21,7 @@ public class IncensePlate implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof TileIncensePlate tile) {
             final int timeLeft = tile.getUpdateTag().getInt("timeLeft");
             final boolean burning = tile.burning;
-            final String isBurning = burning ? I18n.get("botanicprobe.text.yes") : I18n.get("botanicprobe.text.no");
+            final String isBurning = TOPUtil.getBooleanString(burning);
             final String burningStr = I18n.get("botanicprobe.text.burning") + isBurning;
 
             if (burning) {
