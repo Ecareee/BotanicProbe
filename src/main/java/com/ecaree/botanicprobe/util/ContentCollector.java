@@ -46,8 +46,16 @@ public class ContentCollector {
         contents.add(new BoxContent.Builder(ContentType.TEXT).item(new ItemStack(block)).text(text).build());
     }
 
+    public static void addText(Block block, String text, int textColor) {
+        contents.add(new BoxContent.Builder(ContentType.TEXT).item(new ItemStack(block)).text(text).textColor(textColor).build());
+    }
+
     public static void addText(Block block, String text, String text2) {
         contents.add(new BoxContent.Builder(ContentType.TWO_LINES).item(new ItemStack(block)).text(text).text2(text2).build());
+    }
+
+    public static void addText(Block block, String text, String text2, int textColor, int textColor2) {
+        contents.add(new BoxContent.Builder(ContentType.TWO_LINES).item(new ItemStack(block)).text(text).text2(text2).textColor(textColor).textColor2(textColor2).build());
     }
 
     public static void addText(List<ItemStack> items, String text, boolean checkPlaceable, boolean setCount) {
