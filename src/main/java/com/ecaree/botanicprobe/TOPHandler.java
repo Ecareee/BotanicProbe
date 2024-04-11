@@ -2,6 +2,7 @@ package com.ecaree.botanicprobe;
 
 import com.ecaree.botanicprobe.botania.common.*;
 import com.ecaree.botanicprobe.botania.common.entity.*;
+import com.ecaree.botanicprobe.botania.common.tile.corporea.CorporeaFunnel;
 import com.ecaree.botanicprobe.botania.common.tile.mana.ManaPool;
 import com.ecaree.botanicprobe.botania.common.tile.mana.Spreader;
 import com.ecaree.botanicprobe.botania.common.tile.*;
@@ -29,6 +30,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
         iTheOneProbe.registerProvider(new Cacophonium());
         iTheOneProbe.registerProvider(new CellBlock());
         iTheOneProbe.registerProvider(new Cocoon());
+        iTheOneProbe.registerProvider(new CorporeaFunnel());
         iTheOneProbe.registerProvider(new Enchanter());
         iTheOneProbe.registerProvider(new Hourglass());
         iTheOneProbe.registerProvider(new IncensePlate());
