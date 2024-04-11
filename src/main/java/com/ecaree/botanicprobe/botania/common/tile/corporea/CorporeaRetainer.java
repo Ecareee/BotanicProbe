@@ -23,7 +23,6 @@ public class CorporeaRetainer implements IProbeInfoProvider {
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof TileCorporeaRetainer tile) {
-            final int color = ChatFormatting.GRAY.getColor();
             final int requestX = tile.getUpdateTag().getInt("requestX");
             final int requestY = tile.getUpdateTag().getInt("requestY");
             final int requestZ = tile.getUpdateTag().getInt("requestZ");
@@ -34,7 +33,7 @@ public class CorporeaRetainer implements IProbeInfoProvider {
             final String mode = I18n.get("botaniamisc.retainer." + (retainMissing ? "retain_missing" : "retain_all"));
 
             ContentCollector.addText(TOPUtil.STATUS_STACK,
-                    I18n.get("botanicprobe.text.mode") + mode, color);
+                    I18n.get("botanicprobe.text.mode") + mode, ChatFormatting.GRAY.getColor());
 
             if (requestX != 0 && requestY != 0 && requestZ != 0) {
                 ContentCollector.addText(level.getBlockState(requestPos).getBlock(),
