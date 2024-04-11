@@ -24,7 +24,10 @@ public class Hourglass implements IProbeInfoProvider {
         if (level.getBlockEntity(data.getPos()) instanceof TileHourglass tile) {
             final int time = tile.getUpdateTag().getInt("time");
             final int totalTime = tile.getTotalTime();
-            final boolean locked = tile.lock;
+            final int color = tile.getColor();
+            final boolean lock = tile.lock;
+            final boolean move = tile.move;
+            String status = "";
             ItemStack itemStack = player.getMainHandItem();
             final int itemTime = TileHourglass.getStackItemTime(itemStack);
 
@@ -32,12 +35,18 @@ public class Hourglass implements IProbeInfoProvider {
                 ContentCollector.addTextWithProgressBar(TOPUtil.STATUS_STACK,
                         I18n.get("botanicprobe.text.time")
                                 + StringUtil.formatTickDuration(time) + "/" + StringUtil.formatTickDuration(totalTime),
-                        time, totalTime);
+                        time, totalTime, color);
             }
 
-            if (locked) {
+            if (lock) {
+                status = "locked";
+            }
+            if (!move) {
+                status = status.isEmpty() ? "stopped" : "lockedStopped";
+            }
+            if (!status.isEmpty()) {
                 ContentCollector.addText(new ItemStack(Items.BARRIER),
-                        I18n.get("botanicprobe.text.locked"));
+                        I18n.get("botaniamisc." + status), color);
             }
 
             if (itemTime != 0) {

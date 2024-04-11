@@ -178,9 +178,15 @@ public class TOPUtil {
                         break;
                     case TEXT_WITH_PROGRESS_BAR:
                         horizontal.item(content.getItem(), probeInfo.defaultItemStyle().width(16).height(16 + PADDING));
-                        IProbeInfo vertical = horizontal.vertical();
-                        vertical.text(content.getText(), probeInfo.defaultTextStyle().topPadding(PADDING));
-                        setProgressBar(vertical, content.getProgress(), content.getMaxProgress());
+                        IProbeInfo vertical3 = horizontal.vertical();
+
+                        if (content.getTextColor() != 0) {
+                            net.minecraft.network.chat.Component cmp = new net.minecraft.network.chat.TextComponent(content.getText()).setStyle(Style.EMPTY.withColor(content.getTextColor()));
+                            vertical3.mcText(cmp, probeInfo.defaultTextStyle().topPadding(PADDING));
+                        } else {
+                            vertical3.text(content.getText(), probeInfo.defaultTextStyle().topPadding(PADDING));
+                        }
+                        setProgressBar(vertical3, content.getProgress(), content.getMaxProgress());
                         break;
                 }
             }

@@ -70,6 +70,10 @@ public class ContentCollector {
         contents.add(new BoxContent.Builder(ContentType.TEXT_WITH_PROGRESS_BAR).item(item).text(text).progress(progress, maxProgress).build());
     }
 
+    public static void addTextWithProgressBar(ItemStack item, String text, int progress, int maxProgress, int textColor) {
+        contents.add(new BoxContent.Builder(ContentType.TEXT_WITH_PROGRESS_BAR).item(item).text(text).progress(progress, maxProgress).textColor(textColor).build());
+    }
+
     public static List<BoxContent> getAndClearContents() {
         List<BoxContent> copy = new ArrayList<>(contents);
         contents.clear();
