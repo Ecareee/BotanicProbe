@@ -40,8 +40,10 @@ dependencies {
     modApi 'curse.maven:patchouli-306770:3846086' // 1.18.2-71.1
     modApi 'curse.maven:curios-309927:4985315' // 1.18.2-5.0.9.2
     modApi 'curse.maven:botanical-machinery-395617:3877708' // 1.18.2-1.0.2
-//    modApi 'curse.maven:botanical-machinery-395617:4748308' // 1.18.2-1.0.3   // CRASH
+//    modApi 'curse.maven:botanical-machinery-395617:4748308' // 1.18.2-1.0.3 // CRASH
     modApi 'curse.maven:libx-412525:3829113' // 1.18.2-3.2.18
+    modRuntimeOnly 'curse.maven:jei-238222:5068328' // 10.2.1.1006
+    modRuntimeOnly 'curse.maven:jecharacters-250702:5114328' // 4.5.9
 }
 
 processResources {
