@@ -80,6 +80,9 @@
   "botanicprobe.text.burning": "燃烧中: ",
   "botanicprobe.text.network": "网络: ",
   "botanicprobe.text.invisible": "隐形: ",
+  "botanicprobe.text.master": "主媒体火花: ",
+  "botanicprobe.text.creative": "创造多媒体火花: ",
+  "botanicprobe.text.master_pos": "主媒体火花附着方块: ",
 
   "botania.page.preventingDecay0": "好吧，既然你加载了 Botanic Probe...$(p)该模组违背了植物魔法的设计理念，保重！"
 }

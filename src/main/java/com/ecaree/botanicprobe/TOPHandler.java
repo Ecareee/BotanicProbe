@@ -47,6 +47,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>  {
 
         iTheOneProbe.registerEntityProvider(new SparkBase());
         // 使其注册晚于 SparkBase
+        iTheOneProbe.registerEntityProvider(new CorporeaSpark());
         iTheOneProbe.registerEntityProvider(new ManaSpark());
 
         iTheOneProbe.registerProvider(new SpecialFlower());
