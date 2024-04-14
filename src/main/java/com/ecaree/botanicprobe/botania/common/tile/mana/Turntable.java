@@ -22,6 +22,7 @@ public class Turntable implements IProbeInfoProvider {
             final int speed = tile.getUpdateTag().getInt("speed");
             final boolean backwards = tile.getUpdateTag().getBoolean("backwards");
 
+            // https://github.com/VazkiiMods/Botania/blob/1.18.x/Xplat/src/main/java/vazkii/botania/common/block/tile/mana/TileTurntable.java#L92-L96
             char motion = backwards ? '<' : '>';
             String speedStr = ChatFormatting.BOLD + "";
             for (int i = 0; i < speed; i++) {
