@@ -20,10 +20,12 @@ public class SpecialFlower implements IProbeInfoProvider {
         return TOPUtil.rl("specialflower");
     }
 
+    @SuppressWarnings("DataFlowIssue")
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof TileEntitySpecialFlower tile) {
             if (tile instanceof TileEntityGeneratingFlower generatingFlower) {
+                // 提取方法有牛逼的 BUGS，别动
                 final int mana = generatingFlower.getMana();
                 final int manaMax = generatingFlower.getMaxMana();
                 String text1;
