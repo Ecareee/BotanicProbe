@@ -20,7 +20,7 @@ public class SpecialFlower implements IProbeInfoProvider {
         return TOPUtil.rl("specialflower");
     }
 
-    @SuppressWarnings("DataFlowIssue")
+    @SuppressWarnings({"DataFlowIssue", "DuplicatedCode"})
     @Override
     public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, Player player, Level level, BlockState blockState, IProbeHitData data) {
         if (level.getBlockEntity(data.getPos()) instanceof TileEntitySpecialFlower tile) {

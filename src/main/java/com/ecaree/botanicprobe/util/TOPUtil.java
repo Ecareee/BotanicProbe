@@ -47,6 +47,7 @@ public class TOPUtil {
     }
 
     // 灵感来自 eiobox
+    @SuppressWarnings("DuplicatedCode")
     public static void renderContents(IProbeInfo probeInfo) {
         List<BoxContent> contents = ContentCollector.getAndClearContents();
 
